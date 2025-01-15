@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Unity\\Neko Maythem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{198F65A2-F587-7859-F913-1F901C75516E}|Assembly-CSharp.csproj|c:\\unity\\neko maythem\\assets\\scripts\\try.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198F65A2-F587-7859-F913-1F901C75516E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\try.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Try.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Maythem\\Assets\\Scripts\\Try.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Try.cs",
+              "ToolTip": "C:\\Unity\\Neko Maythem\\Assets\\Scripts\\Try.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Try.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T13:07:37.537Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
