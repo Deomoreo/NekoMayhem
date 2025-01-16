@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Unity\\Neko Maythem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{198F65A2-F587-7859-F913-1F901C75516E}|Assembly-CSharp.csproj|c:\\unity\\neko maythem\\assets\\scripts\\catcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{198F65A2-F587-7859-F913-1F901C75516E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\catcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Unity\\Neko Maythem\\Assets\\Scripts\\Try.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Try.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{198F65A2-F587-7859-F913-1F901C75516E}|Assembly-CSharp.csproj|C:\\Unity\\Neko Maythem\\Assets\\Scripts\\Try.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198F65A2-F587-7859-F913-1F901C75516E}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scripts\\Try.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Try.cs",
               "DocumentMoniker": "C:\\Unity\\Neko Maythem\\Assets\\Scripts\\Try.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Try.cs",
               "ToolTip": "C:\\Unity\\Neko Maythem\\Assets\\Scripts\\Try.cs",
               "RelativeToolTip": "Assets\\Scripts\\Try.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T13:07:37.537Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CatController.cs",
-              "DocumentMoniker": "C:\\Unity\\Neko Maythem\\Assets\\Scripts\\CatController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CatController.cs",
-              "ToolTip": "C:\\Unity\\Neko Maythem\\Assets\\Scripts\\CatController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CatController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAqwBIAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T19:45:35.105Z",
+              "WhenOpened": "2025-01-15T13:07:37.537Z",
               "EditorCaption": ""
             }
           ]
