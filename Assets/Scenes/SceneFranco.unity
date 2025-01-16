@@ -715,8 +715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5030001874e06145baf177c21d7d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 360
+  walkSpeed: 3
+  runSpeed: 6
+  jumpForce: 5
 --- !u!1 &2049561303
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,9 +869,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 529891a3e61cbc040b64d23184f9bda5, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 529891a3e61cbc040b64d23184f9bda5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 529891a3e61cbc040b64d23184f9bda5, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 5f0741dda2890354cbdfc8937918a284, type: 2}
+      objectReference: {fileID: 9100000, guid: 1d6ac32b910927c438bc058ddfd79b42, type: 2}
     - target: {fileID: 13700000, guid: 529891a3e61cbc040b64d23184f9bda5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
