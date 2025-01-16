@@ -1,5 +1,6 @@
 Temp/UnityLockfile
 Temp/workerlic
+<<<<<<< HEAD
 /.vs/NekoMayhem/FileContentIndex/2137e7dd-2bf9-4b26-9704-470cfebb18b9.vsidx
 /.vs/NekoMayhem/FileContentIndex/47c4c60a-bd34-4bbd-80ea-f8dfb4f6f46f.vsidx
 /.vs/NekoMayhem/FileContentIndex/ad582f1e-1d88-413d-92c3-1402f240209c.vsidx
@@ -8,3 +9,75 @@ Temp/workerlic
 /.vs/NekoMayhem/v17
 /.vs
 /obj/Release
+=======
+Temp/Assembly-CSharp.dll.hash
+Temp/CompilationLog.txt
+Temp/Unity.CollabProxy.Editor.dll.hash
+Temp/Unity.InputSystem.dll.hash
+Temp/Unity.PlasticSCM.Editor.dll.hash
+Temp/Unity.Rider.Editor.dll.hash
+Temp/Unity.Services.Core.Editor.dll.hash
+Temp/Unity.TextMeshPro.dll.hash
+Temp/Unity.TextMeshPro.Editor.dll.hash
+Temp/Unity.Timeline.dll.hash
+Temp/Unity.Timeline.Editor.dll.hash
+Temp/Unity.VisualStudio.Editor.dll.hash
+Temp/Unity.VSCode.Editor.dll.hash
+Temp/UnityEditor.TestRunner.dll.hash
+Temp/UnityEditor.UI.dll.hash
+Temp/UnityEngine.TestRunner.dll.hash
+Temp/UnityEngine.UI.dll.hash
+Temp/UnityTempFile-052e0a9ea83f76f468e4fff5508ceb80
+Temp/UnityTempFile-064fe4232af24e847afffc737fb06e36
+Temp/UnityTempFile-07348f3dc99a66343894c987ce3e0ebd
+Temp/UnityTempFile-085bf5ff46ff88343ab7380291e87330
+Temp/UnityTempFile-0b9b7aae6e8ad56499491355df3538bf
+Temp/UnityTempFile-0cf74eba129e17a40b6a520fb04a3e36
+Temp/UnityTempFile-100fab594f9504747bf7c79461244ea1
+Temp/UnityTempFile-12a6b46cf9d9b5d4798763b5973f6206
+Temp/UnityTempFile-1ee0bc7def9ff7248b5480d8bb8eb922
+Temp/UnityTempFile-1f601312e311df241b3975ca29a6ba98
+Temp/UnityTempFile-230a7fd572ff7be44b8392d90f81be1a
+Temp/UnityTempFile-4416bc74450fdfb488ea722cb6ab3765
+Temp/UnityTempFile-46fbe4dc3e11c4542881976413f573f1
+Temp/UnityTempFile-572018eaa9db3be42aa7302a15ea4de2
+Temp/UnityTempFile-64a54d9f5f1478b47b4779c85ef9fdd9
+Temp/UnityTempFile-67bb9afad1f004745ad479e909d099a6
+Temp/UnityTempFile-736271eb78eb62c4c8bafb7a3bc4cfa2
+Temp/UnityTempFile-74d395ce5ff65e143a0175dc2500aefa
+Temp/UnityTempFile-784d371202614ac4bb9bda401e72f8f8
+Temp/UnityTempFile-837c5d6ff96b6274a95230eb6d5543d3
+Temp/UnityTempFile-84380eb7f797d6a469a9078d22e4d8fe
+Temp/UnityTempFile-8979b312ff18dfb41a677bc417722cd5
+Temp/UnityTempFile-8b0ff1db0128bd6499081deb73e31752
+Temp/UnityTempFile-8b3bac1f2060d25419005c2b6dbc1358
+Temp/UnityTempFile-9b20874c1a8b9ad44a6a59c7c11d9e03
+Temp/UnityTempFile-9eb902688c7c7f04d9b2eb86e617b388
+Temp/UnityTempFile-9ef225648fb4ac84289c4c2c5cb4d721
+Temp/UnityTempFile-a5fbb2c240e06c94b9198c2a04c6e1da
+Temp/UnityTempFile-ae66855b4e56bb649988dc73556b0f99
+Temp/UnityTempFile-b3b836c387a3e104e9fb6f9d0070906d
+Temp/UnityTempFile-b5ef4d103a5698c48b7a0e8976f5cc06
+Temp/UnityTempFile-b6edc90ec02ea62449396697bb82c4d4
+Temp/UnityTempFile-beca068cd2d35b647b5df48b69d91b37
+Temp/UnityTempFile-bf7bbe5b06d9251499164bbc9e166416
+Temp/UnityTempFile-c27ba2f9d8e4a1d47b845f475a97d0ce
+Temp/UnityTempFile-c6009db41e234c842902b3bf8bfcefc5
+Temp/UnityTempFile-cb26b1a995dc517408963292ce8cf90c
+Temp/UnityTempFile-cce949020cd1cba44a36133f454fbf50
+Temp/UnityTempFile-cd91dd0b4d9830c4381eaf18fcaba998
+Temp/UnityTempFile-d2fd4c21a3631b54ab2bbe688291e49c
+Temp/UnityTempFile-d81db3bbef1bc7b48a01248416c8395c
+Temp/UnityTempFile-e4b17fc8ec5f69b4ab908c2dda2de5b9
+Temp/UnityTempFile-f29aff5609d39624dace2a4756f7365d
+Temp/UnityTempFile-f5fb06ce93e948349beea7ba45033dbe
+Temp/__Backupscenes/0.backup
+.vs/Neko Maythem/FileContentIndex/2a4927b2-b553-4db4-be5d-40e4a7bd7489.vsidx
+.vs/Neko Maythem/FileContentIndex/79abc554-098b-45fd-9222-c809daffb089.vsidx
+.vs/Neko Maythem/FileContentIndex/7e54ce19-8ef2-4386-bb97-6fdada429b17.vsidx
+.vs/Neko Maythem/FileContentIndex/86bc00cc-df1b-4c93-a44d-4956e5fa01d5.vsidx
+.vs/Neko Maythem/FileContentIndex/e36adb6a-4940-4907-b3ee-b372a32d2529.vsidx
+.vs/Neko Maythem/FileContentIndex/672442cf-f12b-4e9b-8252-2fde2c88ac25.vsidx
+.vs/Neko Maythem/FileContentIndex/a3ad36c9-8209-4128-a609-5bb87136c270.vsidx
+.vs/Neko Maythem/FileContentIndex/e50028f6-5fb5-4f9c-b241-52758115dcf7.vsidx
+>>>>>>> 6e513cb70a546afc5d04d6d3f5bd356088e9426d

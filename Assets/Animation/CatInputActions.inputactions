@@ -1,0 +1,162 @@
+{
+    "name": "CatInputActions",
+    "maps": [
+        {
+            "name": "Move",
+            "id": "7fcc92f0-640c-45da-be4a-75197d69c17e",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "9c18ef11-ece6-4d33-bda0-d10643023273",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "6d5bf1a4-e639-4d1e-8484-807bef1bc76c",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "ba1bbc63-9df6-45bd-be59-5b027eef8b6e",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "75aa83da-08ee-496d-ba0a-10bdc1077586",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "4c2134ea-5cee-4ca5-992b-6a7277b12cce",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "eccdc2b9-d50d-4478-aa68-299c3ca04413",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Jump",
+            "id": "9462d987-8a79-42f8-90f8-233bdf6d7bb0",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "41931dee-f4e5-44e3-9d3f-b070f2eb0742",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f0bd918e-7610-4df0-bffb-5594f9b56d21",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Attack",
+            "id": "c9417d3b-5178-4935-bfc6-13a3ef6d619f",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "05742517-bc2d-439e-b5f4-6eb64966a9d1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "27657107-cd5d-4f9f-966d-2a0cdbca4ff3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "FuryMode",
+            "id": "6d817b66-affe-44e0-a258-d2394708cbfd",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "4eb13131-5928-4fc0-be3f-a60a6c6f3564",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0abcfc33-1955-4ee2-8e51-15b0c8a6f935",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
