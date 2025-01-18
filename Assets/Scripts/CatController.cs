@@ -9,22 +9,19 @@ public class CatController : MonoBehaviour
 
     private Animator animator;
     private Rigidbody rb;
-    private CatInput controls;
+    private CatInputActions controls;
     private Vector2 moveInput;
     private bool isJumping;
     private bool isAttacking;
 
     void Awake()
     {
-        controls = new CatInput();
+        controls = new CatInputActions();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         
-        
-        // Bind inputs
         controls.Move.Newaction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controls.Move.Newaction.canceled += ctx => moveInput = Vector2.zero;
-        
 
         controls.Attack.Newaction.performed += _ => Attack();
 
@@ -43,13 +40,19 @@ public class CatController : MonoBehaviour
 
     void Move()
     {
-        float targetSpeed = moveInput.magnitude > 0 ? (Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed) : 0f;
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
 
-        // Movimento e animazione
-        Vector3 direction = new Vector3(moveInput.x, 0, moveInput.y).normalized;
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 direction = (right * moveInput.x + forward * moveInput.y).normalized;
+        float targetSpeed = moveInput.magnitude > 0 ? (moveInput.y > 0.5f ? runSpeed : walkSpeed) : 0f;
+
         transform.Translate(direction * targetSpeed * Time.deltaTime, Space.World);
 
-        // Aggiorna l'animatore
         animator.SetFloat("Speed", targetSpeed);
     }
 
@@ -66,7 +69,6 @@ public class CatController : MonoBehaviour
         if (!isAttacking)
         {
             isAttacking = true;
-            // Logica di attacco
             Debug.Log("Attacco eseguito!");
         }
     }
@@ -74,7 +76,6 @@ public class CatController : MonoBehaviour
     void ActivateFuryMode()
     {
         animator.SetBool("IsFuryMode", true);
-        // Logica di modalità furia qui
     }
 
     void OnCollisionEnter(Collision collision)
