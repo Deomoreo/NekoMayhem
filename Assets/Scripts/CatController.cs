@@ -3,9 +3,9 @@ using UnityEngine.InputSystem;
 
 public class CatController : MonoBehaviour
 {
-    public float walkSpeed = 3f;
-    public float runSpeed = 6f;
-    public float jumpForce = 5f;
+    public float walkSpeed;
+    public float runSpeed;
+    public float jumpForce;
 
     private Animator animator;
     private Rigidbody rb;
@@ -49,11 +49,18 @@ public class CatController : MonoBehaviour
         right.Normalize();
 
         Vector3 direction = (right * moveInput.x + forward * moveInput.y).normalized;
-        float targetSpeed = moveInput.magnitude > 0 ? (moveInput.y > 0.5f ? runSpeed : walkSpeed) : 0f;
+        //float targetSpeed = moveInput.magnitude > 0 ? (moveInput.y > 0.5f ? runSpeed : walkSpeed) : 0f;
+        // Determina la velocità
+        float currentSpeed = moveInput.magnitude > 0 ? (controls.Run.Newaction.IsPressed() ? runSpeed : walkSpeed) : 0f;
 
-        transform.Translate(direction * targetSpeed * Time.deltaTime, Space.World);
+        transform.Translate(direction * currentSpeed * Time.deltaTime, Space.World);
 
-        animator.SetFloat("Speed", targetSpeed);
+        if (direction.magnitude > 0)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f); 
+        }
+        animator.SetFloat("Speed", currentSpeed);
     }
 
     void Jump()

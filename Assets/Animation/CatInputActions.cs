@@ -28,7 +28,7 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
             ""id"": ""7fcc92f0-640c-45da-be4a-75197d69c17e"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Newaction"",
                     ""type"": ""Value"",
                     ""id"": ""5f6842ec-2018-485a-971c-d56486eada46"",
                     ""expectedControlType"": ""Vector2"",
@@ -45,7 +45,7 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Newaction"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -56,7 +56,7 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Newaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -67,7 +67,7 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Newaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -78,7 +78,7 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Newaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -89,7 +89,7 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Newaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -178,13 +178,41 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Run"",
+            ""id"": ""4966aee0-22a2-452c-ac2a-f2570b5ed356"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea84475a-71f5-4d74-9a85-bbe4e427c3b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""bd0bc611-80ec-4d70-851c-9a15237e2c62"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
         // Move
         m_Move = asset.FindActionMap("Move", throwIfNotFound: true);
-        m_Move_Newaction = m_Move.FindAction("New action", throwIfNotFound: true);
+        m_Move_Newaction = m_Move.FindAction("Newaction", throwIfNotFound: true);
         // Jump
         m_Jump = asset.FindActionMap("Jump", throwIfNotFound: true);
         m_Jump_Newaction = m_Jump.FindAction("New action", throwIfNotFound: true);
@@ -194,6 +222,9 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         // FuryMode
         m_FuryMode = asset.FindActionMap("FuryMode", throwIfNotFound: true);
         m_FuryMode_Newaction = m_FuryMode.FindAction("New action", throwIfNotFound: true);
+        // Run
+        m_Run = asset.FindActionMap("Run", throwIfNotFound: true);
+        m_Run_Newaction = m_Run.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -381,6 +412,39 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         }
     }
     public FuryModeActions @FuryMode => new FuryModeActions(this);
+
+    // Run
+    private readonly InputActionMap m_Run;
+    private IRunActions m_RunActionsCallbackInterface;
+    private readonly InputAction m_Run_Newaction;
+    public struct RunActions
+    {
+        private @CatInputActions m_Wrapper;
+        public RunActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Run_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Run; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RunActions set) { return set.Get(); }
+        public void SetCallbacks(IRunActions instance)
+        {
+            if (m_Wrapper.m_RunActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_RunActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_RunActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_RunActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_RunActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public RunActions @Run => new RunActions(this);
     public interface IMoveActions
     {
         void OnNewaction(InputAction.CallbackContext context);
@@ -394,6 +458,10 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         void OnNewaction(InputAction.CallbackContext context);
     }
     public interface IFuryModeActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IRunActions
     {
         void OnNewaction(InputAction.CallbackContext context);
     }
