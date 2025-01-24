@@ -60,6 +60,14 @@
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Animations\CatInputActions.cs" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <Compile Include="Assets\Scripts\CatHealth.cs" />
+    <Compile Include="Assets\AI\EnemyAI.cs" />
+=======
+>>>>>>> 4e4e238694c8d2b3fbf2c78d46e6d8470c53b6e3
+>>>>>>> 6ed8aa3b9f78fcb1560eeb0c38c1745e87e3d5d4
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
