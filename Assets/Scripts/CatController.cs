@@ -94,7 +94,6 @@ public class CatController : MonoBehaviour
             float angle = Vector3.Angle(attackDirection, directionToEnemy);
             if (angle <= attackAngle / 2)
             {
-                // Il nemico è davanti al gatto, infliggi danno
                 Debug.Log($"Colpito {enemy.name}");
                 if (enemy.CompareTag("Enemy"))
                 {
@@ -109,10 +108,10 @@ public class CatController : MonoBehaviour
 
 
         animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(0.2f); // Sincronizzazione con l'animazione
+        yield return new WaitForSeconds(0.2f); 
 
 
-        yield return new WaitForSeconds(attackCooldown); // Cooldown dell'attacco
+        yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
     }
     public void ApplyDamageEvent()
