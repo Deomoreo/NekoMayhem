@@ -1,32 +1,40 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CatController : MonoBehaviour
 {
-    public float walkSpeed = 3f;
-    public float runSpeed = 6f;
-    public float jumpForce = 5f;
-
     private Animator animator;
     private Rigidbody rb;
-    private CatInput controls;
+    private CatInputActions controls;
+    public LayerMask enemyLayers;
+
+    public float walkSpeed;
+    public float runSpeed;
+    public float jumpForce;
+    public float rotationSpeed;
+    public float attackAngle = 30f;
+    public float attackRange = 1.5f;
+    public float attackCooldown = 0.5f;
+    public int attackDamage = 10;
+    
     private Vector2 moveInput;
+    private Vector3 attackOrigin;    
+    private Vector3 attackDirection; 
     private bool isJumping;
-    private bool isAttacking;
+    public bool isAttacking;
+
 
     void Awake()
     {
-        controls = new CatInput();
+        controls = new CatInputActions();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         
-        
-        // Bind inputs
         controls.Move.Newaction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controls.Move.Newaction.canceled += ctx => moveInput = Vector2.zero;
-        
 
-        controls.Attack.Newaction.performed += _ => Attack();
+        controls.Attack.Newaction.performed += _ => StartCoroutine(PerformAttack());
 
         controls.Jump.Newaction.performed += _ => Jump();
 
@@ -43,14 +51,25 @@ public class CatController : MonoBehaviour
 
     void Move()
     {
-        float targetSpeed = moveInput.magnitude > 0 ? (Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed) : 0f;
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
 
-        // Movimento e animazione
-        Vector3 direction = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-        transform.Translate(direction * targetSpeed * Time.deltaTime, Space.World);
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
 
-        // Aggiorna l'animatore
-        animator.SetFloat("Speed", targetSpeed);
+        Vector3 direction = (right * moveInput.x + forward * moveInput.y).normalized;
+        float currentSpeed = moveInput.magnitude > 0 ? (controls.Run.Newaction.IsPressed() ? runSpeed : walkSpeed) : 0f;
+
+        transform.Translate(direction * currentSpeed * Time.deltaTime, Space.World);
+
+        if (direction.sqrMagnitude > 0.01f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+        animator.SetFloat("Speed", currentSpeed);
     }
 
     void Jump()
@@ -59,22 +78,60 @@ public class CatController : MonoBehaviour
 
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         isJumping = true;
-        animator.SetBool("IsJumping", true);
+        //animator.SetBool("IsJumping", true);
     }
-    private void Attack()
+    
+    private void ApplyDamage()
     {
-        if (!isAttacking)
+        attackOrigin = transform.position;
+        attackDirection = transform.gameObject.transform.forward;
+
+        Collider[] hitEnemies = Physics.OverlapSphere(attackOrigin, attackRange, enemyLayers);
+       
+        foreach (Collider enemy in hitEnemies)
         {
-            isAttacking = true;
-            // Logica di attacco
-            Debug.Log("Attacco eseguito!");
+            Vector3 directionToEnemy = (transform.position - attackOrigin).normalized;
+            float angle = Vector3.Angle(attackDirection, directionToEnemy);
+            if (angle <= attackAngle / 2)
+            {
+                Debug.Log($"Colpito {enemy.name}");
+                if (enemy.CompareTag("Enemy"))
+                {
+                    enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
+                }
+            }
         }
     }
+    private IEnumerator PerformAttack()
+    {
+        isAttacking = true;
+
+
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.2f); 
+
+
+        yield return new WaitForSeconds(attackCooldown);
+        isAttacking = false;
+    }
+    public void ApplyDamageEvent()
+    {
+        ApplyDamage();
+    }
+    void OnDrawGizmos()
+    {
+            Gizmos.color = Color.red;
+            Vector3 forward = transform.forward * attackRange;
+
+            Gizmos.DrawRay(transform.position, Quaternion.Euler(0, attackAngle / 2, 0) * forward);
+            Gizmos.DrawRay(transform.position, Quaternion.Euler(0, -attackAngle / 2, 0) * forward);
+            Gizmos.DrawWireSphere(transform.position + forward, 0.1f);
+    }
+
 
     void ActivateFuryMode()
     {
         animator.SetBool("IsFuryMode", true);
-        // Logica di modalità furia qui
     }
 
     void OnCollisionEnter(Collision collision)
@@ -82,7 +139,7 @@ public class CatController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isJumping = false;
-            animator.SetBool("IsJumping", false);
+            //animator.SetBool("IsJumping", false);
         }
     }
 }

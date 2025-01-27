@@ -5,7 +5,11 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 638726450697471950
+=======
+      ticks: 638726447799517804
+>>>>>>> 66abd72e548677d89285ec3b98082e43494ba48a
     m_Hash: 1546150883
   m_LockFileStatus:
     m_FilePath: C:/Users/Jinder/Documents/NekoMayhem/Packages/packages-lock.json
@@ -13,7 +17,11 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 638726450697481952
+=======
+      ticks: 638726447799527847
+>>>>>>> 66abd72e548677d89285ec3b98082e43494ba48a
     m_Hash: 1263260128
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
