@@ -5,33 +5,47 @@ public class InventoryUI : MonoBehaviour
 {
     public InventorySystem inventorySystem; 
     public GameObject slotPrefab;
+    public GameObject inventoryDescriptionPanel;
     public Transform inventoryPanel;
-
+    public Text inventoryDescriptionText;
     private bool isInventoryOpen = false;
+    private CatInputActions controls;
 
     void Start()
     {
-        // closed by default
+        // both closed by default
         inventoryPanel.gameObject.SetActive(false);
+        inventoryDescriptionPanel.SetActive(false);
     }
 
-    void Update()
+    void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            ToggleInventory();
-        }
+        // initialize input actions
+        controls = new CatInputActions();
+        controls.ToggleInventory.Newaction.performed += _ => ToggleInventory();
     }
 
-    public void ToggleInventory()
+    void OnEnable()
+    {
+        // Enable input actions
+        controls.Enable();
+        
+    }
+
+    void OnDisable()
+    {
+        // Disable the Input Actions
+        controls.Disable();
+    }
+
+    private void ToggleInventory()
     {
         isInventoryOpen = !isInventoryOpen;
-        inventoryPanel.gameObject.SetActive(isInventoryOpen); // Show/hide inventory
+        inventoryPanel.gameObject.SetActive(isInventoryOpen); // Show/hide the inventory
 
-        // if it's open, update the UI
         if (isInventoryOpen)
         {
-            UpdateUI();
+            UpdateUI(); // If open, refresh inventory UI
         }
     }
 
@@ -51,6 +65,12 @@ public class InventoryUI : MonoBehaviour
             GameObject slot = Instantiate(slotPrefab, inventoryPanel);
             slot.GetComponent<Image>().sprite = item.icon; 
             slot.transform.GetChild(0).GetComponent<Text>().text = item.quantity.ToString(); 
+
+            // manage hover description functionality
+            InventorySlotHover inventorySlotHover = slot.AddComponent<InventorySlotHover>();
+            inventorySlotHover.inventoryDescriptionPanel = inventoryDescriptionPanel;
+            inventorySlotHover.inventoryDescriptionText = inventoryDescriptionText;
+            inventorySlotHover.SetItem(item);
         }
     }
 }

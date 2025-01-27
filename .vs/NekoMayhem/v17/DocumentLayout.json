@@ -1,26 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\",
+  "WorkspaceRootPath": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\catcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\catcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\jinder\\documents\\nekomayhem\\assets\\scripts\\inventory\\inventoryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventory\\inventoryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cathealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cathealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\ai\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\ai\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\jinder\\documents\\nekomayhem\\assets\\scripts\\inventory\\inventoryslothover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventory\\inventoryslothover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +18,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EnemyAI.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\AI\\EnemyAI.cs",
-              "RelativeDocumentMoniker": "Assets\\AI\\EnemyAI.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\AI\\EnemyAI.cs",
-              "RelativeToolTip": "Assets\\AI\\EnemyAI.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAowB0AAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T18:10:20.501Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CatHealth.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\CatHealth.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CatHealth.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\CatHealth.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CatHealth.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAgwBAAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T17:16:36.246Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EnemyController.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\EnemyController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyController.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\EnemyController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\EnemyController.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAswAwAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T10:59:36.079Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CameraController.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\CameraController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraController.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\CameraController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CameraController.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAxwAUAAAA1AAAA",
+              "Title": "InventorySlotHover.cs",
+              "DocumentMoniker": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventorySlotHover.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\InventorySlotHover.cs",
+              "ToolTip": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventorySlotHover.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Inventory\\InventorySlotHover.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T16:36:32.271Z",
+              "WhenOpened": "2025-01-27T19:34:56.039Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CatController.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\CatController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CatController.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\CatController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CatController.cs",
-              "ViewState": "AQIAAHoAAAAAAAAAAAAUwHEAAAA4AAAA",
+              "Title": "InventoryUI.cs",
+              "DocumentMoniker": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventoryUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\InventoryUI.cs",
+              "ToolTip": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventoryUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Inventory\\InventoryUI.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowCQAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T16:33:54.115Z",
+              "WhenOpened": "2025-01-27T18:40:45.347Z",
               "EditorCaption": ""
             }
           ]
