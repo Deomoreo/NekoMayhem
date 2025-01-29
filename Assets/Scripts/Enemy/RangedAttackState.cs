@@ -7,7 +7,7 @@ public class RangedAttackState : EnemyState
     private Transform firePoint;
     private GameObject projectilePrefab;
 
-    public RangedAttackState(EnemyRanged enemy, GameObject projectile, Transform firePoint) : base(enemy)
+    public RangedAttackState(EnemyBase enemy, GameObject projectile, Transform firePoint) : base(enemy)
     {
         this.projectilePrefab = projectile;
         this.firePoint = firePoint;
@@ -20,14 +20,7 @@ public class RangedAttackState : EnemyState
 
     public override void Update()
     {
-        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.position);
-        if (distanceToPlayer > enemy.attackRadius)
-        {
-            enemy.TransitionToState(new ChaseState(enemy));
-            return;
-        }
-
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= nextAttackTime && enemy.CanSeePlayer())
         {
             Attack();
             nextAttackTime = Time.time + attackCooldown;
@@ -40,7 +33,12 @@ public class RangedAttackState : EnemyState
         if (projectilePrefab != null && firePoint != null)
         {
             GameObject projectile = GameObject.Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-            projectile.GetComponent<Rigidbody>().velocity = (enemy.player.position - firePoint.position).normalized * 10f;
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = (enemy.player.position - firePoint.position).normalized * 10f;
+            }
+            GameObject.Destroy(projectile, 5f);
         }
     }
 }

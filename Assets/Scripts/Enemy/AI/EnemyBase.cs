@@ -9,14 +9,36 @@ public abstract class EnemyBase : MonoBehaviour
     public float chaseSpeed = 4f;
     public float attackRadius = 2f;
     public float chaseRadius = 10f;
+    public LayerMask obstacleLayer;
     protected EnemyState currentState;
-    
+
+    void Update()
+    {
+        if (currentState != null)
+        {
+            currentState.Update();
+        }
+    }
 
     public abstract void AttackPlayer();
 
+    public bool CanSeePlayer()
+    {
+        RaycastHit hit;
+        Vector3 directionToPlayer = (player.position - transform.position).normalized;
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (Physics.Raycast(transform.position, directionToPlayer, out hit, distanceToPlayer))
+        {
+            Debug.DrawRay(transform.position, directionToPlayer * distanceToPlayer, Color.red, 0.1f);
+            return hit.collider.CompareTag("Player");
+        }
+        Debug.DrawRay(transform.position, directionToPlayer * distanceToPlayer, Color.green, 0.1f);
+        return false;
+    }
+
     public void TransitionToState(EnemyState newState)
     {
-        Debug.Log($"Transizione a: {newState.GetType().Name}");
         currentState?.Exit();
         currentState = newState;
         currentState.Enter();
@@ -30,11 +52,9 @@ public abstract class EnemyBase : MonoBehaviour
         if (NavMesh.SamplePosition(randomDirection, out NavMeshHit navHit, 5f, NavMesh.AllAreas))
         {
             agent.SetDestination(navHit.position);
-            Debug.Log("Nuovo punto di pattuglia trovato.");
         }
         else
         {
-            Debug.Log("Tentativo fallito, riprovo a trovare un punto di pattuglia...");
             SetRandomPatrolPoint();
         }
     }

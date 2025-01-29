@@ -247,10 +247,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   agent: {fileID: 6755120925057195173}
-  patrolRadius: 5
-  chaseRadius: 10
-  attackRadius: 10
   patrolSpeed: 2
   chaseSpeed: 1
+  attackRadius: 10
+  chaseRadius: 10
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 128
   projectilePrefab: {fileID: 8142090682063301059, guid: 2874d6e3dcc770849826d7dc19a730af, type: 3}
   firePoint: {fileID: 2192554521874002805}

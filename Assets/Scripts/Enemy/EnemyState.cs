@@ -10,7 +10,7 @@ public abstract class EnemyState
     {
         this.enemy = enemy;
     }
-    public virtual void Enter() { Debug.Log($"Entrato nello stato: {this.GetType().Name}"); }
+    public virtual void Enter() { }
     public virtual void Update() { }
-    public virtual void Exit() { Debug.Log($"Uscito dallo stato: {this.GetType().Name}"); }
+    public virtual void Exit() { }
 }

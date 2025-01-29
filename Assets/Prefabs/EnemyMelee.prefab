@@ -152,11 +152,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   agent: {fileID: 903853801099662822}
-  patrolRadius: 5
-  chaseRadius: 10
-  attackRadius: 5
   patrolSpeed: 2
   chaseSpeed: 1
+  attackRadius: 1
+  chaseRadius: 10
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &5433884695917971573
 GameObject:
   m_ObjectHideFlags: 0
