@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ChaseState : EnemyState
 {
-    public ChaseState(EnemyAI enemy) : base(enemy) { }
+    public ChaseState(EnemyBase enemy) : base(enemy) { }
 
     public override void Enter()
     {
         enemy.agent.speed = enemy.chaseSpeed;
+        enemy.agent.isStopped = false;
     }
 
     public override void Update()
@@ -17,11 +18,14 @@ public class ChaseState : EnemyState
 
         if (distanceToPlayer <= enemy.attackRadius)
         {
-            enemy.TransitionToState(enemy.attackState);
+            if (enemy is EnemyMelee)
+                enemy.TransitionToState(new AttackState(enemy));
+            else if (enemy is EnemyRanged)
+                enemy.TransitionToState(new RangedAttackState((EnemyRanged)enemy, ((EnemyRanged)enemy).projectilePrefab, ((EnemyRanged)enemy).firePoint));
         }
         else if (distanceToPlayer > enemy.chaseRadius)
         {
-            enemy.TransitionToState(enemy.patrolState);
+            enemy.TransitionToState(new PatrolState(enemy));
         }
         else
         {

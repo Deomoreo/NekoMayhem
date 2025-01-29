@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AttackState : EnemyState
 {
-    public AttackState(EnemyAI enemy) : base(enemy) { }
+    public AttackState(EnemyBase enemy) : base(enemy) { }
 
     public override void Enter()
     {
-        enemy.agent.ResetPath(); 
+        enemy.agent.ResetPath();
     }
 
     public override void Update()
@@ -17,14 +17,12 @@ public class AttackState : EnemyState
 
         if (distanceToPlayer > enemy.attackRadius)
         {
-            enemy.TransitionToState(enemy.chaseState);
+            enemy.TransitionToState(new ChaseState(enemy));
         }
-
-        Vector3 directionToPlayer = (enemy.player.position - enemy.transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
-        enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, lookRotation, Time.deltaTime * 5f);
 
         enemy.AttackPlayer();
     }
 }
+
+
 
