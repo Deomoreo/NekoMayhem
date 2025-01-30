@@ -12,17 +12,23 @@ public class PatrolState : EnemyState
 
     public override void Update()
     {
-        Debug.Log("PatrolState - aggiornamento");
-
         if (Vector3.Distance(enemy.transform.position, enemy.player.position) <= enemy.chaseRadius)
         {
-            Debug.Log("Nemico ha avvistato il giocatore, passa a ChaseState");
-            enemy.TransitionToState(new ChaseState(enemy));
+            if (enemy.CanSeePlayer())
+            {
+                enemy.TransitionToState(new AttackState(enemy));
+            }
+            else
+            {
+                enemy.TransitionToState(new ChaseState(enemy));
+            }
         }
         else if (!enemy.agent.pathPending && enemy.agent.remainingDistance < 0.5f)
         {
-            Debug.Log("Nemico ha raggiunto il punto di pattuglia, selezionando un nuovo punto");
-            enemy.SetRandomPatrolPoint();
+            if (!enemy.CanSeePlayer())
+            {
+                enemy.SetRandomPatrolPoint(); 
+            }
         }
     }
 }

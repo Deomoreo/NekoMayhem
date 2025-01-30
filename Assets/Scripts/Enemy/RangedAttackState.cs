@@ -15,7 +15,6 @@ public class RangedAttackState : EnemyState
 
     public override void Enter()
     {
-        Debug.Log("Entra nello stato di attacco a distanza.");
     }
 
     public override void Update()
@@ -29,7 +28,6 @@ public class RangedAttackState : EnemyState
 
     private void Attack()
     {
-        Debug.Log("Attacco a distanza eseguito.");
         if (projectilePrefab != null && firePoint != null)
         {
             GameObject projectile = GameObject.Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);

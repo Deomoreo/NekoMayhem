@@ -12,6 +12,14 @@ public abstract class EnemyBase : MonoBehaviour
     public LayerMask obstacleLayer;
     protected EnemyState currentState;
 
+    void Start()
+    {
+        // Imposta manualmente il LayerMask per gli ostacoli se non è stato configurato
+        if (obstacleLayer == 0)
+        {
+            obstacleLayer = LayerMask.GetMask("Walls");
+        }
+    }
     void Update()
     {
         if (currentState != null)
@@ -25,17 +33,28 @@ public abstract class EnemyBase : MonoBehaviour
     public bool CanSeePlayer()
     {
         RaycastHit hit;
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        Vector3 startPosition = transform.position + Vector3.up * 0.5f;
+        Vector3 directionToPlayer = (player.position - startPosition).normalized;
+        float distanceToPlayer = Vector3.Distance(startPosition, player.position);
 
-        if (Physics.Raycast(transform.position, directionToPlayer, out hit, distanceToPlayer))
+        bool canSee = false;
+
+        if (Physics.Raycast(startPosition, directionToPlayer, out hit, distanceToPlayer, obstacleLayer))
         {
-            Debug.DrawRay(transform.position, directionToPlayer * distanceToPlayer, Color.red, 0.1f);
-            return hit.collider.CompareTag("Player");
+            Debug.DrawRay(startPosition, directionToPlayer * distanceToPlayer, Color.red, 2.0f);
+
+            if (hit.collider.CompareTag("Player"))
+            {
+                canSee = true;
+            }
         }
-        Debug.DrawRay(transform.position, directionToPlayer * distanceToPlayer, Color.green, 0.1f);
-        return false;
+        else
+        {
+            Debug.DrawRay(startPosition, directionToPlayer * distanceToPlayer, Color.green, 2.0f);
+        }
+        return canSee;
     }
+
 
     public void TransitionToState(EnemyState newState)
     {

@@ -4,25 +4,48 @@ using UnityEngine;
 
 public class AttackState : EnemyState
 {
+    private float attackTimer;
+    private float attackCooldown = 1.5f;
+
     public AttackState(EnemyBase enemy) : base(enemy) { }
 
     public override void Enter()
     {
-        enemy.agent.ResetPath();
+        Debug.Log("Entra nello stato di attacco.");
+        attackTimer = 0f;
+        enemy.agent.isStopped = true;
     }
 
     public override void Update()
     {
-        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.position);
+        attackTimer += Time.deltaTime;
 
-        if (distanceToPlayer > enemy.attackRadius)
+        if (!enemy.CanSeePlayer())
         {
             enemy.TransitionToState(new ChaseState(enemy));
+            return;
         }
 
-        enemy.AttackPlayer();
+        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.position);
+        if (distanceToPlayer > enemy.attackRadius && distanceToPlayer <= enemy.chaseRadius)
+        {
+            enemy.TransitionToState(new ChaseState(enemy));
+            return;
+        }
+
+        if (attackTimer >= attackCooldown)
+        {
+            enemy.AttackPlayer();
+            attackTimer = 0f;
+        }
+    }
+
+    public override void Exit()
+    {
+        enemy.agent.isStopped = false;
     }
 }
+
 
 
 
