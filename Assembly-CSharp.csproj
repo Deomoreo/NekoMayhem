@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CatController.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventorySlotHover.cs" />
     <Compile Include="Assets\AI\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySystem.cs" />
     <Compile Include="Assets\Scripts\CatHealth.cs" />
@@ -65,7 +66,6 @@
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\Inventory\InventorySlotHover.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

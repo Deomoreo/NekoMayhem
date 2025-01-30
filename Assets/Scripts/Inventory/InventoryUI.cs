@@ -63,8 +63,16 @@ public class InventoryUI : MonoBehaviour
         foreach (InventoryItem item in inventorySystem.inventory)
         {
             GameObject slot = Instantiate(slotPrefab, inventoryPanel);
-            slot.GetComponent<Image>().sprite = item.icon; 
-            slot.transform.GetChild(0).GetComponent<Text>().text = item.quantity.ToString(); 
+            Image itemImage = slot.GetComponent<Image>();
+            slot.transform.GetChild(0).GetComponent<Text>().text = "";
+
+            if (item.icon != null) 
+            {
+                itemImage.sprite = item.icon;  
+            } else
+            {
+                itemImage.color = itemImage.color = new Color(1, 1, 1, 0);  // Hide if no sprite
+            }
 
             // manage hover description functionality
             InventorySlotHover inventorySlotHover = slot.AddComponent<InventorySlotHover>();
