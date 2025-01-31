@@ -155,7 +155,8 @@ MonoBehaviour:
   patrolSpeed: 2
   chaseSpeed: 1
   attackRadius: 1
-  chaseRadius: 10
+  chaseRadius: 5
+  rangedAttackRadius: 0
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 128

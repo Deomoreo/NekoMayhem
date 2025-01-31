@@ -8,24 +8,26 @@ public class ChaseState : EnemyState
 
     public override void Enter()
     {
+        enemy.agent.isStopped = false;
         enemy.agent.speed = enemy.chaseSpeed;
     }
 
     public override void Update()
     {
+        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.position);
+
         if (!enemy.CanSeePlayer())
         {
             enemy.TransitionToState(new PatrolState(enemy));
             return;
         }
+        else if (distanceToPlayer <= enemy.rangedAttackRadius)
+        {
+            enemy.TransitionToState(new RangedAttackState(enemy, enemy.GetComponent<EnemyRanged>().projectilePrefab, enemy.GetComponent<EnemyRanged>().firePoint));
+            return;
+        }
 
         enemy.agent.SetDestination(enemy.player.position);
-
-        if (enemy.CanSeePlayer())
-        {
-            Vector3 directionToPlayer = (enemy.player.position - enemy.transform.position).normalized;
-            enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, Quaternion.LookRotation(directionToPlayer), Time.deltaTime * 5f); 
-        }
     }
 }
 

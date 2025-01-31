@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public abstract class EnemyBase : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public abstract class EnemyBase : MonoBehaviour
     public float chaseSpeed = 4f;
     public float attackRadius = 2f;
     public float chaseRadius = 10f;
+    public float rangedAttackRadius = 5f;
     public LayerMask obstacleLayer;
     protected EnemyState currentState;
 
@@ -45,12 +47,13 @@ public abstract class EnemyBase : MonoBehaviour
 
             if (hit.collider.CompareTag("Player"))
             {
-                canSee = true;
+                canSee = false;
             }
         }
         else
         {
             Debug.DrawRay(startPosition, directionToPlayer * distanceToPlayer, Color.green, 2.0f);
+            canSee = true;
         }
         return canSee;
     }
@@ -62,7 +65,6 @@ public abstract class EnemyBase : MonoBehaviour
         currentState = newState;
         currentState.Enter();
     }
-
     public void SetRandomPatrolPoint()
     {
         Vector3 randomDirection = Random.insideUnitSphere * 5f;

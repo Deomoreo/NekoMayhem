@@ -11,7 +11,6 @@ public class AttackState : EnemyState
 
     public override void Enter()
     {
-        Debug.Log("Entra nello stato di attacco.");
         attackTimer = 0f;
         enemy.agent.isStopped = true;
     }

@@ -10,7 +10,7 @@ public abstract class EnemyState
     {
         this.enemy = enemy;
     }
-    public virtual void Enter() { }
+    public virtual void Enter() {  }
     public virtual void Update() { }
     public virtual void Exit() { }
 }

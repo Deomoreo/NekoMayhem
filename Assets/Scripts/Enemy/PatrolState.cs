@@ -16,19 +16,16 @@ public class PatrolState : EnemyState
         {
             if (enemy.CanSeePlayer())
             {
-                enemy.TransitionToState(new AttackState(enemy));
+                enemy.TransitionToState(new ChaseState(enemy));
             }
             else
             {
-                enemy.TransitionToState(new ChaseState(enemy));
+                enemy.TransitionToState(new PatrolState(enemy));
             }
         }
         else if (!enemy.agent.pathPending && enemy.agent.remainingDistance < 0.5f)
         {
-            if (!enemy.CanSeePlayer())
-            {
-                enemy.SetRandomPatrolPoint(); 
-            }
+            enemy.SetRandomPatrolPoint(); 
         }
     }
 }

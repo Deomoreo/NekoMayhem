@@ -249,8 +249,9 @@ MonoBehaviour:
   agent: {fileID: 6755120925057195173}
   patrolSpeed: 2
   chaseSpeed: 1
-  attackRadius: 10
-  chaseRadius: 10
+  attackRadius: 0
+  chaseRadius: 7
+  rangedAttackRadius: 5
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 128
