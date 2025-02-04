@@ -9,20 +9,20 @@ public class InventorySystem : MonoBehaviour
     {
         InventoryItem testItem = new InventoryItem
         {
-            id = "testItem1",
-            name = "test item 1",
-            icon = Resources.Load<Sprite>("Square"),
+            id = "1",
+            name = "Bamba",
+            icon = Resources.Load<Sprite>("InventoryItems/solt10moon"),
             quantity = 1,
-            description = "Test item"
+            description = "A vista d'occhio sembra essere bamba di bassissima qualità."
         };
 
         InventoryItem testItem2 = new InventoryItem
         {
-            id = "testItem2",
-            name = "test item 2",
-            icon = Resources.Load<Sprite>("Circle"),
+            id = "2",
+            name = "Metanfetamina blu",
+            icon = Resources.Load<Sprite>("InventoryItems/solt10-kold"),
             quantity = 2,
-            description = "Test item 2"
+            description = "La metanfetamina più pura del pianeta. Porta il marchio di Heisenberg."
         };
 
         AddItem(testItem);
