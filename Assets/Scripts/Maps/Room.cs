@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    [Header("Impostazioni Stanza")]
+    [Tooltip("Coordinate della stanza nella griglia. X corrisponde all'asse X del mondo, Y corrisponde all'asse Z del mondo.")]
     public Vector2Int gridPosition;
     public bool isDiscovered = false;
     public CanvasGroup roomCanvas;

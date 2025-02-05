@@ -4,57 +4,42 @@ using UnityEngine.UI;
 
 public class ScreenFader : MonoBehaviour
 {
-    // Immagine full‑screen da utilizzare per il fade (assicurarsi che copra tutto lo schermo)
     public Image fadeImage;
     public float fadeDuration = 0.5f;
 
     public IEnumerator FadeOut()
     {
-        float timer = 0f;
-        if (fadeImage != null)
+        float t = 0f;
+        while (t < fadeDuration)
         {
-            Color c = fadeImage.color;
-            c.a = 0f;
-            fadeImage.color = c;
-        }
-
-        while (timer < fadeDuration)
-        {
-            timer += Time.deltaTime;
-            if (fadeImage != null)
-            {
-                float alpha = Mathf.Lerp(0f, 1f, timer / fadeDuration);
-                fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
-            }
+            t += Time.deltaTime;
+            float alpha = Mathf.Clamp01(t / fadeDuration);
+            SetAlpha(alpha);
             yield return null;
         }
-
-        if (fadeImage != null)
-            fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 1f);
+        SetAlpha(1f);
     }
 
     public IEnumerator FadeIn()
     {
-        float timer = 0f;
+        float t = 0f;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Clamp01(1f - t / fadeDuration);
+            SetAlpha(alpha);
+            yield return null;
+        }
+        SetAlpha(0f);
+    }
+
+    private void SetAlpha(float alpha)
+    {
         if (fadeImage != null)
         {
             Color c = fadeImage.color;
-            c.a = 1f;
+            c.a = alpha;
             fadeImage.color = c;
         }
-
-        while (timer < fadeDuration)
-        {
-            timer += Time.deltaTime;
-            if (fadeImage != null)
-            {
-                float alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
-                fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
-            }
-            yield return null;
-        }
-
-        if (fadeImage != null)
-            fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
     }
 }

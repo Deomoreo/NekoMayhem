@@ -8,9 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
-    <ProjectGuid>{D769FDB7-DB28-DDB7-8A22-35A4329837A7}</ProjectGuid>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{549595A6-BE38-F4EF-5A0F-C580740295EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Cat\CatController.cs" />
     <Compile Include="Assets\Scripts\Maps\DoorTrigger.cs" />
+    <Compile Include="Assets\Scripts\Maps\ScreenFader.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlotHover.cs" />
     <Compile Include="Assets\Scripts\Enemy\AI\EnemyRanged.cs" />
@@ -78,7 +78,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\Maps\ScreenFader.cs" />
+    <Compile Include="Assets\Scripts\Maps\TransitionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
