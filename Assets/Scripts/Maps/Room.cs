@@ -1,46 +1,83 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    [Header("Impostazioni Stanza")]
     public Vector2Int gridPosition;
     public bool isDiscovered = false;
     public CanvasGroup roomCanvas;
     public DoorTrigger[] doors;
 
-    public void Initialize(Vector2Int position, GridManager manager)
+    private void Awake()
+    {
+        if (roomCanvas == null)
+            Debug.LogError("CanvasGroup non assegnato per la stanza in posizione: " + gridPosition);
+    }
+
+    /// <summary>
+    /// Inizializza la stanza con la posizione specificata e la rende invisibile.
+    /// </summary>
+    public void Initialize(Vector2Int position)
     {
         gridPosition = position;
         UpdateVisibility(false);
+        Debug.Log("Inizializzata stanza in posizione: " + gridPosition);
     }
 
+    /// <summary>
+    /// Segna la stanza come scoperta e la rende visibile.
+    /// </summary>
     public void DiscoverRoom()
     {
-        isDiscovered = true;
+        if (!isDiscovered)
+        {
+            isDiscovered = true;
+            Debug.Log("Scoperta stanza in posizione: " + gridPosition);
+        }
         UpdateVisibility(true);
     }
 
+    /// <summary>
+    /// Aggiorna la visibilità della stanza.
+    /// </summary>
     private void UpdateVisibility(bool visible)
     {
         gameObject.SetActive(visible);
     }
 
-    public void FadeIn()
+    /// <summary>
+    /// Esegue l'effetto di fade-in sul Canvas della stanza.
+    /// </summary>
+    public IEnumerator FadeIn()
     {
-        StartCoroutine(FadeCanvas(1));
+        Debug.Log("FadeIn per stanza in posizione: " + gridPosition);
+        yield return FadeCanvas(1f);
     }
 
-    public void FadeOut()
+    /// <summary>
+    /// Esegue l'effetto di fade-out sul Canvas della stanza.
+    /// </summary>
+    public IEnumerator FadeOut()
     {
-        StartCoroutine(FadeCanvas(0));
+        Debug.Log("FadeOut per stanza in posizione: " + gridPosition);
+        yield return FadeCanvas(0f);
     }
 
+    /// <summary>
+    /// Effettua un'interpolazione lineare sull'alpha del CanvasGroup per creare l'effetto di fade.
+    /// </summary>
     private IEnumerator FadeCanvas(float targetAlpha)
     {
+        if (roomCanvas == null)
+        {
+            Debug.LogError("CanvasGroup non assegnato per FadeCanvas nella stanza in posizione: " + gridPosition);
+            yield break;
+        }
+
         float duration = 0.5f;
         float startAlpha = roomCanvas.alpha;
-        float time = 0;
+        float time = 0f;
 
         while (time < duration)
         {
@@ -48,7 +85,7 @@ public class Room : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+
         roomCanvas.alpha = targetAlpha;
     }
 }
-

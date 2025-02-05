@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,14 +5,19 @@ public class GridManager : MonoBehaviour
 {
     public float cellSize = 5f;
     public Room startingRoom;
-    private Dictionary<Vector2Int, Room> rooms = new Dictionary<Vector2Int, Room>();
-    private Room currentRoom;
+    public Dictionary<Vector2Int, Room> rooms = new Dictionary<Vector2Int, Room>();
+    public Room currentRoom;
     public bool isTransitioning = false;
 
     void Start()
     {
         InitializeRooms();
-        SetActiveRoom(startingRoom);
+
+        if (startingRoom != null)
+        {
+            startingRoom.gameObject.SetActive(true);
+            currentRoom = startingRoom;
+        }
     }
 
     void InitializeRooms()
@@ -26,42 +30,22 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public void SetActiveRoom(Room newRoom)
+    // Transizione istantanea tra stanze senza eseguire fade locali (usata in combinazione con il fade globale)
+    public void InstantTransitionRoom(Vector2Int direction)
     {
-        if (isTransitioning) return; // Evita transizioni multiple
-        StartCoroutine(TransitionRooms(newRoom));
-    }
-
-    IEnumerator TransitionRooms(Room newRoom)
-    {
+        if (isTransitioning)
+            return;
         isTransitioning = true;
-        if (currentRoom != null)
+
+        Vector2Int newRoomPos = currentRoom.gridPosition + direction;
+        if (rooms.TryGetValue(newRoomPos, out Room newRoom))
         {
-            currentRoom.FadeOut();
-            yield return new WaitForSeconds(0.5f);
-            currentRoom.gameObject.SetActive(false);
+            if (currentRoom != null)
+                currentRoom.gameObject.SetActive(false);
+
+            newRoom.gameObject.SetActive(true);
+            currentRoom = newRoom;
         }
-        newRoom.gameObject.SetActive(true);
-        newRoom.DiscoverRoom();
-        newRoom.FadeIn();
-        currentRoom = newRoom;
-        yield return new WaitForSeconds(0.5f);
         isTransitioning = false;
     }
-
-    public void TryMoveToRoom(Vector2Int direction)
-    {
-        if (isTransitioning) return; // Evita cambi di stanza multipli durante la transizione
-        Vector2Int newRoomPos = currentRoom.gridPosition + direction;
-        if (rooms.ContainsKey(newRoomPos))
-        {
-            Room nextRoom = rooms[newRoomPos];
-            if (!nextRoom.gameObject.activeSelf)
-            {
-                nextRoom.gameObject.SetActive(true);
-            }
-            SetActiveRoom(nextRoom);
-        }
-    }
 }
-

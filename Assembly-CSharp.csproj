@@ -58,10 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Cat\CatController.cs" />
+    <Compile Include="Assets\Scripts\Maps\DoorTrigger.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlotHover.cs" />
     <Compile Include="Assets\Scripts\Enemy\AI\EnemyRanged.cs" />
     <Compile Include="Assets\Scripts\Enemy\AttackState.cs" />
+    <Compile Include="Assets\Scripts\Maps\Room.cs" />
     <Compile Include="Assets\Scripts\Enemy\RangedAttackState.cs" />
     <Compile Include="Assets\Scripts\Enemy\Projectile.cs" />
     <Compile Include="Assets\Scripts\Enemy\AI\EnemyMelee.cs" />
@@ -71,13 +73,12 @@
     <Compile Include="Assets\Scripts\Cat\CatHealth.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
+    <Compile Include="Assets\Scripts\Maps\GridManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\PatrolState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\Maps\GridManager.cs" />
-    <Compile Include="Assets\Scripts\Maps\DoorTrigger.cs" />
-    <Compile Include="Assets\Scripts\Maps\Room.cs" />
+    <Compile Include="Assets\Scripts\Maps\ScreenFader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
