@@ -79,6 +79,8 @@
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\Maps\TransitionManager.cs" />
+    <Compile Include="Assets\Scripts\Maps\WorldMapManager.cs" />
+    <Compile Include="Assets\Scripts\Maps\WorldMapToggle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -234,6 +234,34 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Map"",
+            ""id"": ""b7e266f4-c8ae-4489-b73b-2079142fc9a2"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""af073245-8f21-4860-b41c-d32ed7b85f0e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0f7fb8d1-5d79-4cd9-a627-aca22acdd31a"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -256,6 +284,9 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         // ToggleInventory
         m_ToggleInventory = asset.FindActionMap("ToggleInventory", throwIfNotFound: true);
         m_ToggleInventory_Newaction = m_ToggleInventory.FindAction("New action", throwIfNotFound: true);
+        // Map
+        m_Map = asset.FindActionMap("Map", throwIfNotFound: true);
+        m_Map_Newaction = m_Map.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -509,6 +540,39 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         }
     }
     public ToggleInventoryActions @ToggleInventory => new ToggleInventoryActions(this);
+
+    // Map
+    private readonly InputActionMap m_Map;
+    private IMapActions m_MapActionsCallbackInterface;
+    private readonly InputAction m_Map_Newaction;
+    public struct MapActions
+    {
+        private @CatInputActions m_Wrapper;
+        public MapActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Map_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Map; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MapActions set) { return set.Get(); }
+        public void SetCallbacks(IMapActions instance)
+        {
+            if (m_Wrapper.m_MapActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_MapActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_MapActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_MapActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_MapActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public MapActions @Map => new MapActions(this);
     public interface IMoveActions
     {
         void OnNewaction(InputAction.CallbackContext context);
@@ -530,6 +594,10 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         void OnNewaction(InputAction.CallbackContext context);
     }
     public interface IToggleInventoryActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IMapActions
     {
         void OnNewaction(InputAction.CallbackContext context);
     }

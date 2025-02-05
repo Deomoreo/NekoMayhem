@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    [Tooltip("Stanza iniziale (deve avere gridPosition impostato, ad esempio (0,0))")]
+    [Tooltip("Stanza iniziale")]
     public Room startingRoom;
 
-    [Tooltip("Dimensione della cella. Per semplicità, impostata a 1 (1 unità per cella).")]
+    [Tooltip("Dimensione della cella")]
     public float cellSize = 1f;
 
     public Dictionary<Vector2Int, Room> rooms = new Dictionary<Vector2Int, Room>();
@@ -20,6 +20,7 @@ public class GridManager : MonoBehaviour
         {
             startingRoom.gameObject.SetActive(true);
             currentRoom = startingRoom;
+            currentRoom.DiscoverRoom();
             Debug.Log("Stanza di partenza impostata a: " + currentRoom.gridPosition);
         }
         else
@@ -30,8 +31,7 @@ public class GridManager : MonoBehaviour
 
     void InitializeRooms()
     {
-        Room[] allRooms = FindObjectsOfType<Room>();
-
+        Room[] allRooms = FindObjectsOfType<Room>(true);
         foreach (Room room in allRooms)
         {
             if (!rooms.ContainsKey(room.gridPosition))
@@ -47,15 +47,6 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Esegue una transizione istantanea: disattiva la stanza corrente e attiva quella target.
-    /// Il vettore moveDirection deve essere:
-    /// - (0, 1) per salire (sopra, lungo Z positivo)
-    /// - (1, 0) per andare a destra (lungo X positivo)
-    /// - (0, -1) per scendere (sotto, lungo Z negativo)
-    /// - (-1, 0) per andare a sinistra (lungo X negativo)
-    /// </summary>
-    /// <param name="moveDirection"></param>
     public void InstantTransitionRoom(Vector2Int moveDirection)
     {
         if (currentRoom == null)
@@ -73,6 +64,7 @@ public class GridManager : MonoBehaviour
             currentRoom.gameObject.SetActive(false);
             targetRoom.gameObject.SetActive(true);
             currentRoom = targetRoom;
+            currentRoom.DiscoverRoom();
         }
         else
         {
