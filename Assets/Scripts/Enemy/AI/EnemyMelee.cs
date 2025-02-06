@@ -21,6 +21,6 @@ public class EnemyMelee : EnemyBase
 
     public override void AttackPlayer()
     {
-        Debug.Log("Il nemico melee attacca il giocatore!");
+        
     }
 }

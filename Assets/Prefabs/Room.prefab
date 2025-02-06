@@ -48,6 +48,7 @@ MonoBehaviour:
   gridPosition: {x: 20, y: 0}
   isDiscovered: 0
   roomCanvas: {fileID: 8678515868486018579}
+  doors: []
 --- !u!225 &8678515868486018579
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ GameObject:
   - component: {fileID: 8678515868767032223}
   m_Layer: 0
   m_Name: Room1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +121,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e9dc3c6e835a6da468621af25bfdbae5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

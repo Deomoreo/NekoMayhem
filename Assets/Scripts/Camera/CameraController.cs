@@ -5,11 +5,6 @@ public class CameraController : MonoBehaviour
     public Transform target; 
     public Vector3 offset = new Vector3(5, 10, -10); 
     public float smoothSpeed = 0.125f;
-
-    void Start()
-    {
-        Camera.main.depthTextureMode = DepthTextureMode.Depth;
-    }
     void LateUpdate()
     {
         if (target == null) return;
