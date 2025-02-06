@@ -6,6 +6,10 @@ public class CameraController : MonoBehaviour
     public Vector3 offset = new Vector3(5, 10, -10); 
     public float smoothSpeed = 0.125f;
 
+    void Start()
+    {
+        Camera.main.depthTextureMode = DepthTextureMode.Depth;
+    }
     void LateUpdate()
     {
         if (target == null) return;
@@ -14,7 +18,7 @@ public class CameraController : MonoBehaviour
 
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
-
+        
         transform.LookAt(target);
     }
 }
