@@ -1,37 +1,45 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 public abstract class EnemyBase : MonoBehaviour
 {
+    [Header("Riferimenti")]
     public Transform player;
     public NavMeshAgent agent;
+
+    [Header("Velocità e Distanze")]
     public float patrolSpeed = 2f;
     public float chaseSpeed = 4f;
     public float attackRadius = 2f;
     public float chaseRadius = 10f;
-    public float rangedAttackRadius = 5f;
-    public LayerMask obstacleLayer;
+    public float rangedAttackRadius = 5f; 
+
+    [Header("Layer")]
+    public LayerMask obstacleLayer; 
     protected EnemyState currentState;
 
-    void Start()
+    protected virtual void Start()
     {
-        // Imposta manualmente il LayerMask per gli ostacoli se non è stato configurato
         if (obstacleLayer == 0)
         {
             obstacleLayer = LayerMask.GetMask("Walls");
         }
     }
-    void Update()
+
+    protected virtual void Update()
     {
-        if (currentState != null)
-        {
-            currentState.Update();
-        }
+        currentState?.Update();
     }
 
     public abstract void AttackPlayer();
 
+    public void TransitionToState(EnemyState newState)
+    {
+        Debug.Log($"{gameObject.name} transita da {currentState?.GetType().Name} a {newState.GetType().Name}");
+        currentState?.Exit();
+        currentState = newState;
+        currentState.Enter();
+    }
     public bool CanSeePlayer()
     {
         RaycastHit hit;
@@ -39,32 +47,13 @@ public abstract class EnemyBase : MonoBehaviour
         Vector3 directionToPlayer = (player.position - startPosition).normalized;
         float distanceToPlayer = Vector3.Distance(startPosition, player.position);
 
-        bool canSee = false;
-
         if (Physics.Raycast(startPosition, directionToPlayer, out hit, distanceToPlayer, obstacleLayer))
         {
-            Debug.DrawRay(startPosition, directionToPlayer * distanceToPlayer, Color.red, 2.0f);
-
-            if (hit.collider.CompareTag("Player"))
-            {
-                canSee = false;
-            }
+            return false;
         }
-        else
-        {
-            Debug.DrawRay(startPosition, directionToPlayer * distanceToPlayer, Color.green, 2.0f);
-            canSee = true;
-        }
-        return canSee;
+        return true;
     }
 
-
-    public void TransitionToState(EnemyState newState)
-    {
-        currentState?.Exit();
-        currentState = newState;
-        currentState.Enter();
-    }
     public void SetRandomPatrolPoint()
     {
         Vector3 randomDirection = Random.insideUnitSphere * 5f;

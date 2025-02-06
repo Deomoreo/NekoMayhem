@@ -26,7 +26,7 @@ public class CatHealth : MonoBehaviour
         healthSlider.value = currentHealth;
 
         if (CameraShake.Instance != null)
-            CameraShake.Instance.Shake(0.2f, 0.5f); // Shake quando il giocatore viene colpito
+            CameraShake.Instance.Shake(0.6f, 0.8f); // Shake 
 
         if (currentHealth <= 0)
         {

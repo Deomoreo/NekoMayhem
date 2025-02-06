@@ -7,9 +7,9 @@ public class RangedAttackState : EnemyState
     private Transform firePoint;
     private GameObject projectilePrefab;
 
-    public RangedAttackState(EnemyBase enemy, GameObject projectile, Transform firePoint) : base(enemy)
+    public RangedAttackState(EnemyBase enemy, GameObject projectilePrefab, Transform firePoint) : base(enemy)
     {
-        this.projectilePrefab = projectile;
+        this.projectilePrefab = projectilePrefab;
         this.firePoint = firePoint;
     }
 
@@ -29,7 +29,7 @@ public class RangedAttackState : EnemyState
         }
         else if (distanceToPlayer > enemy.rangedAttackRadius && distanceToPlayer <= enemy.chaseRadius)
         {
-            enemy.TransitionToState(new ChaseState(enemy));
+            enemy.TransitionToState(new ChaseStateRanged(enemy));
             return;
         }
 

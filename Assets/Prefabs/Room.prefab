@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8678515868486018577}
   - component: {fileID: 8678515868486018576}
   - component: {fileID: 8678515868486018579}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 8678515868767032221}
   - component: {fileID: 8678515868767032220}
   - component: {fileID: 8678515868767032223}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Room1
   m_TagString: Ground
   m_Icon: {fileID: 0}

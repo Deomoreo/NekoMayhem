@@ -1,21 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyRanged : EnemyBase
 {
     public PatrolState patrolState;
-    public ChaseState chaseState;
+    public ChaseStateRanged chaseState;
     public RangedAttackState rangedAttackState;
+
+    [Header("Parametri Attacco a Distanza")]
     public GameObject projectilePrefab;
     public Transform firePoint;
 
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         patrolState = new PatrolState(this);
-        chaseState = new ChaseState(this);
+        chaseState = new ChaseStateRanged(this);
         rangedAttackState = new RangedAttackState(this, projectilePrefab, firePoint);
 
         TransitionToState(patrolState);
@@ -23,6 +23,6 @@ public class EnemyRanged : EnemyBase
 
     public override void AttackPlayer()
     {
-        Debug.Log("Il nemico ranged attacca il giocatore sparando!");
+        Debug.Log($"{gameObject.name} attacca il player con proiettili!");
     }
 }

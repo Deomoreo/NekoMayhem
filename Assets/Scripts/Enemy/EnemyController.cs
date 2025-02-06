@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
         Debug.Log($"{gameObject.name} ha subito {damage} danni! Salute attuale: {currentHealth}");
 
         if (CameraShake.Instance != null)
-            CameraShake.Instance.Shake(0.05f, 0.02f); // Shake quando un nemico viene colpito
+            CameraShake.Instance.Shake(0.2f, 0.5f); //shake
 
         if (currentHealth <= 0)
         {

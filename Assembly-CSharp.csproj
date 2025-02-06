@@ -82,6 +82,8 @@
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
+    <Compile Include="Assets\Scripts\Enemy\ChaseStateRanged.cs" />
+    <Compile Include="Assets\Scripts\Enemy\ChaseStateMelee.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

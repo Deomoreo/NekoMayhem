@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class ChaseStateRanged : EnemyState
+{
+    public ChaseStateRanged(EnemyBase enemy) : base(enemy) { }
+
+    public override void Enter()
+    {
+        enemy.agent.isStopped = false;
+        enemy.agent.speed = enemy.chaseSpeed;
+    }
+
+    public override void Update()
+    {
+        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.position);
+
+        if (!enemy.CanSeePlayer())
+        {
+            enemy.TransitionToState(new PatrolState(enemy));
+            return;
+        }
+        if (distanceToPlayer <= enemy.rangedAttackRadius)
+        {
+            if (enemy is EnemyRanged ranged)
+            {
+                enemy.TransitionToState(new RangedAttackState(enemy, ranged.projectilePrefab, ranged.firePoint));
+            }
+            return;
+        }
+        enemy.agent.SetDestination(enemy.player.position);
+    }
+}

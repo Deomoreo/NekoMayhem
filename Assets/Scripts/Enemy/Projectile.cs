@@ -10,12 +10,12 @@ public class Projectile : MonoBehaviour
     public void Initialize(Vector3 targetPosition)
     {
         direction = (targetPosition - transform.position).normalized;
-        transform.LookAt(targetPosition); // Fa in modo che il proiettile guardi verso il bersaglio
+        transform.LookAt(targetPosition);
     }
 
     private void Start()
     {
-        Destroy(gameObject, lifetime); // Distrugge il proiettile dopo un tot di tempo
+        Destroy(gameObject, lifetime);
     }
 
     private void Update()
@@ -31,14 +31,10 @@ public class Projectile : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damage);
-                Destroy(gameObject); // Distrugge il proiettile dopo aver colpito
+                Destroy(gameObject);
             }
         }
-        else if (other.CompareTag("Wall")) // Se colpisce un muro, si distrugge
-        {
-            Destroy(gameObject);
-        }
-        else if (other.CompareTag("Ground")) 
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Walls") || other.gameObject.layer == LayerMask.NameToLayer("Ground")) // Se colpisce un muro, si distrugge
         {
             Destroy(gameObject);
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChaseState : EnemyState
@@ -21,13 +19,15 @@ public class ChaseState : EnemyState
             enemy.TransitionToState(new PatrolState(enemy));
             return;
         }
-        else if (distanceToPlayer <= enemy.rangedAttackRadius)
+        if (distanceToPlayer <= enemy.rangedAttackRadius)
         {
-            enemy.TransitionToState(new RangedAttackState(enemy, enemy.GetComponent<EnemyRanged>().projectilePrefab, enemy.GetComponent<EnemyRanged>().firePoint));
-            return;
+            EnemyRanged ranged = enemy.GetComponent<EnemyRanged>();
+            if (ranged != null)
+            {
+                enemy.TransitionToState(new RangedAttackState(enemy, ranged.projectilePrefab, ranged.firePoint));
+                return;
+            }
         }
-
         enemy.agent.SetDestination(enemy.player.position);
     }
 }
-
