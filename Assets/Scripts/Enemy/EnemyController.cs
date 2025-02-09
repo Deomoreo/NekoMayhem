@@ -4,6 +4,7 @@ public class EnemyController : MonoBehaviour
 {
     public int maxHealth = 50;
     private int currentHealth;
+    public int amountDropAnimelle = 50;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class EnemyController : MonoBehaviour
     void Die()
     {
         Debug.Log($"{gameObject.name} è stato sconfitto!");
+        UpgradeSystem.Instance.AddPoints(amountDropAnimelle);
         Destroy(gameObject);
     }
 }
