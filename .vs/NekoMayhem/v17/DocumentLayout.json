@@ -1,22 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\",
+  "WorkspaceRootPath": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\jinder\\documents\\nekomayhem\\assets\\scripts\\inventory\\inventorysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventory\\inventorysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\cat\\upgradesystem\\upgradesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\upgradesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\jinder\\documents\\nekomayhem\\assets\\scripts\\inventory\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventory\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\cat\\upgradesystem\\upgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\upgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\jinder\\documents\\nekomayhem\\assets\\scripts\\inventory\\inventoryslothover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventory\\inventoryslothover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Jinder\\Documents\\NekoMayhem\\assets\\scripts\\inventory\\inventoryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventory\\inventoryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\cat\\upgradesystem\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,62 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InventorySystem.cs",
-              "DocumentMoniker": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventorySystem.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\InventorySystem.cs",
-              "ToolTip": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventorySystem.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Inventory\\InventorySystem.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Title": "UpgradeSystem.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-30T18:06:04.133Z",
+              "WhenOpened": "2025-02-09T18:55:55.234Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "InventoryItem.cs",
-              "DocumentMoniker": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventoryItem.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\InventoryItem.cs",
-              "ToolTip": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventoryItem.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Inventory\\InventoryItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "UpgradeManager.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-30T18:05:52.808Z",
+              "WhenOpened": "2025-02-09T18:55:52.97Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "InventorySlotHover.cs",
-              "DocumentMoniker": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventorySlotHover.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\InventorySlotHover.cs",
-              "ToolTip": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventorySlotHover.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Inventory\\InventorySlotHover.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAADwvx0AAABEAAAAAAAAAA==",
+              "Title": "Upgrade.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\Upgrade.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\Upgrade.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\Upgrade.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\Upgrade.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T19:34:56.039Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "InventoryUI.cs",
-              "DocumentMoniker": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventoryUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Inventory\\InventoryUI.cs",
-              "ToolTip": "C:\\Users\\Jinder\\Documents\\NekoMayhem\\Assets\\Scripts\\Inventory\\InventoryUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Inventory\\InventoryUI.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAowEUAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T18:40:45.347Z",
+              "WhenOpened": "2025-02-09T18:55:51.173Z",
               "EditorCaption": ""
             }
           ]

@@ -11,6 +11,7 @@ public class UpgradeSystem : MonoBehaviour
     public Transform upgradeList; // Lista degli upgrade
     public GameObject upgradeButtonPrefab; // Prefab dei bottoni upgrade
     public Button closeShopButton; // Bottone per chiudere lo shop
+    private CatController playerController; // Riferimento al movimento del giocatore
 
     private bool playerInZone = false;
 
@@ -43,8 +44,10 @@ public class UpgradeSystem : MonoBehaviour
 
     private void Start()
     {
+        CloseShop(); // Assicura che lo shop sia chiuso all'inizio
         UpdateUI();
         GenerateUpgradeButtons();
+        playerController = FindObjectOfType<CatController>(); // Trova il riferimento al controller del giocatore
         if (closeShopButton != null)
         {
             closeShopButton.onClick.AddListener(CloseShop);
@@ -87,6 +90,7 @@ public class UpgradeSystem : MonoBehaviour
 
             buttonText.text = $"{upgrade.upgradeName} - {upgrade.cost} punti";
             button.onClick.AddListener(() => TryPurchaseUpgrade(upgrade));
+            buttonObj.SetActive(false); // Nasconde i bottoni inizialmente
         }
     }
 
@@ -101,15 +105,29 @@ public class UpgradeSystem : MonoBehaviour
 
     public void OpenShop()
     {
-        if (playerInZone)
+        if (playerInZone) return;
+        upgradeShopPanel.SetActive(true);
+        foreach (Transform child in upgradeList)
         {
-            upgradeShopPanel.SetActive(true);
+            child.gameObject.SetActive(true); // Mostra i bottoni solo quando il negozio è aperto
+        }
+        if (playerController != null)
+        {
+            playerController.enabled = false; // Disabilita il movimento del giocatore
         }
     }
 
     public void CloseShop()
     {
         upgradeShopPanel.SetActive(false);
+        foreach (Transform child in upgradeList)
+        {
+            child.gameObject.SetActive(false); // Nasconde completamente la UI dello shop
+        }
+        if (playerController != null)
+        {
+            playerController.enabled = true; // Riattiva il movimento del giocatore
+        }
     }
 
     private void OnTriggerEnter(Collider other)
