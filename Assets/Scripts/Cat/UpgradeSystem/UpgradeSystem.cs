@@ -6,7 +6,7 @@ public class UpgradeSystem : MonoBehaviour
 {
     public static UpgradeSystem Instance;
     public int upgradePoints = 0;
-    public Text pointsText; // UI per mostrare i punti
+    public Text[] pointsText; // UI per mostrare i punti
     public GameObject upgradeShopPanel; // Pannello dello shop
     public Transform upgradeList; // Lista degli upgrade
     public GameObject upgradeButtonPrefab; // Prefab dei bottoni upgrade
@@ -77,7 +77,8 @@ public class UpgradeSystem : MonoBehaviour
     private void UpdateUI()
     {
         if (pointsText != null)
-            pointsText.text = "Upgrade Points: " + upgradePoints;
+            pointsText[0].text = "Upgrade Points: " + upgradePoints;
+            pointsText[1].text = "Upgrade Points: " + upgradePoints;
     }
 
     private void GenerateUpgradeButtons()
