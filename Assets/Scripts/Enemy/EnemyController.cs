@@ -1,9 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
     public int maxHealth = 50;
-    private float currentHealth;
+    private int currentHealth;
     public int amountDropAnimelle = 50;
 
     void Start()
@@ -11,13 +11,13 @@ public class EnemyController : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         Debug.Log($"{gameObject.name} ha subito {damage} danni! Salute attuale: {currentHealth}");
 
         if (CameraShake.Instance != null)
-            CameraShake.Instance.Shake(0.2f, 0.5f); //shake
+            CameraShake.Instance.Shake(0.2f, 0.5f); // Effetto shake
 
         if (currentHealth <= 0)
         {
@@ -27,8 +27,8 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
-        Debug.Log($"{gameObject.name} � stato sconfitto!");
-        UpgradeSystem.Instance.AddPoints(amountDropAnimelle);
+        Debug.Log($"{gameObject.name} è stato sconfitto!");
+        UpgradeManager.Instance.AddPoints(amountDropAnimelle);
         Destroy(gameObject);
     }
 }

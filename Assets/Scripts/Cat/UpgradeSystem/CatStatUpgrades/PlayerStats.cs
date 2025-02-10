@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 public class PlayerStats : MonoBehaviour
@@ -9,9 +9,12 @@ public class PlayerStats : MonoBehaviour
     {
         { "Forza", 10 },
         { "Critico", 5 },
-        { "Velocit� Attacco", 1.2f },
+        { "Velocità Attacco", 1.2f },
         { "Difesa", 5 }
     };
+
+    public delegate void OnStatsUpdated();
+    public static event OnStatsUpdated StatsUpdated; 
 
     private void Awake()
     {
@@ -27,6 +30,8 @@ public class PlayerStats : MonoBehaviour
         {
             stats[statName] += value;
             Debug.Log($"Upgrade: {statName} aumentato di {value}. Nuovo valore: {stats[statName]}");
+
+            StatsUpdated?.Invoke();
         }
         else
         {

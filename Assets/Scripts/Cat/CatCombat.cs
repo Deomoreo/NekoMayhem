@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class CatCombat : MonoBehaviour
@@ -8,17 +8,28 @@ public class CatCombat : MonoBehaviour
 
     public float attackAngle = 30f;
     public float attackRange = 1.5f;
-    public float attackCooldown = 0.5f;
-
+    private float baseAttackCooldown = 0.5f;
+    private float attackCooldown;
     private bool isAttacking;
-    private string currentWeapon = "Spada"; // Pu� cambiare a runtime
+    private string currentWeapon = "Spada";
     private float attackDamage;
     private float critChance;
+    private float defense;
+    private float attackSpeed; 
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         UpdateStats();
+
+        PlayerStats.StatsUpdated += UpdateStats;
+        WeaponStats.WeaponUpdated += UpdateStats;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerStats.StatsUpdated -= UpdateStats;
+        WeaponStats.WeaponUpdated -= UpdateStats;
     }
 
     public void PerformAttack()
@@ -36,7 +47,6 @@ public class CatCombat : MonoBehaviour
         isAttacking = false;
     }
 
-    // ?? **Metodo chiamato dall'animazione**
     public void ApplyDamageEvent()
     {
         ApplyDamage();
@@ -55,13 +65,13 @@ public class CatCombat : MonoBehaviour
             float angle = Vector3.Angle(attackDirection, directionToEnemy);
             if (angle <= attackAngle / 2)
             {
-                float finalDamage = attackDamage;
+                int finalDamage = (int)attackDamage;
 
                 // Controllo critico
                 float critRoll = Random.Range(0f, 100f);
                 if (critRoll < critChance)
                 {
-                    finalDamage *= 2; // Colpo critico raddoppiato
+                    finalDamage *= 2;
                     Debug.Log("COLPO CRITICO!");
                 }
 
@@ -78,13 +88,16 @@ public class CatCombat : MonoBehaviour
     {
         attackDamage = PlayerStats.Instance.stats["Forza"];
         critChance = PlayerStats.Instance.stats["Critico"];
-
+        defense = PlayerStats.Instance.stats["Difesa"];
         if (WeaponStats.Instance.weaponStats.ContainsKey(currentWeapon))
         {
             attackDamage += WeaponStats.Instance.weaponStats[currentWeapon];
         }
 
-        Debug.Log($"Danni aggiornati: {attackDamage} | Critico: {critChance}%");
+        attackSpeed = PlayerStats.Instance.stats.ContainsKey("Velocità Attacco") ? PlayerStats.Instance.stats["Velocità Attacco"] : 1.0f;
+        attackCooldown = baseAttackCooldown / attackSpeed; // Più alta è la velocità, più veloce sarà l'attacco
+
+        Debug.Log($"Danni aggiornati: {attackDamage} | Critico: {critChance}% | Cooldown: {attackCooldown} | Difesa: {defense}");
     }
 
     public void ChangeWeapon(string newWeapon)

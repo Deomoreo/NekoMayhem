@@ -240,6 +240,62 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Interact",
+            "id": "6b8db64c-0655-4ca1-b138-f990c03d3153",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "52c15b99-8a06-4bf4-ab95-c16463dfa53d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3d2113a0-6c0c-4ad5-9da8-92b305c8ea50",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "SaveGame",
+            "id": "92dd71f9-430a-47c0-a906-24d9a6e32512",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "25881a0d-7a83-4578-bc28-8e8243b85633",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "af4c5207-ce89-4fca-974d-54ec78b31a1f",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

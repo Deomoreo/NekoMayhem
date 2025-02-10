@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 public class WeaponStats : MonoBehaviour
@@ -11,6 +11,9 @@ public class WeaponStats : MonoBehaviour
         { "Arco", 10 },
         { "Bastone", 12 }
     };
+
+    public delegate void OnWeaponUpdated();
+    public static event OnWeaponUpdated WeaponUpdated; // 🔥 Evento per aggiornare i danni dell'arma
 
     private void Awake()
     {
@@ -26,6 +29,9 @@ public class WeaponStats : MonoBehaviour
         {
             weaponStats[weaponName] += value;
             Debug.Log($"Upgrade arma: {weaponName} aumentato di {value}. Nuovo danno: {weaponStats[weaponName]}");
+
+            // 🔥 Emettiamo un evento ogni volta che un'arma viene potenziata
+            WeaponUpdated?.Invoke();
         }
         else
         {

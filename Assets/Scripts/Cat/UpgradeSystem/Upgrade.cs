@@ -9,7 +9,7 @@ public class Upgrade
     public string upgradeName;
     public int cost;
     public bool isUnlocked = false;
-    public float value; // Il valore che modifica (es. +5% critico, +10 danno, ecc.)
+    public float value; 
 
     public void ApplyUpgrade()
     {
