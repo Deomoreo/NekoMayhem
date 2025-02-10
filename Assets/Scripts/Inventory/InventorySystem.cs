@@ -60,12 +60,8 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    //TODO REMOVE
     public void DisplayInventory()
     {
-        foreach (InventoryItem item in inventory)
-        {
-            //TODO remove
-            Debug.Log($"Item: {item.name}, Quantity: {item.quantity}, Description: {item.description}");
-        }
     }
 }

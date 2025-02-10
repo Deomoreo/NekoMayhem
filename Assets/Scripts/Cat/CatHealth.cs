@@ -47,4 +47,15 @@ public class CatHealth : MonoBehaviour
         Debug.Log("Il gatto è morto!");
         //animator.SetTrigger("Die"); 
     }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public void SetHealth(float health)
+    {
+        currentHealth = Mathf.Clamp(health, 0, maxHealth);
+        healthSlider.value = currentHealth;
+    }
 }

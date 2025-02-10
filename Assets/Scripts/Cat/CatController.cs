@@ -30,7 +30,7 @@ public class CatController : MonoBehaviour
         controls = new CatInputActions();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        
+
         controls.Move.Newaction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controls.Move.Newaction.canceled += ctx => moveInput = Vector2.zero;
 
@@ -114,6 +114,7 @@ public class CatController : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
     }
+
     public void ApplyDamageEvent()
     {
         ApplyDamage();
@@ -142,4 +143,5 @@ public class CatController : MonoBehaviour
             //animator.SetBool("IsJumping", false);
         }
     }
+
 }

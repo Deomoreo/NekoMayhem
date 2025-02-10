@@ -46,6 +46,9 @@ public class InventoryUI : MonoBehaviour
         if (isInventoryOpen)
         {
             UpdateUI(); // If open, refresh inventory UI
+        } else
+        {
+            inventoryDescriptionPanel.SetActive(false); // Force-hide description panel when inventory is closed
         }
     }
 
