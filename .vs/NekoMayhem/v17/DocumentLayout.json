@@ -3,16 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\cat\\upgradesystem\\upgradesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\upgradesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\cat\\catcombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\catcombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\cat\\upgradesystem\\upgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\cat\\catcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\catcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\cat\\upgradesystem\\upgradetester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\upgradetester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\catstatupgrades\\catperks\\playerperks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\catstatupgrades\\catperks\\playerperks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\catstatupgrades\\catperks\\perkupgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\catstatupgrades\\catperks\\perkupgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\weaponupgrade\\weaponstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\weaponupgrade\\weaponstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\catstatupgrades\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\catstatupgrades\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\catstatupgrades\\playerstatupgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\catstatupgrades\\playerstatupgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\weaponupgrade\\weaponupgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\weaponupgrade\\weaponupgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\upgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\upgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\cat\\upgradesystem\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\users\\utente\\desktop\\nekomayhem\\assets\\scripts\\cat\\upgradesystem\\catstatsupgrades\\playerstatupgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\scripts\\cat\\upgradesystem\\catstatsupgrades\\playerstatupgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\upgradebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\upgradebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\upgradesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\upgradesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|C:\\Users\\Utente\\Desktop\\NekoMayhem\\assets\\scripts\\cat\\upgradesystem\\shoptrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D769FDB7-DB28-DDB7-8A22-35A4329837A7}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\upgradesystem\\shoptrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,46 +74,203 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UpgradeSystem.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T18:55:55.234Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UpgradeManager.cs",
-              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
-              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "CatController.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\CatController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\CatController.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\CatController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\CatController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T18:55:52.97Z",
+              "WhenOpened": "2025-02-10T13:11:12.78Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "EnemyController.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyController.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAIAxwAQAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T13:10:10.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CatCombat.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\CatCombat.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\CatCombat.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\CatCombat.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\CatCombat.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAkwAgAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T13:09:35.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UpgradeTester.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeTester.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeTester.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeTester.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeTester.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T12:54:51.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PerkUpgrades.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\CatPerks\\PerkUpgrades.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\CatPerks\\PerkUpgrades.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\CatPerks\\PerkUpgrades.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\CatPerks\\PerkUpgrades.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T12:40:38.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PlayerStats.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\PlayerStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\PlayerStats.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\PlayerStats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\PlayerStats.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAqwBAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T11:58:34.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerPerks.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\CatPerks\\PlayerPerks.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\CatPerks\\PlayerPerks.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\CatPerks\\PlayerPerks.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\CatPerks\\PlayerPerks.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAqwAkAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T12:07:43.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PlayerStatUpgrade.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\PlayerStatUpgrade.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\PlayerStatUpgrade.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\PlayerStatUpgrade.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatUpgrades\\PlayerStatUpgrade.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T12:27:57.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WeaponStats.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\WeaponUpgrade\\WeaponStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\WeaponUpgrade\\WeaponStats.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\WeaponUpgrade\\WeaponStats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\WeaponUpgrade\\WeaponStats.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAqwCMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T11:59:58.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WeaponUpgrade.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\WeaponUpgrade\\WeaponUpgrade.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\WeaponUpgrade\\WeaponUpgrade.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\WeaponUpgrade\\WeaponUpgrade.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\WeaponUpgrade\\WeaponUpgrade.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T11:59:33.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UpgradeManager.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeManager.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwDcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T18:55:52.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Upgrade.cs",
               "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\Upgrade.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\Upgrade.cs",
               "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\Upgrade.cs",
               "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\Upgrade.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwB4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T18:55:51.173Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-09T18:55:51.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PlayerStatUpgrade.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatsUpgrades\\PlayerStatUpgrade.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatsUpgrades\\PlayerStatUpgrade.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatsUpgrades\\PlayerStatUpgrade.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\CatStatsUpgrades\\PlayerStatUpgrade.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T11:56:36.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UpgradeBase.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeBase.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeBase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T11:52:18.861Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ShopTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\ShopTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\ShopTrigger.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\ShopTrigger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\ShopTrigger.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T18:58:40.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UpgradeSystem.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
+              "ToolTip": "C:\\Users\\Utente\\Desktop\\NekoMayhem\\Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\UpgradeSystem\\UpgradeSystem.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAswGsAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T18:55:55.234Z"
             }
           ]
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public int maxHealth = 50;
-    private int currentHealth;
+    private float currentHealth;
     public int amountDropAnimelle = 50;
 
     void Start()
@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         Debug.Log($"{gameObject.name} ha subito {damage} danni! Salute attuale: {currentHealth}");

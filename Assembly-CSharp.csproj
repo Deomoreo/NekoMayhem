@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\UpgradeSystem.cs" />
     <Compile Include="Assets\Scripts\Maps\Room.cs" />
     <Compile Include="Assets\Scripts\Enemy\RangedAttackState.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\ShopTrigger.cs" />
     <Compile Include="Assets\Scripts\Enemy\AI\EnemyMelee.cs" />
     <Compile Include="Assets\Scripts\Maps\WorldMapToggle.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySystem.cs" />
@@ -89,7 +90,15 @@
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\ShopTrigger.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\UpgradeBase.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\PlayerStatUpgrade.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\WeaponUpgrade\WeaponUpgrade.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\WeaponUpgrade\WeaponStats.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\CatPerks\PlayerPerks.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\CatPerks\PerkUpgrades.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\UpgradeTester.cs" />
+    <Compile Include="Assets\Scripts\Cat\CatCombat.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

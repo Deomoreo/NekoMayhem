@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 39753406e60e368438f0779cc8f6c6eb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - forzaUpgrade: {fileID: 11400000, guid: 84f18c42bd8914a4fba7f7e934fb6de1, type: 2}
+  - spadaUpgrade: {fileID: 11400000, guid: c3cd0efa54e9d0a49b3db34a1900a815, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

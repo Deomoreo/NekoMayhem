@@ -1782,7 +1782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &291430511
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5333,6 +5333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 665067270}
   - component: {fileID: 665067269}
+  - component: {fileID: 665067271}
   m_Layer: 0
   m_Name: UpgradeManager
   m_TagString: Untagged
@@ -5347,17 +5348,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665067268}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 044dc2d3d0752e546a57ebb9918fc217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animePoints: 0
+  pointsText: {fileID: 1870761807}
   upgrades:
-  - upgradeName: jhgfjhgf
-    cost: 0
+  - type: 1
+    upgradeName: Spada
+    cost: 5
     isUnlocked: 0
-  upgradePanel: {fileID: 1709462995}
-  upgradeButtonPrefab: {fileID: 5852246961752242140, guid: 407f2d1ed6b2ba449a01548b8fb23909, type: 3}
+    value: 2
+  - type: 0
+    upgradeName: Forza
+    cost: 5
+    isUnlocked: 0
+    value: 2
 --- !u!4 &665067270
 Transform:
   m_ObjectHideFlags: 0
@@ -5372,6 +5380,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &665067271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665067268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39753406e60e368438f0779cc8f6c6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forzaUpgrade: {fileID: 11400000, guid: 84f18c42bd8914a4fba7f7e934fb6de1, type: 2}
+  spadaUpgrade: {fileID: 11400000, guid: c3cd0efa54e9d0a49b3db34a1900a815, type: 2}
 --- !u!1 &678204917
 GameObject:
   m_ObjectHideFlags: 0
@@ -16899,18 +16921,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5030001874e06145baf177c21d7d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 64
   walkSpeed: 2
   runSpeed: 4
   jumpForce: 2
   rotationSpeed: 8
-  attackAngle: 1
-  attackRange: 0.7
-  attackCooldown: 0.5
-  attackDamage: 50
-  isAttacking: 0
 --- !u!65 &1431597833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16943,6 +16957,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthSlider: {fileID: 2134383096}
+--- !u!114 &1431597836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431597829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a000fa386e5ffdf4880f0581f48bc0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockedPerks: []
+--- !u!114 &1431597837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431597829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a21e2899972f64cbc0dd13390a7ffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1431597838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431597829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fed76a904c3f1242832ec0a00e55cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1431597839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431597829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c03a433552db4e88627c737f10e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  attackAngle: 100
+  attackRange: 1.5
+  attackCooldown: 0.5
 --- !u!114 &1441188470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8699857182742284271, guid: aca6c1ed73c4ba2498ce4118cd3d3fe7, type: 3}
@@ -20980,9 +21049,9 @@ RectTransform:
   m_Father: {fileID: 291430511}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -15}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1870761807

@@ -4,34 +4,52 @@ using System.Collections.Generic;
 
 public class UpgradeManager : MonoBehaviour
 {
-    public List<Upgrade> upgrades = new List<Upgrade>();
-    public Transform upgradePanel; // UI dove mostriamo gli upgrade
-    public GameObject upgradeButtonPrefab; // Prefab dei bottoni
+    public static UpgradeManager Instance;
+    public int animePoints = 0;
+    public Text pointsText;
+    public List<Upgrade> upgrades;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     private void Start()
     {
-        GenerateUpgradeButtons();
+        UpdateUI();
     }
 
-    void GenerateUpgradeButtons()
+    public void AddPoints(int amount)
     {
-        foreach (Upgrade upgrade in upgrades)
-        {
-            GameObject buttonObj = Instantiate(upgradeButtonPrefab, upgradePanel);
-            Button button = buttonObj.GetComponent<Button>();
-            Text buttonText = buttonObj.GetComponentInChildren<Text>();
+        animePoints += amount;
+        UpdateUI();
+    }
 
-            buttonText.text = $"{upgrade.upgradeName} - {upgrade.cost} punti";
-            button.onClick.AddListener(() => TryPurchaseUpgrade(upgrade));
+    public bool SpendPoints(int cost)
+    {
+        if (animePoints >= cost)
+        {
+            animePoints -= cost;
+            UpdateUI();
+            return true;
         }
+        return false;
     }
 
-    void TryPurchaseUpgrade(Upgrade upgrade)
+    public void PurchaseUpgrade(Upgrade upgrade)
     {
-        if (!upgrade.isUnlocked && UpgradeSystem.Instance.SpendPoints(upgrade.cost))
+        if (SpendPoints(upgrade.cost))
         {
-            upgrade.isUnlocked = true;
             upgrade.ApplyUpgrade();
         }
+    }
+
+    private void UpdateUI()
+    {
+        if (pointsText != null)
+            pointsText.text = "Anime: " + animePoints;
     }
 }
