@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.30f1 (1fb1bf06830e) revision 2077119'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 11  (10.0.26100) 64bit Professional' Language: 'it' Physical Memory: 16305 MB
+OS: 'Windows 11  (10.0.22631) 64bit Professional' Language: 'it' Physical Memory: 6005 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
@@ -11,10 +11,11 @@ C:\Program Files\Unity\Hub\Editor\2020.3.30f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Unity/Neko Mayhem
+C:/Users/Utente/Desktop/NekoMayhem
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< HEAD
 <<<<<<< HEAD
 52569
 Successfully changed project path to: C:/Unity/Neko Mayhem
@@ -23,11 +24,14 @@ Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 46.80 ms, found 2 plugins.
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
 52522
 Successfully changed project path to: C:/Users/Utente/Desktop/NekoMayhem
 C:/Users/Utente/Desktop/NekoMayhem
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 55.25 ms, found 2 plugins.
+<<<<<<< HEAD
 =======
 56826
 Successfully changed project path to: C:/Unity/Neko Mayhem
@@ -36,25 +40,30 @@ Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 41.16 ms, found 2 plugins.
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.30f1 (1fb1bf06830e)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Unity/Neko Mayhem/Assets
+[Subsystems] Discovering subsystems at path C:/Users/Utente/Desktop/NekoMayhem/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 3060 Ti (ID=0x2489)
+    Renderer: AMD Radeon(TM) Graphics (ID=0x164c)
     Vendor:   
-    VRAM:     8024 MB
-    Driver:   32.0.15.7216
+    VRAM:     3002 MB
+    Driver:   31.0.21912.3005
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/MonoBleedingEdge/etc'
 <<<<<<< HEAD
+<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56252
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56564
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
 Begin MonoManager ReloadAssembly
@@ -73,6 +82,7 @@ Domain Reload Profiling:
 =======
 	ReloadAssembly (10390ms)
 		BeginReloadAssembly (7411ms)
+<<<<<<< HEAD
 =======
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56160
 Begin MonoManager ReloadAssembly
@@ -89,16 +99,21 @@ Domain Reload Profiling:
 		BeginReloadAssembly (49ms)
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
 <<<<<<< HEAD
+<<<<<<< HEAD
 		EndReloadAssembly (331ms)
 			LoadAssemblies (48ms)
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
 		EndReloadAssembly (2304ms)
 			LoadAssemblies (7410ms)
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
@@ -120,6 +135,7 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (29ms)
 				ProcessInitializeOnLoadAttributes (160ms)
 				ProcessInitializeOnLoadMethodAttributes (84ms)
+<<<<<<< HEAD
 =======
 		EndReloadAssembly (317ms)
 			LoadAssemblies (47ms)
@@ -137,12 +153,15 @@ Domain Reload Profiling:
 				ProcessInitializeOnLoadMethodAttributes (19ms)
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< HEAD
 <<<<<<< HEAD
 Registered in 0.003609 seconds.
 Begin MonoManager ReloadAssembly
@@ -560,3 +579,6 @@ AssetImportParameters requested are different than current active one (requested
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+Registered in 1.789384 seconds.
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)

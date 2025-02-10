@@ -20,6 +20,7 @@ MonoBehaviour:
     height: 715
   m_ShowMode: 4
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Title: Console
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 392}
@@ -34,6 +35,11 @@ MonoBehaviour:
   m_MinSize: {x: 875, y: 542}
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+  m_Title: Game
+  m_RootView: {fileID: 6}
+  m_MinSize: {x: 875, y: 300}
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 0
 --- !u!114 &2
@@ -56,6 +62,7 @@ MonoBehaviour:
     x: 0
     y: 30
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1206
     height: 665
   m_MinSize: {x: 679, y: 342}
@@ -64,12 +71,15 @@ MonoBehaviour:
   controlID: 17
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     width: 1536
     height: 723
   m_MinSize: {x: 678, y: 342}
   m_MaxSize: {x: 12003, y: 8042}
   vertical: 0
   controlID: 83
+<<<<<<< HEAD
 =======
     width: 2560
     height: 1299
@@ -79,6 +89,8 @@ MonoBehaviour:
   controlID: 28
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -97,6 +109,7 @@ MonoBehaviour:
     x: 921
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 285
     height: 665
   m_MinSize: {x: 276, y: 71}
@@ -104,16 +117,12 @@ MonoBehaviour:
   m_ActualView: {fileID: 13}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     width: 356.80005
     height: 723
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-=======
-    width: 572
-    height: 1299
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
->>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
   m_ActualView: {fileID: 17}
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
   m_Panes:
@@ -138,6 +147,7 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 228
     height: 336
   m_MinSize: {x: 201, y: 221}
@@ -145,16 +155,12 @@ MonoBehaviour:
   m_ActualView: {fileID: 14}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     width: 215.2
     height: 452
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
-=======
-    width: 223
-    height: 966
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
->>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
   m_ActualView: {fileID: 18}
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
   m_Panes:
@@ -171,12 +177,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
     y: 336
     width: 921
@@ -186,12 +193,15 @@ MonoBehaviour:
   m_ActualView: {fileID: 17}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     y: 452
     width: 1179.2
     height: 271
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 21}
+<<<<<<< HEAD
 =======
     y: 966
     width: 1988
@@ -201,8 +211,11 @@ MonoBehaviour:
   m_ActualView: {fileID: 16}
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
   m_Panes:
   - {fileID: 12}
+<<<<<<< HEAD
 <<<<<<< HEAD
   - {fileID: 17}
   m_Selected: 1
@@ -211,6 +224,10 @@ MonoBehaviour:
   m_Selected: 0
   m_LastSelected: 1
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+  m_Selected: 1
+  m_LastSelected: 0
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -232,17 +249,16 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1206
     height: 715
   m_MinSize: {x: 875, y: 392}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     width: 1536
     height: 773
-=======
-    width: 2560
-    height: 1349
->>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
   m_MinSize: {x: 875, y: 300}
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
   m_MaxSize: {x: 10000, y: 10000}
@@ -315,6 +331,7 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 921
     height: 665
   m_MinSize: {x: 403, y: 342}
@@ -323,12 +340,15 @@ MonoBehaviour:
   controlID: 65
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     width: 1179.2
     height: 723
   m_MinSize: {x: 402, y: 342}
   m_MaxSize: {x: 8002, y: 8042}
   vertical: 1
   controlID: 84
+<<<<<<< HEAD
 =======
     width: 1988
     height: 1299
@@ -338,6 +358,8 @@ MonoBehaviour:
   controlID: 29
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -358,6 +380,7 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 921
     height: 336
   m_MinSize: {x: 403, y: 221}
@@ -366,12 +389,15 @@ MonoBehaviour:
   controlID: 66
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     width: 1179.2
     height: 452
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
   controlID: 85
+<<<<<<< HEAD
 =======
     width: 1988
     height: 966
@@ -381,6 +407,8 @@ MonoBehaviour:
   controlID: 30
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -399,6 +427,7 @@ MonoBehaviour:
     x: 228
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 693
     height: 336
   m_MinSize: {x: 202, y: 221}
@@ -406,11 +435,14 @@ MonoBehaviour:
   m_ActualView: {fileID: 15}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     width: 963.99994
     height: 452
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
+<<<<<<< HEAD
 =======
     width: 1765
     height: 966
@@ -419,6 +451,8 @@ MonoBehaviour:
   m_ActualView: {fileID: 19}
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
@@ -453,11 +487,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-<<<<<<< HEAD
   m_LastSelectedObjectID: 25754
-=======
-  m_LastSelectedObjectID: 27114
->>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -775,16 +805,10 @@ MonoBehaviour:
     width: 920
 =======
     x: 0
-<<<<<<< HEAD
     y: 525.60004
     width: 1178.2
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
     height: 250
-=======
-    y: 1039
-    width: 1987
-    height: 312
->>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -800,6 +824,7 @@ MonoBehaviour:
     m_SearchArea: 1
     m_Folders:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets
 =======
 <<<<<<< HEAD
@@ -808,11 +833,15 @@ MonoBehaviour:
     - Assets/Scripts/Cat/UpgradeSystem
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+    - Assets/Cartoon Cat/fbx
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
 <<<<<<< HEAD
   - Assets
 =======
@@ -822,11 +851,15 @@ MonoBehaviour:
   - Assets/Scripts/Cat/UpgradeSystem
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+  - Assets/Cartoon Cat/fbx
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Unity\Neko Mayhem
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
 <<<<<<< HEAD
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: be650000
@@ -834,10 +867,13 @@ MonoBehaviour:
     m_ExpandedIDs: 00000000be650000c0650000c2650000c4650000c665000000ca9a3b
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs: c4680000
     m_LastClickedID: 26820
     m_ExpandedIDs: 0000000086680000886800008a6800008c6800008e680000d2680000fa6800003c69000000ca9a3b
+<<<<<<< HEAD
 =======
     scrollPos: {x: 0, y: 24}
     m_SelectedIDs: cc7f0000
@@ -845,6 +881,8 @@ MonoBehaviour:
     m_ExpandedIDs: 00000000fe6e0000006f0000026f0000046f0000066f00004c6f000000ca9a3b
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -873,6 +911,7 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000be650000c0650000c2650000c4650000c6650000
 =======
 <<<<<<< HEAD
@@ -881,6 +920,9 @@ MonoBehaviour:
     m_ExpandedIDs: 00000000fe6e0000006f0000026f0000046f0000066f0000
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+    m_ExpandedIDs: 0000000086680000886800008a6800008c6800008e680000
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -906,20 +948,18 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     m_SelectedInstanceIDs: 9a640000
     m_LastClickedInstanceID: 25754
     m_HadKeyboardFocusLastEvent: 0
-=======
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
->>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
     m_ExpandedInstanceIDs: c623000024c6ffff5a4cffff02e3feff00000000
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
     m_RenameOverlay:
@@ -1008,6 +1048,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 19
     width: 227
     height: 315
@@ -1022,10 +1063,16 @@ MonoBehaviour:
     height: 945
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+    y: 73.6
+    width: 214.2
+    height: 431
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
       m_SelectedIDs: 
       m_LastClickedID: 0
@@ -1041,6 +1088,11 @@ MonoBehaviour:
       m_ExpandedIDs: 60efffff18f5ffff586700001c6c0000506c0000686d0000
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+      m_SelectedIDs: 9a640000
+      m_LastClickedID: 25754
+      m_ExpandedIDs: 6cfbffff966000008e650000a6660000
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1085,16 +1137,20 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 854
     y: 422
     width: 691
     height: 315
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     x: 200
     y: 73.6
     width: 894
     height: 431
+<<<<<<< HEAD
 =======
     x: 223
     y: 73
@@ -1102,6 +1158,8 @@ MonoBehaviour:
     height: 945
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
@@ -1114,6 +1172,7 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
 <<<<<<< HEAD
     m_Target: {x: 0, y: 0, z: 0}
     speed: 2
@@ -1129,6 +1188,11 @@ MonoBehaviour:
     m_Value: {x: 5.9337096, y: 11.23734, z: -8.062961}
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+    m_Target: {x: -2.9941802, y: -7.987567, z: 4.574613}
+    speed: 2
+    m_Value: {x: -2.9941802, y: -7.987567, z: 4.574613}
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1176,9 +1240,12 @@ MonoBehaviour:
     m_gridOpacity: 0.5
   m_Rotation:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     m_Target: {x: 0.35132292, y: -0.25255364, z: 0.099002965, w: 0.89559966}
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
     speed: 2
@@ -1190,6 +1257,7 @@ MonoBehaviour:
     m_Value: 0.8660257
 =======
     m_Value: 12.124355
+<<<<<<< HEAD
 =======
     m_Target: {x: 0.27709815, y: -0.21268769, z: 0.06316475, w: 0.93438977}
     speed: 2
@@ -1200,11 +1268,14 @@ MonoBehaviour:
     m_Value: 0.8660257
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
+<<<<<<< HEAD
 <<<<<<< HEAD
     m_Speed: 1
     m_SpeedNormalized: 0.5
@@ -1212,6 +1283,10 @@ MonoBehaviour:
     m_Speed: 0.9805109
     m_SpeedNormalized: 0.49000046
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+    m_Speed: 1.040481
+    m_SpeedNormalized: 0.52000046
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -1250,16 +1325,20 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 507
     y: 94
     width: 1532
     height: 790
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     x: 215.2
     y: 73.6
     width: 961.99994
     height: 431
+<<<<<<< HEAD
 =======
     x: 223
     y: 73
@@ -1267,6 +1346,8 @@ MonoBehaviour:
     height: 945
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
   m_SerializedViewValues: []
@@ -1317,11 +1398,11 @@ MonoBehaviour:
     m_Translation: {x: 766, y: 395}
 =======
       y: 21
-<<<<<<< HEAD
       width: 961.99994
       height: 410
     m_Scale: {x: 0.47453704, y: 0.47453704}
     m_Translation: {x: 480.99997, y: 205}
+<<<<<<< HEAD
 =======
       width: 1763
       height: 924
@@ -1329,12 +1410,15 @@ MonoBehaviour:
     m_Translation: {x: 881.5, y: 462}
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
       x: -766
       y: -395
@@ -1345,6 +1429,8 @@ MonoBehaviour:
   m_LastWindowPixelSize: {x: 1532, y: 790}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
       x: -1013.61945
       y: -432
       width: 2027.2389
@@ -1352,6 +1438,7 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 0.47453704
   m_LastWindowPixelSize: {x: 1202.4999, y: 538.75}
+<<<<<<< HEAD
 =======
       x: -1030.3247
       y: -540
@@ -1362,6 +1449,8 @@ MonoBehaviour:
   m_LastWindowPixelSize: {x: 1763, y: 945}
 >>>>>>> f641a7b93ab8a54fd510578dbb1066110b6b4391
 >>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
+=======
+>>>>>>> parent of 950d2a2b (Merge branch 'giano' of https://github.com/Deomoreo/NekoMayhem into giano)
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
