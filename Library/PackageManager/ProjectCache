@@ -5,16 +5,26 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 638747785263337190
     m_Hash: 625984355
+=======
+      ticks: 638744489056732073
+    m_Hash: 2419179403
+>>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
   m_LockFileStatus:
     m_FilePath: C:/Unity/Neko Mayhem/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 638747785263351921
     m_Hash: 1871369198
+=======
+      ticks: 638744489056768089
+    m_Hash: 1214369776
+>>>>>>> 950d2a2b7dda6def9da71d7de92d65d4584b057e
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
