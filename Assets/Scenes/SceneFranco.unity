@@ -2977,6 +2977,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1431597834}
     - target: {fileID: 8495146073825992212, guid: 397960e8589f8134aacce6073ed9aba6, type: 3}
+      propertyPath: meleeDamage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495146073825992212, guid: 397960e8589f8134aacce6073ed9aba6, type: 3}
       propertyPath: attackRadius
       value: 1.5
       objectReference: {fileID: 0}
@@ -8424,6 +8428,11 @@ MonoBehaviour:
     cost: 100
     isUnlocked: 0
     value: 5
+  - type: 1
+    upgradeName: Spada
+    cost: 100
+    isUnlocked: 0
+    value: 10
 --- !u!114 &953445683
 MonoBehaviour:
   m_ObjectHideFlags: 0
