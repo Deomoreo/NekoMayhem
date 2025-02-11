@@ -40,8 +40,6 @@ public class EnemyMelee : EnemyBase
             {
                 animator.SetTrigger("Attack");
             }
-
-            Debug.Log($"{gameObject.name} attacca il player (melee)!");
         }
         else
         {

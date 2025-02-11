@@ -2978,7 +2978,7 @@ PrefabInstance:
       objectReference: {fileID: 1431597834}
     - target: {fileID: 8495146073825992212, guid: 397960e8589f8134aacce6073ed9aba6, type: 3}
       propertyPath: meleeDamage
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8495146073825992212, guid: 397960e8589f8134aacce6073ed9aba6, type: 3}
       propertyPath: attackRadius
@@ -11249,7 +11249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 903853801099662844, guid: 397960e8589f8134aacce6073ed9aba6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8495146073825992212, guid: 397960e8589f8134aacce6073ed9aba6, type: 3}
       propertyPath: player
@@ -17192,6 +17192,35 @@ MonoBehaviour:
     m_Bits: 64
   attackAngle: 100
   attackRange: 1.5
+--- !u!114 &1431597840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431597829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d44bfa945884048be881de59cd0b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 12
+  dashDuration: 0.2
+  dashCooldown: 1
+--- !u!114 &1431597841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431597829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8590e15ca6885424892c8f8fd4e07b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parryWindow: 0.2
+  reflectedProjectilePrefab: {fileID: 8142090682063301059, guid: b374f2b7d8ae82349aad7d836b602f79, type: 3}
 --- !u!114 &1441188470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8699857182742284271, guid: aca6c1ed73c4ba2498ce4118cd3d3fe7, type: 3}

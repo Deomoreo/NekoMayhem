@@ -318,6 +318,62 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dash"",
+            ""id"": ""14f78116-1d54-4dc8-8a54-7bd3ab2bec64"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""9af91fe2-5698-487a-b9a0-41c32a4359e0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c4ed3902-8233-466d-874d-2dd064c1f0e1"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Parry"",
+            ""id"": ""c67b0888-125c-42cc-a9bb-93bcfe52a1bc"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b518537-a685-43ca-b0bb-55ddada9d607"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c33b8a87-825e-4600-a331-ca9aa2ba8a7a"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -349,6 +405,12 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         // SaveGame
         m_SaveGame = asset.FindActionMap("SaveGame", throwIfNotFound: true);
         m_SaveGame_Newaction = m_SaveGame.FindAction("New action", throwIfNotFound: true);
+        // Dash
+        m_Dash = asset.FindActionMap("Dash", throwIfNotFound: true);
+        m_Dash_Newaction = m_Dash.FindAction("New action", throwIfNotFound: true);
+        // Parry
+        m_Parry = asset.FindActionMap("Parry", throwIfNotFound: true);
+        m_Parry_Newaction = m_Parry.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -701,6 +763,72 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         }
     }
     public SaveGameActions @SaveGame => new SaveGameActions(this);
+
+    // Dash
+    private readonly InputActionMap m_Dash;
+    private IDashActions m_DashActionsCallbackInterface;
+    private readonly InputAction m_Dash_Newaction;
+    public struct DashActions
+    {
+        private @CatInputActions m_Wrapper;
+        public DashActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Dash_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Dash; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DashActions set) { return set.Get(); }
+        public void SetCallbacks(IDashActions instance)
+        {
+            if (m_Wrapper.m_DashActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_DashActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_DashActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_DashActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_DashActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public DashActions @Dash => new DashActions(this);
+
+    // Parry
+    private readonly InputActionMap m_Parry;
+    private IParryActions m_ParryActionsCallbackInterface;
+    private readonly InputAction m_Parry_Newaction;
+    public struct ParryActions
+    {
+        private @CatInputActions m_Wrapper;
+        public ParryActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Parry_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Parry; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ParryActions set) { return set.Get(); }
+        public void SetCallbacks(IParryActions instance)
+        {
+            if (m_Wrapper.m_ParryActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_ParryActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_ParryActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_ParryActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_ParryActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public ParryActions @Parry => new ParryActions(this);
     public interface IMoveActions
     {
         void OnNewaction(InputAction.CallbackContext context);
@@ -734,6 +862,14 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         void OnNewaction(InputAction.CallbackContext context);
     }
     public interface ISaveGameActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IDashActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IParryActions
     {
         void OnNewaction(InputAction.CallbackContext context);
     }

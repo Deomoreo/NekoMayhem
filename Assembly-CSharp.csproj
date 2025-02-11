@@ -99,6 +99,9 @@
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
+    <Compile Include="Assets\Scripts\Cat\CatParry.cs" />
+    <Compile Include="Assets\Scripts\Cat\CatDash.cs" />
+    <Compile Include="Assets\Scripts\Cat\ReflectedProjectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

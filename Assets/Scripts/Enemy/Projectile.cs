@@ -1,42 +1,41 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 10f;
     public int damage = 10;
-    public float lifetime = 5f;
-    private Vector3 direction;
-
-    public void Initialize(Vector3 targetPosition)
-    {
-        direction = (targetPosition - transform.position).normalized;
-        transform.LookAt(targetPosition);
-    }
-
-    private void Start()
-    {
-        Destroy(gameObject, lifetime);
-    }
-
-    private void Update()
-    {
-        transform.position += speed * Time.deltaTime * direction;
-    }
+    private bool isReflected = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!isReflected && other.CompareTag("Player"))
         {
-            CatHealth playerHealth = other.GetComponent<CatHealth>();
-            if (playerHealth != null)
+            // Controlla se il player sta effettuando il parry
+            CatParry parry = other.GetComponent<CatParry>();
+            if (parry != null && parry.IsParrying)
             {
-                playerHealth.TakeDamage(damage);
+                Debug.Log("⚠️ Proiettile intercettato dal parry, nessun danno inflitto.");
+                // Non applicare danno, lasciamo che CatParry gestisca il riflesso
+                return;
+            }
+            else
+            {
+                Debug.Log("⚠️ Il Player è stato colpito da un proiettile!");
+                other.GetComponent<CatHealth>().TakeDamage(damage);
                 Destroy(gameObject);
             }
         }
-        else if (other.gameObject.layer == LayerMask.NameToLayer("Walls") || other.gameObject.layer == LayerMask.NameToLayer("Ground")) // Se colpisce un muro, si distrugge
+        else if (isReflected && other.CompareTag("Enemy"))
         {
+            Debug.Log($"💥 Il proiettile riflesso ha colpito {other.name}!");
+            other.GetComponent<EnemyController>().TakeDamage(damage * 2);
             Destroy(gameObject);
         }
+    }
+
+    public void SetReflected()
+    {
+        isReflected = true;
+        gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
+        Debug.Log($"✨ Il proiettile {gameObject.name} è stato riflesso e non può più colpire il Player!");
     }
 }
