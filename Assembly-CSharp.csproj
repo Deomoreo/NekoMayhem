@@ -97,7 +97,6 @@
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\CatPerks\PerkUpgrades.cs" />
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\PlayerStatUpgrade.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
-    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\UpgradeTester.cs" />
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\UpgradeManager.cs" />
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />

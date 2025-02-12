@@ -5420,7 +5420,6 @@ GameObject:
   m_Component:
   - component: {fileID: 665067270}
   - component: {fileID: 665067269}
-  - component: {fileID: 665067271}
   m_Layer: 0
   m_Name: UpgradeManager
   m_TagString: Untagged
@@ -5468,20 +5467,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &665067271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665067268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39753406e60e368438f0779cc8f6c6eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forzaUpgrade: {fileID: 11400000, guid: 84f18c42bd8914a4fba7f7e934fb6de1, type: 2}
-  spadaUpgrade: {fileID: 11400000, guid: c3cd0efa54e9d0a49b3db34a1900a815, type: 2}
 --- !u!1 &678204917
 GameObject:
   m_ObjectHideFlags: 0
