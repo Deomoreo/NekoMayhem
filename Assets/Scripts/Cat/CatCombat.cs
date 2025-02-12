@@ -15,11 +15,17 @@ public class CatCombat : MonoBehaviour
     private float attackDamage;
     private float critChance;
     private float defense;
-    private float attackSpeed; 
+    private float attackSpeed;
+    private CatParry catParry; 
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        catParry = FindObjectOfType<CatParry>();
+        if (catParry == null)
+        {
+            Debug.LogError("CatParry non trovato! Assicurati che il player abbia lo script.");
+        }
         UpdateStats();
 
         PlayerStats.StatsUpdated += UpdateStats;
@@ -61,6 +67,14 @@ public class CatCombat : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         {
+            EnemyController enemyController = enemy.GetComponent<EnemyController>();
+
+            if (enemyController == null)
+            {
+                Debug.LogWarning($"Il collider {enemy.name} è stato colpito, ma non ha EnemyController!");
+                continue; 
+            }
+
             Vector3 directionToEnemy = (enemy.transform.position - attackOrigin).normalized;
             float angle = Vector3.Angle(attackDirection, directionToEnemy);
             if (angle <= attackAngle / 2)
@@ -75,14 +89,21 @@ public class CatCombat : MonoBehaviour
                     Debug.Log("COLPO CRITICO!");
                 }
 
-                Debug.Log($"Colpito {enemy.name}, Danno: {finalDamage}");
-                if (enemy.CompareTag("Enemy"))
+                if (catParry != null)
                 {
-                    enemy.GetComponent<EnemyController>().TakeDamage(finalDamage);
+
+                    if (catParry.IsEnemyStunned(enemyController))
+                    {
+                        finalDamage = Mathf.RoundToInt(finalDamage * 2f);
+                        catParry.RemoveStunnedEnemy(enemyController);
+                    }
                 }
+                Debug.Log($"Colpito {enemy.name}, Danno: {finalDamage}");
+                enemyController.TakeDamage(finalDamage);
             }
         }
     }
+
 
     public void UpdateStats()
     {

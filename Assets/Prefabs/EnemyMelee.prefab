@@ -112,10 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
-  attackDamage: 10
-  attackRange: 2
-  attackCooldown: 1.5
-  target: {fileID: 0}
 --- !u!195 &903853801099662822
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -160,6 +156,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 128
+  meleeDamage: 10
 --- !u!1 &5433884695917971573
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +168,6 @@ GameObject:
   - component: {fileID: 2464073410155078973}
   - component: {fileID: 2010844879878081322}
   - component: {fileID: 1776481455538054364}
-  - component: {fileID: 2238181943049503950}
   m_Layer: 6
   m_Name: we
   m_TagString: Untagged
@@ -242,16 +238,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2238181943049503950
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5433884695917971573}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.99999994, y: 1, z: 1.0000001}
-  m_Center: {x: 0, y: 0, z: 0}

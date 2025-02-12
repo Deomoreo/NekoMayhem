@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class CatParry : MonoBehaviour
 {
-    public float parryWindow = 0.2f; // Finestra di tempo utile per il parry
+    public float parryWindow = 0.2f; 
     private bool canParry = false;
+    private bool isParrying = false;
     private Animator animator;
-    public GameObject reflectedProjectilePrefab; // Prefab del proiettile riflesso
-
     private CatInputActions controls;
+
+    private List<EnemyController> stunnedEnemies = new List<EnemyController>();
+    public GameObject reflectedProjectilePrefab; 
 
     private void Awake()
     {
@@ -23,12 +26,11 @@ public class CatParry : MonoBehaviour
         controls.Parry.Newaction.performed += _ => StartParry();
     }
 
-    public bool IsParrying => canParry; // Proprietà pubblica per verificare lo stato del parry
-
     private void StartParry()
     {
         if (canParry) return;
 
+        isParrying = true;
         canParry = true;
         animator.SetTrigger("Parry");
         Invoke(nameof(EndParry), parryWindow);
@@ -36,17 +38,20 @@ public class CatParry : MonoBehaviour
 
     private void EndParry()
     {
+        isParrying = false;
         canParry = false;
+    }
+    public bool IsParrying() 
+    {
+        return isParrying;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!canParry) return;
 
-        if (other.CompareTag("Projectile"))
+        if (other.CompareTag("Projectile")) 
         {
-            Debug.Log($"🟢 Parry su proiettile {other.name}!");
-
             Vector3 spawnPosition = other.transform.position;
             Vector3 reflectDirection = transform.forward.normalized;
 
@@ -57,15 +62,32 @@ public class CatParry : MonoBehaviour
             GameObject reflectedProjectile = Instantiate(reflectedProjectilePrefab, spawnPosition, Quaternion.identity);
             reflectedProjectile.GetComponent<Renderer>().enabled = true;
             reflectedProjectile.tag = "ReflectedProjectile";
-            reflectedProjectile.GetComponent<Projectile>().SetReflected(); // Anche il clone è segnato come riflesso
+            reflectedProjectile.GetComponent<Projectile>().SetReflected();
 
             Rigidbody rb = reflectedProjectile.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.velocity = reflectDirection * 15f;
             }
+        }
+    }
 
-            Debug.Log($"✨ Proiettile riflesso creato in direzione {reflectDirection}!");
+    public bool IsEnemyStunned(EnemyController enemy)
+    {
+        return stunnedEnemies.Contains(enemy);
+    }
+    public void AddStunnedEnemy(EnemyController enemy)
+    {
+        if (!stunnedEnemies.Contains(enemy))
+        {
+            stunnedEnemies.Add(enemy);
+        }
+    }
+    public void RemoveStunnedEnemy(EnemyController enemy)
+    {
+        if (stunnedEnemies.Contains(enemy))
+        {
+            stunnedEnemies.Remove(enemy);
         }
     }
 }

@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\UpgradeBase.cs" />
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\WeaponUpgrade\WeaponStats.cs" />
     <Compile Include="Assets\Scripts\Enemy\ChaseStateRanged.cs" />
+    <Compile Include="Assets\Scripts\Cat\CatDash.cs" />
     <Compile Include="Assets\Scripts\Enemy\AI\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\Enemy\ChaseState.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
@@ -78,6 +79,8 @@
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\CatPerks\PlayerPerks.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Maps\TransitionManager.cs" />
+    <Compile Include="Assets\Scripts\Cat\ReflectedProjectile.cs" />
+    <Compile Include="Assets\Scripts\Cat\CatParry.cs" />
     <Compile Include="Assets\Scripts\Cat\CatCombat.cs" />
     <Compile Include="Assets\Scripts\Maps\ScreenFader.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlotHover.cs" />
@@ -99,9 +102,6 @@
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\Cat\CatParry.cs" />
-    <Compile Include="Assets\Scripts\Cat\CatDash.cs" />
-    <Compile Include="Assets\Scripts\Cat\ReflectedProjectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

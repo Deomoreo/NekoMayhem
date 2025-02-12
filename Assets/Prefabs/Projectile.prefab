@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8142090682063301058}
   - component: {fileID: 833022622182170989}
   - component: {fileID: 4941290770563860682}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  lifetime: 5
 --- !u!54 &4941290770563860682
 Rigidbody:
   m_ObjectHideFlags: 0

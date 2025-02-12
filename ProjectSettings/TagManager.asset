@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Projectile
   - ReflectedProjectile
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Player
   - Ground
   - IgnorePlayer
-  - 
+  - Projectile
   - 
   - 
   - 

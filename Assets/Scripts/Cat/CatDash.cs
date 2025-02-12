@@ -37,14 +37,12 @@ public class CatDash : MonoBehaviour
 
         Vector3 dashDirection = transform.forward;
         rb.velocity = dashDirection * dashSpeed;
-        // Disabilita collisioni con proiettili e nemici (assicurati che i layer siano corretti)
-        Physics.IgnoreLayerCollision(6, 7, true);
-
+        Physics.IgnoreLayerCollision(11, 8, true);
         yield return new WaitForSeconds(dashDuration);
 
         isDashing = false;
         rb.velocity = Vector3.zero;
-        Physics.IgnoreLayerCollision(6, 7, false);
+        Physics.IgnoreLayerCollision(11, 8, false);
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
@@ -62,9 +60,9 @@ public class CatDash : MonoBehaviour
 
     private IEnumerator ApplyDashBonus()
     {
-        Debug.Log("Dash Parry! Velocità +10% per 2 secondi!");
+        Debug.Log("Dash Parry! Velocità +10% per X secondi!");
         PlayerStats.Instance.ApplyStatUpgrade("Velocità Attacco", 10);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(6f);
         PlayerStats.Instance.ApplyStatUpgrade("Velocità Attacco", -10);
     }
 }
