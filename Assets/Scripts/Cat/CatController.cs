@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CatController : MonoBehaviour
@@ -6,7 +6,7 @@ public class CatController : MonoBehaviour
     private Animator animator;
     private Rigidbody rb;
     private CatInputActions controls;
-    private CatCombat combat; // Riferimento al sistema di attacco
+    private CatCombat combat;
 
     public float walkSpeed;
     public float runSpeed;
@@ -15,20 +15,20 @@ public class CatController : MonoBehaviour
 
     private Vector2 moveInput;
     private bool isJumping;
+    private bool jumpTriggered; // 🔥 Controlla se il salto è stato avviato dall'animazione
 
     void Awake()
     {
         controls = new CatInputActions();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        combat = GetComponent<CatCombat>(); // Prende il sistema di attacco
+        combat = GetComponent<CatCombat>();
 
         controls.Move.Newaction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controls.Move.Newaction.canceled += ctx => moveInput = Vector2.zero;
+        controls.Attack.Newaction.performed += _ => combat.PerformAttack();
 
-        controls.Attack.Newaction.performed += _ => combat.PerformAttack(); // Chiamata all'attacco
-
-        controls.Jump.Newaction.performed += _ => Jump();
+        controls.Jump.Newaction.performed += _ => StartJump();
     }
 
     void OnEnable() => controls.Enable();
@@ -37,6 +37,7 @@ public class CatController : MonoBehaviour
     void Update()
     {
         Move();
+        animator.SetBool("IsJumping", isJumping); // 🔥 Sincronizziamo il valore con l'Animator
     }
 
     void Move()
@@ -62,19 +63,39 @@ public class CatController : MonoBehaviour
         animator.SetFloat("Speed", currentSpeed);
     }
 
-    void Jump()
+    void StartJump()
     {
         if (isJumping) return;
 
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        isJumping = true;
+        isJumping = true; // 🔥 Attiviamo il booleano per l'animazione
+        jumpTriggered = false; // 🔥 Il salto reale partirà con l'evento
+        animator.SetBool("IsJumping", true);
     }
 
-    void OnCollisionEnter(Collision collision)
+    // 🔥 Questo metodo verrà chiamato dall'evento nell'animazione per sincronizzare il salto
+    public void JumpStart()
+    {
+        if (!isJumping || jumpTriggered) return; // 🔥 Evitiamo doppi salti
+
+        jumpTriggered = true;
+        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+        Debug.Log("🚀 Jump Start: Il player si solleva!");
+    }
+
+    // 🔥 Questo metodo verrà chiamato dall'evento quando il player atterra
+    public void JumpEnd()
+    {
+        isJumping = false;
+        jumpTriggered = false;
+        animator.SetBool("IsJumping", false);
+        Debug.Log("🏁 Jump End: Il player è atterrato!");
+    }
+
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = false;
+            JumpEnd(); // 🔥 Se tocca terra prima della fine dell'animazione, forziamo l'atterraggio
         }
     }
 }
