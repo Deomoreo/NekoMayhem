@@ -14,7 +14,7 @@ public class CatController : MonoBehaviour
     public float rotationSpeed;
 
     private Vector2 moveInput;
-    private bool isJumping; // 🔥 Controlla se il player sta saltando
+    private bool isJumping; 
 
     void Awake()
     {
@@ -65,11 +65,10 @@ public class CatController : MonoBehaviour
     {
         if (isJumping) return;
 
-        isJumping = true; // 🔥 Attiviamo il booleano per l'animazione
+        isJumping = true; 
         animator.SetBool("IsJumping", true);
     }
 
-    // 🔥 Questo metodo verrà chiamato dall'animazione quando il player spinge verso l'alto
     public void JumpStart()
     {
         if (!isJumping) return;
@@ -78,7 +77,6 @@ public class CatController : MonoBehaviour
         Debug.Log("🚀 Jump Start: Il player si solleva!");
     }
 
-    // 🔥 Questo metodo verrà chiamato dall'animazione quando il player atterra
     public void JumpEnd()
     {
         isJumping = false;
@@ -90,7 +88,7 @@ public class CatController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            JumpEnd(); // 🔥 Se tocca terra prima della fine dell'animazione, forziamo l'atterraggio
+            JumpEnd(); 
         }
     }
 }

@@ -8,9 +8,9 @@ public class CatCombat : MonoBehaviour
 
     public float attackAngle = 30f;
     public float attackRange = 1.5f;
-    private float baseAttackCooldown = 0.5f;
+    public float baseAttackCooldown = 0.5f;
     private float attackCooldown;
-    private bool isAttacking;
+    private bool isAttacking = true;
     private string currentWeapon = "Spada";
     private float attackDamage;
     private float critChance;
@@ -40,24 +40,41 @@ public class CatCombat : MonoBehaviour
 
     public void PerformAttack()
     {
-        if (isAttacking) return;
-
-        isAttacking = true;
-        animator.SetTrigger("Attack");
+        if (!isAttacking || animator.GetBool("IsAttacking")) return;
+        animator.SetBool("IsAttacking", true);
+        //animator.SetTrigger("Attack");
+        StartCoroutine(FadeLayerWeight(1, 0.1f)); 
         StartCoroutine(ResetAttackCooldown());
     }
+    public void EndAttack()
+    {
+        animator.SetBool("IsAttacking", false);
+        StartCoroutine(FadeLayerWeight(0, 0.1f)); 
+    }
+    private IEnumerator FadeLayerWeight(float targetWeight, float duration)
+    {
+        float currentWeight = animator.GetLayerWeight(1);
+        float elapsedTime = 0f;
 
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            animator.SetLayerWeight(1, Mathf.Lerp(currentWeight, targetWeight, elapsedTime / duration));
+            yield return null;
+        }
+
+        animator.SetLayerWeight(1, targetWeight);
+    }
     private IEnumerator ResetAttackCooldown()
     {
-        yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
+        yield return new WaitForSeconds(attackCooldown);
+        isAttacking = true;
     }
-
     public void ApplyDamageEvent()
     {
         ApplyDamage();
     }
-
     private void ApplyDamage()
     {
         Vector3 attackOrigin = transform.position;
@@ -103,8 +120,6 @@ public class CatCombat : MonoBehaviour
             }
         }
     }
-
-
     public void UpdateStats()
     {
         attackDamage = PlayerStats.Instance.stats["Forza"];
@@ -120,7 +135,6 @@ public class CatCombat : MonoBehaviour
 
         Debug.Log($"Danni aggiornati: {attackDamage} | Critico: {critChance}% | Cooldown: {attackCooldown} | Difesa: {defense}");
     }
-
     public void ChangeWeapon(string newWeapon)
     {
         currentWeapon = newWeapon;
