@@ -43,14 +43,14 @@ ModelImporter:
       name: jumping
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
+      firstFrame: 15
       lastFrame: 57
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 1
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -67,7 +67,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 4.9
     isReadable: 0
   meshes:
     lODScreenPercentages: []

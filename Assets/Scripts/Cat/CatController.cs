@@ -14,8 +14,7 @@ public class CatController : MonoBehaviour
     public float rotationSpeed;
 
     private Vector2 moveInput;
-    private bool isJumping;
-    private bool jumpTriggered; // 🔥 Controlla se il salto è stato avviato dall'animazione
+    private bool isJumping; // 🔥 Controlla se il player sta saltando
 
     void Awake()
     {
@@ -37,7 +36,6 @@ public class CatController : MonoBehaviour
     void Update()
     {
         Move();
-        animator.SetBool("IsJumping", isJumping); // 🔥 Sincronizziamo il valore con l'Animator
     }
 
     void Move()
@@ -68,25 +66,22 @@ public class CatController : MonoBehaviour
         if (isJumping) return;
 
         isJumping = true; // 🔥 Attiviamo il booleano per l'animazione
-        jumpTriggered = false; // 🔥 Il salto reale partirà con l'evento
         animator.SetBool("IsJumping", true);
     }
 
-    // 🔥 Questo metodo verrà chiamato dall'evento nell'animazione per sincronizzare il salto
+    // 🔥 Questo metodo verrà chiamato dall'animazione quando il player spinge verso l'alto
     public void JumpStart()
     {
-        if (!isJumping || jumpTriggered) return; // 🔥 Evitiamo doppi salti
+        if (!isJumping) return;
 
-        jumpTriggered = true;
         rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
         Debug.Log("🚀 Jump Start: Il player si solleva!");
     }
 
-    // 🔥 Questo metodo verrà chiamato dall'evento quando il player atterra
+    // 🔥 Questo metodo verrà chiamato dall'animazione quando il player atterra
     public void JumpEnd()
     {
         isJumping = false;
-        jumpTriggered = false;
         animator.SetBool("IsJumping", false);
         Debug.Log("🏁 Jump End: Il player è atterrato!");
     }
