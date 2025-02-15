@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyMelee : EnemyBase
@@ -6,9 +6,11 @@ public class EnemyMelee : EnemyBase
     public PatrolState patrolState;
     public ChaseStateMelee chaseState;
     public AttackState attackState;
+    private EnemyController enemyController;
 
     [Header("Parametri Attacco Melee")]
     public int meleeDamage = 10;
+    private CatParry catParry;
 
     void Awake()
     {
@@ -16,6 +18,9 @@ public class EnemyMelee : EnemyBase
         patrolState = new PatrolState(this);
         chaseState = new ChaseStateMelee(this);
         attackState = new AttackState(this);
+
+        enemyController = GetComponent<EnemyController>();
+        catParry = FindObjectOfType<CatParry>();
 
         TransitionToState(patrolState);
     }
@@ -25,6 +30,13 @@ public class EnemyMelee : EnemyBase
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer <= attackRadius)
         {
+            if (player.GetComponent<CatParry>().IsParrying()) 
+            {
+                catParry.AddStunnedEnemy(enemyController);
+                enemyController.ApplyStun(5f); 
+                return;
+            }
+
             CatHealth playerHealth = player.GetComponent<CatHealth>();
             if (playerHealth != null)
             {
@@ -40,12 +52,6 @@ public class EnemyMelee : EnemyBase
             {
                 animator.SetTrigger("Attack");
             }
-
-            Debug.Log($"{gameObject.name} attacca il player (melee)!");
-        }
-        else
-        {
-            Debug.LogWarning($"{gameObject.name} ha tentato di attaccare, ma il player è fuori portata.");
         }
     }
 }

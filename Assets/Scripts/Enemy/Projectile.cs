@@ -1,42 +1,51 @@
+﻿using System.Collections;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 10f;
-    public float damage = 10f;
-    public float lifetime = 5f;
-    private Vector3 direction;
-
-    public void Initialize(Vector3 targetPosition)
-    {
-        direction = (targetPosition - transform.position).normalized;
-        transform.LookAt(targetPosition);
-    }
-
+    public int damage = 10;
+    private bool isReflected = false;
+    public float lifetime = 5f; 
+    
     private void Start()
     {
-        Destroy(gameObject, lifetime);
-    }
-
-    private void Update()
-    {
-        transform.position += speed * Time.deltaTime * direction;
+        StartCoroutine(DestroyAfterTime()); 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!isReflected && other.CompareTag("Player"))
         {
-            CatHealth playerHealth = other.GetComponent<CatHealth>();
-            if (playerHealth != null)
+            // Controlla se il player sta effettuando il parry
+            CatParry parry = other.GetComponent<CatParry>();
+            if (parry != null && parry.IsParrying())
             {
-                playerHealth.TakeDamage(damage);
+                return;
+            }
+            else
+            {
+                other.GetComponent<CatHealth>().TakeDamage(damage);
                 Destroy(gameObject);
             }
         }
-        else if (other.gameObject.layer == LayerMask.NameToLayer("Walls") || other.gameObject.layer == LayerMask.NameToLayer("Ground")) // Se colpisce un muro, si distrugge
+        else if (isReflected && other.CompareTag("Enemy"))
+        {
+            other.GetComponent<EnemyController>().TakeDamage(damage * 2);
+            Destroy(gameObject);
+        }
+        if (other.CompareTag("Room") || other.CompareTag("Ground"))
         {
             Destroy(gameObject);
         }
+    }
+    private IEnumerator DestroyAfterTime()
+    {
+        yield return new WaitForSeconds(lifetime);
+        Destroy(gameObject);
+    }
+    public void SetReflected()
+    {
+        isReflected = true;
+        gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
     }
 }

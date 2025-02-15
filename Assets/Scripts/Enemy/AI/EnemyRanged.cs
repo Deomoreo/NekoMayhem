@@ -23,6 +23,5 @@ public class EnemyRanged : EnemyBase
 
     public override void AttackPlayer()
     {
-        Debug.Log($"{gameObject.name} attacca il player con proiettili!");
     }
 }

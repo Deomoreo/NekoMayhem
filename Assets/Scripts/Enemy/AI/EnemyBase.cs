@@ -35,7 +35,6 @@ public abstract class EnemyBase : MonoBehaviour
 
     public void TransitionToState(EnemyState newState)
     {
-        Debug.Log($"{gameObject.name} transita da {currentState?.GetType().Name} a {newState.GetType().Name}");
         currentState?.Exit();
         currentState = newState;
         currentState.Enter();

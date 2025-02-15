@@ -262,6 +262,118 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Interact"",
+            ""id"": ""6b8db64c-0655-4ca1-b138-f990c03d3153"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""52c15b99-8a06-4bf4-ab95-c16463dfa53d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3d2113a0-6c0c-4ad5-9da8-92b305c8ea50"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""SaveGame"",
+            ""id"": ""92dd71f9-430a-47c0-a906-24d9a6e32512"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""25881a0d-7a83-4578-bc28-8e8243b85633"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""af4c5207-ce89-4fca-974d-54ec78b31a1f"",
+                    ""path"": ""<Keyboard>/f5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Dash"",
+            ""id"": ""14f78116-1d54-4dc8-8a54-7bd3ab2bec64"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""9af91fe2-5698-487a-b9a0-41c32a4359e0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c4ed3902-8233-466d-874d-2dd064c1f0e1"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Parry"",
+            ""id"": ""c67b0888-125c-42cc-a9bb-93bcfe52a1bc"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b518537-a685-43ca-b0bb-55ddada9d607"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c33b8a87-825e-4600-a331-ca9aa2ba8a7a"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -287,6 +399,18 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         // Map
         m_Map = asset.FindActionMap("Map", throwIfNotFound: true);
         m_Map_Newaction = m_Map.FindAction("New action", throwIfNotFound: true);
+        // Interact
+        m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
+        m_Interact_Newaction = m_Interact.FindAction("New action", throwIfNotFound: true);
+        // SaveGame
+        m_SaveGame = asset.FindActionMap("SaveGame", throwIfNotFound: true);
+        m_SaveGame_Newaction = m_SaveGame.FindAction("New action", throwIfNotFound: true);
+        // Dash
+        m_Dash = asset.FindActionMap("Dash", throwIfNotFound: true);
+        m_Dash_Newaction = m_Dash.FindAction("New action", throwIfNotFound: true);
+        // Parry
+        m_Parry = asset.FindActionMap("Parry", throwIfNotFound: true);
+        m_Parry_Newaction = m_Parry.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -573,6 +697,138 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         }
     }
     public MapActions @Map => new MapActions(this);
+
+    // Interact
+    private readonly InputActionMap m_Interact;
+    private IInteractActions m_InteractActionsCallbackInterface;
+    private readonly InputAction m_Interact_Newaction;
+    public struct InteractActions
+    {
+        private @CatInputActions m_Wrapper;
+        public InteractActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Interact_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Interact; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InteractActions set) { return set.Get(); }
+        public void SetCallbacks(IInteractActions instance)
+        {
+            if (m_Wrapper.m_InteractActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_InteractActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_InteractActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_InteractActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_InteractActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public InteractActions @Interact => new InteractActions(this);
+
+    // SaveGame
+    private readonly InputActionMap m_SaveGame;
+    private ISaveGameActions m_SaveGameActionsCallbackInterface;
+    private readonly InputAction m_SaveGame_Newaction;
+    public struct SaveGameActions
+    {
+        private @CatInputActions m_Wrapper;
+        public SaveGameActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_SaveGame_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_SaveGame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SaveGameActions set) { return set.Get(); }
+        public void SetCallbacks(ISaveGameActions instance)
+        {
+            if (m_Wrapper.m_SaveGameActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_SaveGameActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_SaveGameActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_SaveGameActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_SaveGameActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public SaveGameActions @SaveGame => new SaveGameActions(this);
+
+    // Dash
+    private readonly InputActionMap m_Dash;
+    private IDashActions m_DashActionsCallbackInterface;
+    private readonly InputAction m_Dash_Newaction;
+    public struct DashActions
+    {
+        private @CatInputActions m_Wrapper;
+        public DashActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Dash_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Dash; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DashActions set) { return set.Get(); }
+        public void SetCallbacks(IDashActions instance)
+        {
+            if (m_Wrapper.m_DashActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_DashActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_DashActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_DashActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_DashActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public DashActions @Dash => new DashActions(this);
+
+    // Parry
+    private readonly InputActionMap m_Parry;
+    private IParryActions m_ParryActionsCallbackInterface;
+    private readonly InputAction m_Parry_Newaction;
+    public struct ParryActions
+    {
+        private @CatInputActions m_Wrapper;
+        public ParryActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Parry_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Parry; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ParryActions set) { return set.Get(); }
+        public void SetCallbacks(IParryActions instance)
+        {
+            if (m_Wrapper.m_ParryActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_ParryActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_ParryActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_ParryActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_ParryActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public ParryActions @Parry => new ParryActions(this);
     public interface IMoveActions
     {
         void OnNewaction(InputAction.CallbackContext context);
@@ -598,6 +854,22 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         void OnNewaction(InputAction.CallbackContext context);
     }
     public interface IMapActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IInteractActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface ISaveGameActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IDashActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IParryActions
     {
         void OnNewaction(InputAction.CallbackContext context);
     }

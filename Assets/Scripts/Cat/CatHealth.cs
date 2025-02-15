@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class CatHealth : MonoBehaviour
@@ -17,11 +17,16 @@ public class CatHealth : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
-        if (currentHealth <= 0) return; 
+        if (currentHealth <= 0) return;
 
-        currentHealth -= damage;
+        int defense = PlayerStats.Instance.stats.ContainsKey("Difesa") ? Mathf.RoundToInt(PlayerStats.Instance.stats["Difesa"]) : 0;
+        int reducedDamage = Mathf.Max(1, damage - defense); // Assicuriamoci che il danno minimo sia sempre 1
+
+        currentHealth -= reducedDamage;
+        Debug.Log($"Il player ha subito {reducedDamage} danni! Salute attuale: {currentHealth}");
+
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthSlider.value = currentHealth;
 
@@ -32,6 +37,7 @@ public class CatHealth : MonoBehaviour
         {
             Die();
         }
+
     }
 
     public void Heal(float amount)
@@ -43,7 +49,7 @@ public class CatHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Il gatto � morto!");
+        Debug.Log("Il gatto è morto!");
         //animator.SetTrigger("Die"); 
     }
 }

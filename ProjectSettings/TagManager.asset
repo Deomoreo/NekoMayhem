@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Projectile
+  - ReflectedProjectile
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -17,8 +20,8 @@ TagManager:
   - Walls
   - Player
   - Ground
-  - 
-  - 
+  - IgnorePlayer
+  - Projectile
   - 
   - 
   - 
