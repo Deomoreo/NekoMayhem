@@ -19,19 +19,20 @@ public class CatHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (currentHealth <= 0) return; 
+        if (currentHealth <= 0) return;
 
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthSlider.value = currentHealth;
 
+        Debug.Log("Danni subiti. HP attuali: " + currentHealth);
+
+        if (CameraShake.Instance != null)
+            CameraShake.Instance.Shake(0.6f, 0.8f); // Shake 
+
         if (currentHealth <= 0)
         {
             Die();
-        }
-        else
-        {
-            //animator.SetTrigger("Hurt"); 
         }
     }
 
@@ -57,5 +58,6 @@ public class CatHealth : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(health, 0, maxHealth);
         healthSlider.value = currentHealth;
+        Debug.Log("HP iniziali: " + currentHealth);
     }
 }

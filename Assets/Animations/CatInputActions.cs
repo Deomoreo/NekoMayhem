@@ -236,13 +236,13 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Interact"",
-            ""id"": ""1379b04a-e267-42a7-82d5-5572b5a63ac7"",
+            ""name"": ""Map"",
+            ""id"": ""b7e266f4-c8ae-4489-b73b-2079142fc9a2"",
             ""actions"": [
                 {
                     ""name"": ""New action"",
                     ""type"": ""Button"",
-                    ""id"": ""81d163f9-eb63-4316-b19b-407b3fbc0927"",
+                    ""id"": ""af073245-8f21-4860-b41c-d32ed7b85f0e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -252,7 +252,35 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""9608573b-09cf-4fe5-9006-6424f6c63b12"",
+                    ""id"": ""0f7fb8d1-5d79-4cd9-a627-aca22acdd31a"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Interact"",
+            ""id"": ""6b8db64c-0655-4ca1-b138-f990c03d3153"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""52c15b99-8a06-4bf4-ab95-c16463dfa53d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3d2113a0-6c0c-4ad5-9da8-92b305c8ea50"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -265,12 +293,12 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         },
         {
             ""name"": ""SaveGame"",
-            ""id"": ""070e6fad-e528-471b-bbef-82e8c7cf82ab"",
+            ""id"": ""92dd71f9-430a-47c0-a906-24d9a6e32512"",
             ""actions"": [
                 {
                     ""name"": ""New action"",
                     ""type"": ""Button"",
-                    ""id"": ""fdce2447-7ee5-4bd3-b92b-280b9d43c9f6"",
+                    ""id"": ""25881a0d-7a83-4578-bc28-8e8243b85633"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -280,7 +308,7 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""64a24f36-87b8-4883-a03d-84a95e97c626"",
+                    ""id"": ""af4c5207-ce89-4fca-974d-54ec78b31a1f"",
                     ""path"": ""<Keyboard>/f5"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -312,6 +340,9 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         // ToggleInventory
         m_ToggleInventory = asset.FindActionMap("ToggleInventory", throwIfNotFound: true);
         m_ToggleInventory_Newaction = m_ToggleInventory.FindAction("New action", throwIfNotFound: true);
+        // Map
+        m_Map = asset.FindActionMap("Map", throwIfNotFound: true);
+        m_Map_Newaction = m_Map.FindAction("New action", throwIfNotFound: true);
         // Interact
         m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
         m_Interact_Newaction = m_Interact.FindAction("New action", throwIfNotFound: true);
@@ -572,6 +603,39 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
     }
     public ToggleInventoryActions @ToggleInventory => new ToggleInventoryActions(this);
 
+    // Map
+    private readonly InputActionMap m_Map;
+    private IMapActions m_MapActionsCallbackInterface;
+    private readonly InputAction m_Map_Newaction;
+    public struct MapActions
+    {
+        private @CatInputActions m_Wrapper;
+        public MapActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Map_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Map; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MapActions set) { return set.Get(); }
+        public void SetCallbacks(IMapActions instance)
+        {
+            if (m_Wrapper.m_MapActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_MapActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_MapActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_MapActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_MapActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public MapActions @Map => new MapActions(this);
+
     // Interact
     private readonly InputActionMap m_Interact;
     private IInteractActions m_InteractActionsCallbackInterface;
@@ -658,6 +722,10 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         void OnNewaction(InputAction.CallbackContext context);
     }
     public interface IToggleInventoryActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IMapActions
     {
         void OnNewaction(InputAction.CallbackContext context);
     }

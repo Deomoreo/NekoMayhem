@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 5402056667982936816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.00012, y: 0.00015, z: 0.0001}
   m_Children:
   - {fileID: 5402056669103925205}
   m_Father: {fileID: 5402056669050860836}
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2}
+  m_AnchoredPosition: {x: 0, y: 1.5}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5402056667982936819
@@ -167,7 +167,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -175,12 +175,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: Press F to unlock checkpoint
 --- !u!1 &5402056669050860888
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +192,7 @@ GameObject:
   - component: {fileID: 5402056669050860890}
   - component: {fileID: 5402056669050860889}
   - component: {fileID: 1188761398876775338}
-  - component: {fileID: -2619233000569869157}
+  - component: {fileID: 8162890193365342094}
   m_Layer: 0
   m_Name: InteractableObject
   m_TagString: Untagged
@@ -244,7 +242,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e8f4c924f1ad22443aca75cc7f6b3d5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -291,10 +289,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c5388ac5bcc074abfe7a55cb2e69c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionMessage: Press F to interact
+  interactionMessage: Rest
   interactionPopup: {fileID: 5402056668846895249}
   isInteracted: 0
---- !u!114 &-2619233000569869157
+  saveNotification: {fileID: 0}
+--- !u!114 &8162890193365342094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,10 +302,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5402056669050860888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8464f7b1dc48177479e28b4f11ddc04e, type: 3}
+  m_Script: {fileID: 11500000, guid: e15863a6b7bfeeb449094735097e103b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueId: 
 --- !u!1 &5402056669103925204
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,8 +340,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 73500, y: 31600}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &5402056669103925207
 CanvasRenderer:

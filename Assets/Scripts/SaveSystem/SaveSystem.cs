@@ -18,6 +18,26 @@ public static class SaveSystem
             playerHP = health
         };
 
+        // Get the current room from GridManager
+        GridManager gridManager = GameObject.FindObjectOfType<GridManager>();
+        if (gridManager != null && gridManager.currentRoom != null)
+        {
+            saveData.roomPositionX = gridManager.currentRoom.gridPosition.x;
+            saveData.roomPositionY = gridManager.currentRoom.gridPosition.y;
+        }
+
+        // Manage upgrade system state
+        UpgradeSystem upgradeSystem = UpgradeSystem.Instance;
+        if (upgradeSystem != null)
+        {
+            saveData.upgradePoints = upgradeSystem.upgradePoints;
+            foreach(var upgrade in upgradeSystem.upgrades)
+            {
+                UpgradeData upgradeData = new UpgradeData(upgrade.upgradeName, upgrade.isUnlocked);
+                saveData.upgrades.Add(upgradeData);
+            }
+        }
+
         // Manage interactable objects states
         Interactable[] interactables = GameObject.FindObjectsOfType<Interactable>();
         foreach (Interactable interactableObject in interactables)
@@ -50,6 +70,32 @@ public static class SaveSystem
             string json = File.ReadAllText(savePath);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
+            // Activate the correct room before placing player character
+            GridManager gridManager = GameObject.FindObjectOfType<GridManager>();
+            if (gridManager != null)
+            {
+                Vector2Int savedRoomPosition = new Vector2Int(data.roomPositionX, data.roomPositionY);
+
+                // Disable all rooms first
+                foreach (Room room in gridManager.rooms.Values)
+                {
+                    room.gameObject.SetActive(false);
+                }
+
+                // Activate the saved room and set it as the current room
+                if (gridManager.rooms.TryGetValue(savedRoomPosition, out Room savedRoom))
+                {
+                    savedRoom.gameObject.SetActive(true);
+                    gridManager.currentRoom = savedRoom;
+                }
+                else
+                {
+                    Debug.LogError("Saved room position does not exist in GridManager!");
+                    return new SaveData(); // Prevent loading if the room is invalid
+                }
+            }
+
+
             // Set the player data with the data loaded from the save file
             CatController player = GameObject.FindObjectOfType<CatController>();
             if (player != null)
@@ -57,6 +103,22 @@ public static class SaveSystem
                 player.transform.position = new Vector3(data.playerPositionX, data.playerPositionY, data.playerPositionZ);
                 CatHealth playerHealth = player.GetComponent<CatHealth>();
                 playerHealth.SetHealth(data.playerHP);
+            }
+
+            // Manage load upgrade system
+            UpgradeSystem upgradeSystem = UpgradeSystem.Instance;
+            if (upgradeSystem != null)
+            {
+                upgradeSystem.upgradePoints = data.upgradePoints;
+                // find each upgrade and load its state
+                foreach (var upgrade in upgradeSystem.upgrades)
+                {
+                    UpgradeData upgradeData = data.upgrades.Find(u => u.upgradeName == upgrade.upgradeName);
+                    if(upgradeData != null)
+                    {
+                        upgrade.isUnlocked = upgradeData.isUnlocked;
+                    }
+                }
             }
 
             // Create a dictionary for fast lookup.

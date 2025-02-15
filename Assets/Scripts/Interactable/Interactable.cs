@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
@@ -18,6 +14,7 @@ public class Interactable : MonoBehaviour
     private Color interactedColor = Color.red;
     private bool isPlayerNear = false; // Track if player is in range
     public bool isInteracted = false; // Track interaction state
+    public SaveNotification saveNotification;
 
     void Awake()
     {
@@ -58,62 +55,76 @@ public class Interactable : MonoBehaviour
         {
             if (interactionPopup != null)
             {
-
-                if (!isInteracted)
-                {
-                    isInteracted = true;
-                    renderer.material.color = interactedColor;
-                } else
-                {
-                    isInteracted = false;
-                    renderer.material.color = originalSphereColor;
-                }
+                // Save game and display message -> first time the checkpoint unlocked popup is shown
+                SaveCheckpoint();
+                HidePopup();
+                renderer.material.color = interactedColor;              
             }
         }
         else return;
     }
 
+    private void SaveCheckpoint()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Vector3 savePosition = transform.position + (player.transform.forward * 2f);
+            SaveSystem.SaveGame(player.transform, player.GetComponent<CatHealth>().GetCurrentHealth(), saveNotification);
+            Debug.Log("game saved at checkpoint");
+
+            // Show unlock message
+            if (!isInteracted)
+            {
+                MessagePanel messagePanel = FindObjectOfType<MessagePanel>();
+                messagePanel.ShowMessage("Checkpoint Unlocked");
+                isInteracted = true;
+            }
+
+        } else
+        {
+            Debug.LogWarning("Save checkpoint: player not found");
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Player"))
         {
             isPlayerNear = true; // Player is in range
-
-            if (interactionPopup != null)
+            ShowPopup();
+            if (interactionText != null)
             {
-                // Show popup
-                ManagePopup();
                 interactionText.text = interactionMessage;
-                
+
             }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
+
         if (other.CompareTag("Player"))
         {
             isPlayerNear = false;
-            if (interactionPopup != null)
-            {
-                // Disable popup
-                ManagePopup();
-            }
+            HidePopup();
         }
     }
 
-    // Reverses the state of the popup
-    private void ManagePopup()
+    private void ShowPopup()
     {
-        if(interactionPopup.activeInHierarchy == true)
-        {
-            interactionPopup.transform.parent.gameObject.SetActive(false);
-            interactionPopup.SetActive(false); 
-        } else
+        if(interactionPopup != null)
         {
             interactionPopup.transform.parent.gameObject.SetActive(true);
             interactionPopup.SetActive(true);
         }
+    }
+
+    private void HidePopup()
+    {
+        interactionPopup.transform.parent.gameObject.SetActive(false);
+        interactionPopup.SetActive(false);
     }
 
     // Method to apply the saved state and color after loading the game
@@ -127,5 +138,4 @@ public class Interactable : MonoBehaviour
             renderer.material.color = data.colorData.ToColor();
         }
     }
-
 }

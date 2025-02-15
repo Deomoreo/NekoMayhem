@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackState : EnemyState
@@ -18,17 +16,16 @@ public class AttackState : EnemyState
     public override void Update()
     {
         attackTimer += Time.deltaTime;
+        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.position);
 
-        if (!enemy.CanSeePlayer())
+        if (distanceToPlayer > enemy.attackRadius)
         {
-            enemy.TransitionToState(new ChaseState(enemy));
+            enemy.TransitionToState(new ChaseStateMelee(enemy));
             return;
         }
-
-        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.position);
-        if (distanceToPlayer > enemy.attackRadius && distanceToPlayer <= enemy.chaseRadius)
+        if (!enemy.CanSeePlayer())
         {
-            enemy.TransitionToState(new ChaseState(enemy));
+            enemy.TransitionToState(new PatrolState(enemy));
             return;
         }
 
@@ -44,7 +41,3 @@ public class AttackState : EnemyState
         enemy.agent.isStopped = false;
     }
 }
-
-
-
-

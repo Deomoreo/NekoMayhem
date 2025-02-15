@@ -6,9 +6,12 @@ public class MessagePanel : MonoBehaviour
 {
     public GameObject messagePanel;
     public Text messageText;
-    private float fadeOutDelay = 5f;
+    private float fadeOutDelay = 4f;
     private float fadeDuration = 1f;
     private CanvasGroup canvasGroup;
+
+
+    private static MessagePanel instance;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -33,6 +36,7 @@ public class MessagePanel : MonoBehaviour
     { 
         if(messagePanel != null)
         {
+
             if (!messagePanel.activeSelf)
             {
                 messagePanel.SetActive(true);
@@ -72,6 +76,6 @@ public class MessagePanel : MonoBehaviour
             yield return null;
         }
 
-        messagePanel.SetActive(false);
+        canvasGroup.alpha = 0;
     }
 }

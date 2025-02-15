@@ -12,23 +12,14 @@ public class GameManager : MonoBehaviour
     private float delayTime = 2f; 
 
     // Start is called before the first frame update
-    void Start()
-    {
-       string saveFilePath = Application.persistentDataPath + "/savefile.json";
+    void Start() {  
+        SaveSystem.LoadGame();
 
-        if (File.Exists(saveFilePath))
+        if (messagePanel != null)
         {
-            SaveSystem.LoadGame();
-        } else
-        {
-            if (messagePanel != null)
-            {
-                StartCoroutine(ShowMessageAfterDelay());
-            }
+            StartCoroutine(ShowMessageAfterDelay());
         }
-
-       
-
+      
        controls = new CatInputActions();
        controls.Enable();
        controls.SaveGame.Newaction.performed += _ => SaveGameData();
@@ -45,7 +36,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShowMessageAfterDelay()
     {
         yield return new WaitForSeconds(delayTime);
-        messagePanel.ShowMessage("Welcome to the summoners' rift. Sugoi!!!");
+        messagePanel.ShowMessage("Putrified Wasteland (marcianise)");
     }
     
 }
