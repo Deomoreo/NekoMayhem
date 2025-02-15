@@ -8,8 +8,8 @@ public class CatCombat : MonoBehaviour
 
     public float attackAngle = 30f;
     public float attackRange = 1.5f;
-    public float baseAttackCooldown = 0.5f;
-    private float attackCooldown;
+    private float baseAttackCooldown = 0.5f;
+    public float attackCooldown;
     private bool isAttacking = true;
     private string currentWeapon = "Spada";
     private float attackDamage;
@@ -41,15 +41,16 @@ public class CatCombat : MonoBehaviour
     public void PerformAttack()
     {
         if (!isAttacking || animator.GetBool("IsAttacking")) return;
+        isAttacking = false;
         animator.SetBool("IsAttacking", true);
         //animator.SetTrigger("Attack");
         StartCoroutine(FadeLayerWeight(1, 0.1f)); 
-        StartCoroutine(ResetAttackCooldown());
     }
     public void EndAttack()
     {
         animator.SetBool("IsAttacking", false);
-        StartCoroutine(FadeLayerWeight(0, 0.1f)); 
+        StartCoroutine(FadeLayerWeight(0, 0.1f));
+        StartCoroutine(ResetAttackCooldown());
     }
     private IEnumerator FadeLayerWeight(float targetWeight, float duration)
     {
@@ -67,7 +68,6 @@ public class CatCombat : MonoBehaviour
     }
     private IEnumerator ResetAttackCooldown()
     {
-        isAttacking = false;
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = true;
     }

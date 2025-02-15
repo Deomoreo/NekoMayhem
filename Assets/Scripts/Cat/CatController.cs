@@ -40,6 +40,8 @@ public class CatController : MonoBehaviour
 
     void Move()
     {
+        if (isJumping) return; // 🔥 Blocca il movimento mentre si è in aria
+
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
 
@@ -61,6 +63,7 @@ public class CatController : MonoBehaviour
         animator.SetFloat("Speed", currentSpeed);
     }
 
+
     void StartJump()
     {
         if (isJumping) return;
@@ -81,8 +84,13 @@ public class CatController : MonoBehaviour
     {
         isJumping = false;
         animator.SetBool("IsJumping", false);
+
+        // 🔥 Blocca lo sliding dopo l'atterraggio
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+
         Debug.Log("🏁 Jump End: Il player è atterrato!");
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {

@@ -17190,6 +17190,7 @@ MonoBehaviour:
     m_Bits: 64
   attackAngle: 100
   attackRange: 1.5
+  attackCooldown: 0
 --- !u!114 &1431597840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17715,6 +17716,7 @@ MonoBehaviour:
     m_Bits: 64
   attackAngle: 100
   attackRange: 1.5
+  attackCooldown: 2
 --- !u!114 &1492194233
 MonoBehaviour:
   m_ObjectHideFlags: 0
