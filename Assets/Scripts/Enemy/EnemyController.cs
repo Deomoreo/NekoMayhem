@@ -1,23 +1,34 @@
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public int maxHealth = 50;
+    [Header("Statistiche Base")]
+    public int maxHealth = 100;
     private int currentHealth;
-    public int amountDropAnimelle = 50;
 
-    void Start()
+    [Header("Stato e Bonus")]
+    private bool isStunned = false;
+    private NavMeshAgent agent;
+    private Animator animator;
+
+    private void Awake()
     {
         currentHealth = maxHealth;
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log($"{gameObject.name} ha subito {damage} danni! Salute attuale: {currentHealth}");
+        Debug.Log($"{gameObject.name} ha subito {damage} danni. Salute attuale: {currentHealth}");
 
-        if (CameraShake.Instance != null)
-            CameraShake.Instance.Shake(0.2f, 0.5f); //shake
+        if (animator != null)
+        {
+            animator.SetTrigger("Hurt");
+        }
 
         if (currentHealth <= 0)
         {
@@ -25,10 +36,47 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Die()
+    public void ApplyStun(float duration)
     {
-        Debug.Log($"{gameObject.name} � stato sconfitto!");
-        UpgradeSystem.Instance.AddPoints(amountDropAnimelle);
+        if (!isStunned)
+        {
+            isStunned = true;
+            if (agent != null)
+            {
+                agent.isStopped = true;
+            }
+            EnemyMelee meleeComponent = GetComponent<EnemyMelee>();
+            if (meleeComponent != null)
+            {
+                meleeComponent.enabled = false; 
+            }
+
+            if (animator != null)
+            {
+                animator.SetTrigger("Stunned");
+            }
+
+            StartCoroutine(RecoverFromStun(duration));
+        }
+    }
+
+    private IEnumerator RecoverFromStun(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        isStunned = false;
+        if (agent != null)
+        {
+            agent.isStopped = false;
+        }
+        EnemyMelee meleeComponent = GetComponent<EnemyMelee>();
+        if (meleeComponent != null)
+        {
+            meleeComponent.enabled = true;
+        }
+    }
+    private void Die()
+    {
+        Debug.Log($"{gameObject.name} è morto.");
         Destroy(gameObject);
     }
 }

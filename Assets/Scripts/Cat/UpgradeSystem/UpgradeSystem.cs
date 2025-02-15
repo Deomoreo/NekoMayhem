@@ -6,7 +6,7 @@ public class UpgradeSystem : MonoBehaviour
 {
     public static UpgradeSystem Instance;
     public int upgradePoints = 0;
-    public Text[] pointsText; // UI per mostrare i punti
+    public Text pointsText; // UI per mostrare i punti
     public GameObject upgradeShopPanel; // Pannello dello shop
     public Transform upgradeList; // Lista degli upgrade
     public GameObject upgradeButtonPrefab; // Prefab dei bottoni upgrade
@@ -14,19 +14,6 @@ public class UpgradeSystem : MonoBehaviour
     private CatController playerController; // Riferimento al movimento del giocatore
 
     private bool playerInZone = false;
-
-    [System.Serializable]
-    public class Upgrade
-    {
-        public string upgradeName;
-        public int cost;
-        public bool isUnlocked = false;
-        public void ApplyUpgrade()
-        {
-            Debug.Log("Upgrade sbloccato: " + upgradeName);
-        }
-    }
-
     public List<Upgrade> upgrades = new List<Upgrade>();
 
     private void Awake()
@@ -77,8 +64,7 @@ public class UpgradeSystem : MonoBehaviour
     private void UpdateUI()
     {
         if (pointsText != null)
-            pointsText[0].text = "Upgrade Points: " + upgradePoints;
-            pointsText[1].text = "Upgrade Points: " + upgradePoints;
+            pointsText.text = "Upgrade Points: " + upgradePoints;
     }
 
     private void GenerateUpgradeButtons()

@@ -60,22 +60,31 @@
     <Compile Include="Assets\Scripts\Maps\WorldMapManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\ChaseStateMelee.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\SaveNotification.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Cat\CatController.cs" />
     <Compile Include="Assets\Scripts\Maps\DoorTrigger.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\WeaponUpgrade\WeaponUpgrade.cs" />
     <Compile Include="Assets\Scripts\Enemy\AttackState.cs" />
     <Compile Include="Assets\Scripts\Enemy\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\UpgradeBase.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\WeaponUpgrade\WeaponStats.cs" />
     <Compile Include="Assets\Scripts\Enemy\ChaseStateRanged.cs" />
+    <Compile Include="Assets\Scripts\Cat\CatDash.cs" />
     <Compile Include="Assets\Scripts\Enemy\AI\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\Enemy\ChaseState.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Maps\GridManager.cs" />
     <Compile Include="Assets\Scripts\Message\MessagePanel.cs" />
     <Compile Include="Assets\Scripts\Enemy\PatrolState.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\CatPerks\PlayerPerks.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Maps\TransitionManager.cs" />
     <Compile Include="Assets\Scripts\Interactable\InteractableData.cs" />
+    <Compile Include="Assets\Scripts\Cat\ReflectedProjectile.cs" />
+    <Compile Include="Assets\Scripts\Cat\CatParry.cs" />
+    <Compile Include="Assets\Scripts\Cat\CatCombat.cs" />
     <Compile Include="Assets\Scripts\Maps\ScreenFader.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlotHover.cs" />
     <Compile Include="Assets\Scripts\Enemy\AI\EnemyRanged.cs" />
@@ -92,6 +101,9 @@
     <Compile Include="Assets\Scripts\Inventory\InventorySystem.cs" />
     <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
     <Compile Include="Assets\Scripts\Cat\CatHealth.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\CatPerks\PerkUpgrades.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\UpgradeData.cs" />
+    <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\PlayerStatUpgrade.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\UpgradeManager.cs" />
     <Compile Include="Assets\Animations\CatInputActions.cs" />
@@ -99,7 +111,6 @@
     <Compile Include="Assets\Scripts\SaveSystem\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\SaveSystem\UpgradeData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
