@@ -3,19 +3,29 @@ using System.Collections.Generic;
 
 public class CatParry : MonoBehaviour
 {
-    public float parryWindow = 0.2f; 
-    private bool canParry = false;
+    public float parryWindow = 0.2f;
+    private float originalSpeed;
+    private bool canParry = true;
     private bool isParrying = false;
     private Animator animator;
     private CatInputActions controls;
+    private CatController catController;
+    private CatDash playerDash;
 
     private List<EnemyController> stunnedEnemies = new List<EnemyController>();
-    public GameObject reflectedProjectilePrefab; 
+    public GameObject reflectedProjectilePrefab;
+
+    [Header("Parry Settings")]
+    public float moveSpeedReduction = 0.5f;
+    public float parryCooldown = 0.5f;
+    public float staminaCost = 15f;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         controls = new CatInputActions();
+        catController = GetComponent<CatController>();
+        playerDash = FindObjectOfType<CatDash>();
     }
 
     private void OnEnable() => controls.Enable();
@@ -24,38 +34,63 @@ public class CatParry : MonoBehaviour
     private void Start()
     {
         controls.Parry.Newaction.performed += _ => StartParry();
+        controls.Parry.Newaction.canceled += _ => EndParry();
+        originalSpeed = catController.GetBaseSpeed();
     }
 
     private void StartParry()
     {
-        if (canParry) return;
+        // Se il dash è attivo, non eseguo il parry
+        if (playerDash.IsDashing) return;
+        // Controllo che ci sia abbastanza stamina
+        if (playerDash.GetCurrentStamina() < staminaCost) return;
+        if (!canParry) return;
 
         isParrying = true;
-        canParry = true;
-        animator.SetTrigger("Parry");
-        Invoke(nameof(EndParry), parryWindow);
+        canParry = false;
+
+        animator.SetBool("IsParrying", true);
+        animator.SetFloat("Speed", 0f);
+
+        catController.SetSpeed(originalSpeed * moveSpeedReduction);
+        catController.EnableParryRotation(true);
+
+        playerDash.ConsumeStamina(staminaCost);
     }
 
     private void EndParry()
     {
+        if (!isParrying) return;
+
         isParrying = false;
-        canParry = false;
+        animator.SetBool("IsParrying", false);
+        animator.SetFloat("Speed", catController.GetBaseSpeed());
+
+        catController.SetSpeed(originalSpeed);
+        catController.EnableParryRotation(false);
+
+        Invoke(nameof(ResetParry), parryCooldown);
     }
-    public bool IsParrying() 
+
+    private void ResetParry()
     {
-        return isParrying;
+        canParry = true;
     }
+
+    // Metodo per verificare lo stato del parry
+    public bool IsParrying() => isParrying;
+    // Proprietà per controllare facilmente lo stato da altri script
+    public bool IsParryingActive => isParrying;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!canParry) return;
+        if (!isParrying) return;
 
-        if (other.CompareTag("Projectile")) 
+        if (other.CompareTag("Projectile"))
         {
             Vector3 spawnPosition = other.transform.position;
             Vector3 reflectDirection = transform.forward.normalized;
 
-            // Segna il proiettile come riflesso e poi lo distrugge
             other.GetComponent<Projectile>().SetReflected();
             Destroy(other.gameObject);
 

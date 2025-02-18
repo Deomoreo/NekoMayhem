@@ -1,20 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class CatController : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody rb;
     private CatInputActions controls;
     private CatCombat combat;
+    private Camera mainCamera;
 
     public float walkSpeed;
-    public float runSpeed;
-    public float jumpForce;
+    private float baseSpeed = 2f;
     public float rotationSpeed;
 
+    private bool lockRotation = false;
+    private bool parryRotationActive = false;
+
     private Vector2 moveInput;
-    private bool isJumping; 
+
+    // Riferimenti per bloccare le azioni quando dash o parry sono attivi
+    private CatDash dash;
+    private CatParry parry;
 
     void Awake()
     {
@@ -22,12 +27,19 @@ public class CatController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         combat = GetComponent<CatCombat>();
+        mainCamera = Camera.main;
+        dash = GetComponent<CatDash>();
+        parry = GetComponent<CatParry>();
 
         controls.Move.Newaction.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controls.Move.Newaction.canceled += ctx => moveInput = Vector2.zero;
-        controls.Attack.Newaction.performed += _ => combat.PerformAttack();
-
-        controls.Jump.Newaction.performed += _ => StartJump();
+        controls.Attack.Newaction.performed += _ =>
+        {
+            // Se dash o parry sono attivi, non esegue l'attacco
+            if ((dash != null && dash.IsDashing) || (parry != null && parry.IsParryingActive))
+                return;
+            combat.PerformAttack();
+        };
     }
 
     void OnEnable() => controls.Enable();
@@ -36,12 +48,45 @@ public class CatController : MonoBehaviour
     void Update()
     {
         Move();
+        if (parryRotationActive)
+        {
+            // Puoi attivare la rotazione verso il cursore se necessario
+            // RotateToCursor();
+        }
     }
+    void RotateToCursor()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
+        {
+            Vector3 targetPosition = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+            Vector3 direction = (targetPosition - transform.position).normalized;
 
+            if (direction != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
+        }
+    }
+    public void SetSpeed(float newSpeed)
+    {
+        walkSpeed = newSpeed;
+    }
+    public float GetBaseSpeed()
+    {
+        return baseSpeed;
+    }
+    public void ModifyMoveSpeed(float multiplier)
+    {
+        walkSpeed *= multiplier;
+    }
+    public void LockRotation(bool state)
+    {
+        lockRotation = state;
+    }
     void Move()
     {
-        if (isJumping) return; // 🔥 Blocca il movimento mentre si è in aria
-
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
 
@@ -51,52 +96,26 @@ public class CatController : MonoBehaviour
         right.Normalize();
 
         Vector3 direction = (right * moveInput.x + forward * moveInput.y).normalized;
-        float currentSpeed = moveInput.magnitude > 0 ? (controls.Run.Newaction.IsPressed() ? runSpeed : walkSpeed) : 0f;
+        float currentSpeed = moveInput.magnitude > 0 ? walkSpeed : 0f;
+
+        // Se dash o parry sono attivi, ignoriamo l'input di movimento (si permette solo la rotazione)
+        if ((dash != null && dash.IsDashing) || (parry != null && parry.IsParryingActive))
+        {
+            currentSpeed = 0f;
+        }
 
         transform.Translate(direction * currentSpeed * Time.deltaTime, Space.World);
 
-        if (direction.sqrMagnitude > 0.01f)
+        if (!lockRotation && direction.sqrMagnitude > 0.01f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
+
         animator.SetFloat("Speed", currentSpeed);
     }
-
-
-    void StartJump()
+    public void EnableParryRotation(bool state)
     {
-        if (isJumping) return;
-
-        isJumping = true; 
-        animator.SetBool("IsJumping", true);
-    }
-
-    public void JumpStart()
-    {
-        if (!isJumping) return;
-
-        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-        Debug.Log("🚀 Jump Start: Il player si solleva!");
-    }
-
-    public void JumpEnd()
-    {
-        isJumping = false;
-        animator.SetBool("IsJumping", false);
-
-        // 🔥 Blocca lo sliding dopo l'atterraggio
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
-
-        Debug.Log("🏁 Jump End: Il player è atterrato!");
-    }
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            JumpEnd(); 
-        }
+        parryRotationActive = state;
     }
 }
