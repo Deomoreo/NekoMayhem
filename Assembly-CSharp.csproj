@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\CatPerks\PlayerPerks.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Maps\TransitionManager.cs" />
+    <Compile Include="Assets\Scripts\UI\CursorManager.cs" />
     <Compile Include="Assets\Scripts\Cat\ReflectedProjectile.cs" />
     <Compile Include="Assets\Scripts\Cat\CatParry.cs" />
     <Compile Include="Assets\Scripts\Cat\CatCombat.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\ShopTrigger.cs" />
     <Compile Include="Assets\Scripts\Enemy\AI\EnemyMelee.cs" />
     <Compile Include="Assets\Scripts\Maps\WorldMapToggle.cs" />
+    <Compile Include="Assets\Scripts\UI\StaminaUI.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySystem.cs" />
     <Compile Include="Assets\Scripts\Cat\CatHealth.cs" />
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\CatPerks\PerkUpgrades.cs" />
@@ -101,8 +103,12 @@
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\UI\StaminaUI.cs" />
-    <Compile Include="Assets\Scripts\UI\CursorManager.cs" />
+    <Compile Include="Assets\Scripts\Cat\CatTransformation.cs" />
+    <Compile Include="Assets\Scripts\Cat\Quadrupede\CatQuadrupedController.cs" />
+    <Compile Include="Assets\Scripts\Camera\ActiveModelFollow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Hovl Studio\Procedural fire\Shaders\FireSphere.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

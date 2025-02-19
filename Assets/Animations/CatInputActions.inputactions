@@ -352,6 +352,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Transformation",
+            "id": "51d822c4-b386-4a4b-ae96-dd02d4a5e159",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "68565d0e-3552-48a8-9104-ea0afa71c139",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "79e63885-0c38-455b-9168-8447b63c01c6",
+                    "path": "<Keyboard>/leftAlt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

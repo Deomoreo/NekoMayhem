@@ -374,6 +374,34 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Transformation"",
+            ""id"": ""51d822c4-b386-4a4b-ae96-dd02d4a5e159"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""68565d0e-3552-48a8-9104-ea0afa71c139"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""79e63885-0c38-455b-9168-8447b63c01c6"",
+                    ""path"": ""<Keyboard>/leftAlt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -411,6 +439,9 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         // Parry
         m_Parry = asset.FindActionMap("Parry", throwIfNotFound: true);
         m_Parry_Newaction = m_Parry.FindAction("New action", throwIfNotFound: true);
+        // Transformation
+        m_Transformation = asset.FindActionMap("Transformation", throwIfNotFound: true);
+        m_Transformation_Newaction = m_Transformation.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -829,6 +860,39 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         }
     }
     public ParryActions @Parry => new ParryActions(this);
+
+    // Transformation
+    private readonly InputActionMap m_Transformation;
+    private ITransformationActions m_TransformationActionsCallbackInterface;
+    private readonly InputAction m_Transformation_Newaction;
+    public struct TransformationActions
+    {
+        private @CatInputActions m_Wrapper;
+        public TransformationActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Transformation_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Transformation; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TransformationActions set) { return set.Get(); }
+        public void SetCallbacks(ITransformationActions instance)
+        {
+            if (m_Wrapper.m_TransformationActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_TransformationActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_TransformationActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_TransformationActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_TransformationActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public TransformationActions @Transformation => new TransformationActions(this);
     public interface IMoveActions
     {
         void OnNewaction(InputAction.CallbackContext context);
@@ -870,6 +934,10 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         void OnNewaction(InputAction.CallbackContext context);
     }
     public interface IParryActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface ITransformationActions
     {
         void OnNewaction(InputAction.CallbackContext context);
     }

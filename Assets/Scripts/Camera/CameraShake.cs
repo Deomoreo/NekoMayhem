@@ -1,12 +1,12 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
     public static CameraShake Instance;
-    private Transform camTransform;
-    private Vector3 originalOffset;
     private CameraController cameraController;
+    private Vector3 originalOffset;
+    private Vector3 shakeOffset = Vector3.zero;
 
     private void Awake()
     {
@@ -15,10 +15,11 @@ public class CameraShake : MonoBehaviour
         else
             Destroy(gameObject);
 
-        camTransform = Camera.main.transform;
-        cameraController = camTransform.GetComponent<CameraController>();
+        cameraController = Camera.main.GetComponent<CameraController>();
         originalOffset = cameraController.offset;
     }
+
+    public Vector3 GetShakeOffset() => shakeOffset;
 
     public void Shake(float duration, float magnitude)
     {
@@ -34,13 +35,12 @@ public class CameraShake : MonoBehaviour
             float x = Random.Range(-1f, 1f) * magnitude;
             float y = Random.Range(-1f, 1f) * magnitude;
 
-            // Modifica direttamente l'offset della camera
-            cameraController.offset = originalOffset + new Vector3(x, y, 0);
+            shakeOffset = new Vector3(x, y, 0);
 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        cameraController.offset = originalOffset; // Ripristina l'offset originale
+        shakeOffset = Vector3.zero;
     }
 }

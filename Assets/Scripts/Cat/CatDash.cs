@@ -8,10 +8,9 @@ public class CatDash : MonoBehaviour
     private CatInputActions controls;
 
     [Header("Dash Settings")]
-    public float dashSpeed = 12f;
     public float dashCooldown = 0.5f;
     private bool canDash = true;
-    private bool isDashing; // Vero solo durante il movimento del dash
+    private bool isDashing = false; 
 
     [Header("Stamina Settings")]
     public float maxStamina = 100f;
@@ -28,6 +27,7 @@ public class CatDash : MonoBehaviour
         animator = GetComponent<Animator>();
         controls = new CatInputActions();
         currentStamina = maxStamina;
+        animator.applyRootMotion = false;
     }
 
     private void OnEnable() => controls.Enable();
@@ -49,51 +49,43 @@ public class CatDash : MonoBehaviour
     public void ConsumeStamina(float amount)
     {
         currentStamina -= amount;
-        if (currentStamina < 0) currentStamina = 0;
+        if (currentStamina < 0)
+            currentStamina = 0;
 
-        if (regenCoroutine != null) StopCoroutine(regenCoroutine);
+        if (regenCoroutine != null)
+            StopCoroutine(regenCoroutine);
         isRegenerating = false;
         regenCoroutine = StartCoroutine(RegenerateStamina());
     }
 
-    // Viene chiamato quando si preme il tasto dash.
     private void TryDash()
     {
-        // Se il parry è attivo, non eseguo il dash
         CatParry parry = FindObjectOfType<CatParry>();
         if (parry != null && parry.IsParryingActive)
             return;
-        if (!canDash || currentStamina < staminaCost) return;
+        if (!canDash || currentStamina < staminaCost)
+            return;
 
-        canDash = false; // Blocca ulteriori input dash fino al termine del cooldown.
-        // Attiva l'animazione del dash impostando il bool "Dash" a true
+        canDash = false;
         animator.SetBool("Dash", true);
     }
 
-    // Questo metodo va chiamato dall'evento "DashStart" nell'animazione.
     public void DashStart()
     {
         isDashing = true;
-        // Consumo la stamina in corrispondenza dell'inizio dell'azione.
         ConsumeStamina(staminaCost);
-
-        Vector3 dashDirection = transform.forward;
-        rb.velocity = dashDirection * dashSpeed;
-
-        Physics.IgnoreLayerCollision(6, 7, true);
-        // Reset del bool per evitare che rimanga sempre attivo
+        animator.applyRootMotion = true;
         animator.SetBool("Dash", false);
     }
 
-    // Questo metodo va chiamato dall'evento "DashEnd" nell'animazione.
     public void DashEnd()
     {
-        rb.velocity = Vector3.zero;
-        Physics.IgnoreLayerCollision(6, 7, false);
         isDashing = false;
-
+        animator.applyRootMotion = false;
+        rb.velocity = Vector3.zero;
         StartCoroutine(WaitDashCooldown());
     }
+
 
     private IEnumerator WaitDashCooldown()
     {
@@ -105,21 +97,15 @@ public class CatDash : MonoBehaviour
     {
         isRegenerating = true;
         yield return new WaitForSeconds(staminaRegenDelay);
-
         while (currentStamina < maxStamina)
         {
             currentStamina += staminaRegenRate * Time.deltaTime;
             currentStamina = Mathf.Min(currentStamina, maxStamina);
             yield return null;
-            if (!isRegenerating)
-            {
-                yield break;
-            }
         }
         isRegenerating = false;
     }
 
     public float GetCurrentStamina() => currentStamina;
-
     public bool IsDashing => isDashing;
 }

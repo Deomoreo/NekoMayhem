@@ -119,6 +119,7 @@ m_PackageAssets:
         - 2.5.1
         - 2.5.2
         - 2.6.0
+        - 2.7.1
         compatible:
         - 1.15.12
         - 1.15.13
@@ -586,6 +587,7 @@ m_PackageAssets:
         - 1.11.2
         - 1.12.0
         - 1.13.0
+        - 1.13.1
         compatible:
         - 0.1.2-preview
         - 0.2.0-preview
@@ -3756,7 +3758,7 @@ m_PackageAssets:
         email: 
         url: 
       category: 
-      type: 
+      type: asset
       description: General search window for use in the Editor. First target use
         is for GraphView node search.
       status: 4
@@ -3779,6 +3781,7 @@ m_PackageAssets:
         - 4.7.0-preview
         - 4.9.1
         - 4.9.2
+        - 4.9.3
         compatible:
         - 4.0.0-preview
         - 4.0.0
@@ -3796,6 +3799,7 @@ m_PackageAssets:
         - 4.7.0-preview
         - 4.9.1
         - 4.9.2
+        - 4.9.3
         verified: 4.3.2
       dependencies: []
       resolvedDependencies: []
@@ -3810,7 +3814,7 @@ m_PackageAssets:
         isDefault: 1
         capabilities: 7
       hasRegistry: 1
-      hideInEditor: 1
+      hideInEditor: 0
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
