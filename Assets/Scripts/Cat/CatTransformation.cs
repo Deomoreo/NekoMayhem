@@ -8,7 +8,7 @@ public class CatTransformation : MonoBehaviour
     public Transform playerTransform;      
 
     private CatInputActions controls;
-    private bool isQuadrupede = false;     
+    public bool isQuadrupede = false;     
 
     [Header("Movement Controllers")]
     public MonoBehaviour bipedeController;
@@ -23,7 +23,10 @@ public class CatTransformation : MonoBehaviour
 
     [Header("Transformation Settings")]
     public float transformationDelay = 0.5f;  
-    public float transformationCooldown = 1f; 
+    public float transformationCooldown = 1f;
+
+    [Header("Sword Trail")]
+    public SwordTrailController swordTrailController;
 
     private bool canTransform = true;         
 
@@ -89,7 +92,10 @@ public class CatTransformation : MonoBehaviour
 
     IEnumerator PerformTransformation()
     {
-        canTransform = false;  
+        canTransform = false;
+        if (swordTrailController != null)
+            swordTrailController.isTransforming = true;
+
         if (transformationEffect != null)
         {
             transformationEffect.transform.position = activeModelFollower.position;
@@ -125,11 +131,15 @@ public class CatTransformation : MonoBehaviour
             if (quadrupedeController != null) quadrupedeController.enabled = false;
             if (bipedeController != null) bipedeController.enabled = true;
             isQuadrupede = false;
+            swordTrailController.StopTrail();
             Debug.Log("Trasformazione in Bipede attivata.");
         }
 
         if (transformationEffect != null)
             transformationEffect.Stop();
+
+        if (swordTrailController != null)
+            swordTrailController.isTransforming = false;
 
         yield return new WaitForSeconds(transformationCooldown);
         canTransform = true;

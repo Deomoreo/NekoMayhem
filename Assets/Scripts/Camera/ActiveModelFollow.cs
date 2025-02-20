@@ -7,18 +7,21 @@ public class ActiveModelFollow : MonoBehaviour
 
     public float followSpeed = 20f;
 
-    private GameObject GetActiveModel()
+    public GameObject ActiveModel
     {
-        if (bipedeModel != null && bipedeModel.activeSelf)
-            return bipedeModel;
-        if (quadrupedeModel != null && quadrupedeModel.activeSelf)
-            return quadrupedeModel;
-        return null;
+        get
+        {
+            if (bipedeModel != null && bipedeModel.activeSelf)
+                return bipedeModel;
+            if (quadrupedeModel != null && quadrupedeModel.activeSelf)
+                return quadrupedeModel;
+            return null;
+        }
     }
 
     void LateUpdate()
     {
-        GameObject activeModel = GetActiveModel();
+        GameObject activeModel = ActiveModel;
         if (activeModel != null)
         {
             transform.position = Vector3.Lerp(transform.position, activeModel.transform.position, Time.deltaTime * followSpeed);

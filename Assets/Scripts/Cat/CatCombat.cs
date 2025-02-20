@@ -5,10 +5,12 @@ public class CatCombat : MonoBehaviour
 {
     private Animator animator;
     public LayerMask enemyLayers;
+    private CatParry catParry;
+    private SwordTrailController swordTrailController;
 
     public float attackAngle = 30f;
     public float attackRange = 1.5f;
-    private float baseAttackCooldown = 0.5f;
+    private float baseAttackCooldown = 1.3f;
     public float attackCooldown;
     private bool isAttacking = true;
     private string currentWeapon = "Spada";
@@ -16,7 +18,6 @@ public class CatCombat : MonoBehaviour
     private float critChance;
     private float defense;
     private float attackSpeed;
-    private CatParry catParry; 
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class CatCombat : MonoBehaviour
             Debug.LogError("CatParry non trovato! Assicurati che il player abbia lo script.");
         }
         UpdateStats();
-
+        swordTrailController = FindObjectOfType<SwordTrailController>();
         PlayerStats.StatsUpdated += UpdateStats;
         WeaponStats.WeaponUpdated += UpdateStats;
     }
@@ -51,6 +52,8 @@ public class CatCombat : MonoBehaviour
         animator.SetBool("IsAttacking", false);
         StartCoroutine(FadeLayerWeight(0, 0.1f));
         StartCoroutine(ResetAttackCooldown());
+        swordTrailController.StopTrail();
+
     }
     private IEnumerator FadeLayerWeight(float targetWeight, float duration)
     {
@@ -74,6 +77,7 @@ public class CatCombat : MonoBehaviour
     public void ApplyDamageEvent()
     {
         ApplyDamage();
+        swordTrailController.StartTrail();
     }
     private void ApplyDamage()
     {

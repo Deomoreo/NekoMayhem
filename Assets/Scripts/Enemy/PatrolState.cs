@@ -12,7 +12,7 @@ public class PatrolState : EnemyState
 
     public override void Update()
     {
-        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.position);
+        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.ActivePlayerTarget.position);
 
         if (distanceToPlayer <= enemy.chaseRadius && enemy.CanSeePlayer())
         {

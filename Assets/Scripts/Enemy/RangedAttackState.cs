@@ -20,7 +20,7 @@ public class RangedAttackState : EnemyState
 
     public override void Update()
     {
-        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.position);
+        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.ActivePlayerTarget.position);
 
         if (!enemy.CanSeePlayer())
         {
@@ -33,7 +33,7 @@ public class RangedAttackState : EnemyState
             return;
         }
 
-        Vector3 directionToPlayer = (enemy.player.position - enemy.transform.position).normalized;
+        Vector3 directionToPlayer = (enemy.ActivePlayerTarget.position - enemy.transform.position).normalized;
         enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, Quaternion.LookRotation(directionToPlayer), Time.deltaTime * 5f);
 
         if (Time.time >= nextAttackTime)
@@ -51,7 +51,7 @@ public class RangedAttackState : EnemyState
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                Vector3 shootDirection = (enemy.player.position - firePoint.position).normalized;
+                Vector3 shootDirection = (enemy.ActivePlayerTarget.position - firePoint.position).normalized;
                 rb.velocity = shootDirection * 10f;
             }
             GameObject.Destroy(projectile, 5f);

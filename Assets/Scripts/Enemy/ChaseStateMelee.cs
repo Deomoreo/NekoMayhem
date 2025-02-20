@@ -12,7 +12,7 @@ public class ChaseStateMelee : EnemyState
 
     public override void Update()
     {
-        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.player.position);
+        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.ActivePlayerTarget.position);
 
         if (!enemy.CanSeePlayer())
         {
@@ -24,6 +24,6 @@ public class ChaseStateMelee : EnemyState
             enemy.TransitionToState(new AttackState(enemy));
             return;
         }
-        enemy.agent.SetDestination(enemy.player.position);
+        enemy.agent.SetDestination(enemy.ActivePlayerTarget.position);
     }
 }

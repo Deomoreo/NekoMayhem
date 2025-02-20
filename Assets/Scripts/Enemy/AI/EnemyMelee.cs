@@ -27,17 +27,17 @@ public class EnemyMelee : EnemyBase
 
     public override void AttackPlayer()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, ActivePlayerTarget.position);
         if (distanceToPlayer <= attackRadius)
         {
-            if (player.GetComponent<CatParry>().IsParrying()) 
+            if (ActivePlayerTarget.GetComponent<CatParry>().IsParrying()) 
             {
                 catParry.AddStunnedEnemy(enemyController);
                 enemyController.ApplyStun(5f); 
                 return;
             }
 
-            CatHealth playerHealth = player.GetComponent<CatHealth>();
+            CatHealth playerHealth = ActivePlayerTarget.GetComponent<CatHealth>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(meleeDamage);

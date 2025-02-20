@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Unity\\Neko Mayhem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\cat\\catcombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\catcombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\cat\\swordtrailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\swordtrailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\cat\\cattransformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\cattransformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\cat\\quadrupede\\catquadrupedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\quadrupede\\catquadrupedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,12 +23,8 @@
       "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera\\activemodelfollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\camera\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera\\cameracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\cat\\cattransformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\cattransformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\camera\\camerarotationtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera\\camerarotationtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,55 +38,78 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "ActiveModelFollow.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Camera\\ActiveModelFollow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\ActiveModelFollow.cs",
+              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Camera\\ActiveModelFollow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Camera\\ActiveModelFollow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T14:35:52.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CameraRotationTrigger.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Camera\\CameraRotationTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\CameraRotationTrigger.cs",
+              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Camera\\CameraRotationTrigger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Camera\\CameraRotationTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T14:38:49.053Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CatTransformation.cs",
               "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Cat\\CatTransformation.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\CatTransformation.cs",
               "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Cat\\CatTransformation.cs",
               "RelativeToolTip": "Assets\\Scripts\\Cat\\CatTransformation.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAIwJEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T12:05:38.851Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CameraController.cs",
-              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Camera\\CameraController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\CameraController.cs",
-              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Camera\\CameraController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Camera\\CameraController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAATAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "CatCombat.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Cat\\CatCombat.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\CatCombat.cs",
+              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Cat\\CatCombat.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\CatCombat.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAIwBwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:33:33.306Z",
+              "WhenOpened": "2025-02-20T14:48:33.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ActiveModelFollow.cs",
-              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Camera\\ActiveModelFollow.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\ActiveModelFollow.cs",
-              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Camera\\ActiveModelFollow.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Camera\\ActiveModelFollow.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAkAAAAAAAAAA==",
+              "Title": "SwordTrailController.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Cat\\SwordTrailController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\SwordTrailController.cs",
+              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Cat\\SwordTrailController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Cat\\SwordTrailController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T15:05:49.062Z",
+              "WhenOpened": "2025-02-20T14:56:47.668Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "CatQuadrupedController.cs",
               "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Cat\\Quadrupede\\CatQuadrupedController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\Quadrupede\\CatQuadrupedController.cs",
               "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Cat\\Quadrupede\\CatQuadrupedController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Cat\\Quadrupede\\CatQuadrupedController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAADwv2kAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T13:51:31.91Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T13:51:31.91Z"
             }
           ]
         }

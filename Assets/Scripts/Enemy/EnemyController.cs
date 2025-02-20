@@ -24,7 +24,8 @@ public class EnemyController : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log($"{gameObject.name} ha subito {damage} danni. Salute attuale: {currentHealth}");
-
+        if (CameraShake.Instance != null)
+            CameraShake.Instance.Shake(0.4f, 0.9f); // Shake 
         if (animator != null)
         {
             animator.SetTrigger("Hurt");
