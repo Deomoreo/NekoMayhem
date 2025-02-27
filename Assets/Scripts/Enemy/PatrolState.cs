@@ -12,17 +12,19 @@ public class PatrolState : EnemyState
 
     public override void Update()
     {
-        float distanceToPlayer = Vector3.Distance(enemy.transform.position, enemy.ActivePlayerTarget.position);
-
-        if (distanceToPlayer <= enemy.chaseRadius && enemy.CanSeePlayer())
+        Transform target = enemy.ActivePlayerTarget;
+        if (target != null)
         {
-            if (enemy is EnemyMelee)
-                enemy.TransitionToState(new ChaseStateMelee(enemy));
-            else if (enemy is EnemyRanged)
-                enemy.TransitionToState(new ChaseStateRanged(enemy));
-            return;
+            float distance = Vector3.Distance(enemy.transform.position, target.position);
+            if (distance <= enemy.chaseRadius && enemy.CanSeePlayer())
+            {
+                if (enemy is EnemyMelee)
+                    enemy.TransitionToState(new ChaseStateMelee(enemy));
+                // Se ranged, si transita ad uno stato ranged
+                return;
+            }
         }
-        else if (!enemy.agent.pathPending && enemy.agent.remainingDistance < 0.5f)
+        if (!enemy.agent.pathPending && enemy.agent.remainingDistance < 0.5f)
         {
             enemy.SetRandomPatrolPoint();
         }

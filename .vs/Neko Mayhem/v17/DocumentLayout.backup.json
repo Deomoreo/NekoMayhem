@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Unity\\Neko Mayhem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\enemy\\ai\\enemymelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\enemy\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\enemy\\chasestatemelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\chasestatemelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\enemy\\ai\\enemymelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\ai\\enemymelee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\enemy\\ai\\enemybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\ai\\enemybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\enemy\\enemystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\enemy\\chasestateranged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\chasestateranged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\enemy\\patrolstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\patrolstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +38,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "EnemyMelee.cs",
               "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\AI\\EnemyMelee.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\AI\\EnemyMelee.cs",
               "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\AI\\EnemyMelee.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy\\AI\\EnemyMelee.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAcwCYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T15:28:06.297Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "AttackState.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\AttackState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\AttackState.cs",
+              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\AttackState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\AttackState.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T10:01:36.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EnemyBase.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\AI\\EnemyBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\AI\\EnemyBase.cs",
+              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\AI\\EnemyBase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\AI\\EnemyBase.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T10:34:30.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EnemyState.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\EnemyState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyState.cs",
+              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\EnemyState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T11:14:53.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "EnemyController.cs",
               "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\EnemyController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\EnemyController.cs",
               "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\EnemyController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy\\EnemyController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBsAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T15:41:26.017Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ChaseStateRanged.cs",
-              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\ChaseStateRanged.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\ChaseStateRanged.cs",
-              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\ChaseStateRanged.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemy\\ChaseStateRanged.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ChaseStateMelee.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\ChaseStateMelee.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\ChaseStateMelee.cs",
+              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\ChaseStateMelee.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\ChaseStateMelee.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T15:22:50.302Z",
+              "WhenOpened": "2025-02-27T09:30:10.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PatrolState.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\PatrolState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\PatrolState.cs",
+              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Enemy\\PatrolState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy\\PatrolState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T10:59:39.657Z",
               "EditorCaption": ""
             }
           ]

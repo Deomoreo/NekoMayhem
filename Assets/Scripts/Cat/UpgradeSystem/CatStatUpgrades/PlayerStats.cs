@@ -9,8 +9,8 @@ public class PlayerStats : MonoBehaviour
     {
         { "Forza", 10 },
         { "Critico", 5 },
-        { "Velocità Attacco", 1.2f },
-        { "Difesa", 5 }
+        { "Velocità Attacco", 1.5f },
+        { "Difesa", 0 }
     };
 
     public delegate void OnStatsUpdated();
