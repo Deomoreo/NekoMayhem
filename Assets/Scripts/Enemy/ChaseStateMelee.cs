@@ -2,12 +2,20 @@ using UnityEngine;
 
 public class ChaseStateMelee : EnemyState
 {
-    public ChaseStateMelee(EnemyBase enemy) : base(enemy) { }
+    private Animator animator;
 
+    public ChaseStateMelee(EnemyBase enemy) : base(enemy)
+    {
+        animator = enemy.GetComponent<Animator>();
+    }
     public override void Enter()
     {
         enemy.agent.isStopped = false;
         enemy.agent.speed = enemy.chaseSpeed;
+        if (animator != null)
+        {
+            animator.SetBool("IsRunning", true);
+        }
     }
 
     public override void Update()
@@ -25,5 +33,15 @@ public class ChaseStateMelee : EnemyState
             return;
         }
         enemy.agent.SetDestination(enemy.ActivePlayerTarget.position);
+        // Aggiorna il parametro "Speed" in base alla velocità corrente
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", enemy.agent.velocity.magnitude);
+        }
+    }
+    public override void Exit()
+    {
+        if (animator != null)
+            animator.SetBool("IsRunning", false);
     }
 }

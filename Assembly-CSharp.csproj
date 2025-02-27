@@ -102,11 +102,11 @@
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\CatStatUpgrades\PlayerStatUpgrade.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Cat\CatTransformation.cs" />
+    <Compile Include="Assets\Scripts\Cat\SwordTrailController.cs" />
     <Compile Include="Assets\Scripts\Cat\UpgradeSystem\UpgradeManager.cs" />
     <Compile Include="Assets\Animations\CatInputActions.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\Cat\SwordTrailController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Hovl Studio\Procedural fire\Shaders\FireSphere.shader" />

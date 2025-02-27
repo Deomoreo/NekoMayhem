@@ -12,9 +12,13 @@ public class EnemyMelee : EnemyBase
     public int meleeDamage = 10;
     private CatParry catParry;
 
+    private Animator animator;
+    private bool hasAttacked = false;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         patrolState = new PatrolState(this);
         chaseState = new ChaseStateMelee(this);
         attackState = new AttackState(this);
@@ -27,17 +31,27 @@ public class EnemyMelee : EnemyBase
 
     public override void AttackPlayer()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, ActivePlayerTarget.position);
+        if (hasAttacked)
+            return;
+
+        Transform target = ActivePlayerTarget;
+        if (target == null)
+            return;
+
+        float distanceToPlayer = Vector3.Distance(transform.position, target.position);
         if (distanceToPlayer <= attackRadius)
         {
-            if (ActivePlayerTarget.GetComponent<CatParry>().IsParrying()) 
+            // Controlla se il target sta parando
+            CatParry targetParry = target.GetComponent<CatParry>();
+            if (targetParry != null && targetParry.IsParrying())
             {
                 catParry.AddStunnedEnemy(enemyController);
-                enemyController.ApplyStun(5f); 
+                enemyController.ApplyStun(5f);
+                hasAttacked = true;
                 return;
             }
 
-            CatHealth playerHealth = ActivePlayerTarget.GetComponent<CatHealth>();
+            CatHealth playerHealth = target.GetComponent<CatHealth>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(meleeDamage);
@@ -47,11 +61,25 @@ public class EnemyMelee : EnemyBase
                 Debug.LogWarning("Il player non possiede il componente CatHealth!");
             }
 
-            Animator animator = GetComponent<Animator>();
             if (animator != null)
             {
-                animator.SetTrigger("Attack");
+                animator.SetBool("IsAttacking", true);
             }
+            hasAttacked = true;
         }
+    }
+
+    public void EndDamage()
+    {
+        if (animator != null)
+        {
+            animator.SetBool("IsAttacking", false);
+        }
+        hasAttacked = false;
+    }
+
+    public void ApplyDamage()
+    {
+        AttackPlayer();
     }
 }
