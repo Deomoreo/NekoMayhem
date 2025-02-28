@@ -3847,6 +3847,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &538850206
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538850200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.42, z: 0}
 --- !u!1 &539436330
 GameObject:
   m_ObjectHideFlags: 0
@@ -18306,7 +18320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4247190589520988438, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: attackCooldown
-      value: 2
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 4247190589520988438, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: playerTargets.Array.size
@@ -18392,6 +18406,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.6367354
       objectReference: {fileID: 0}
+    - target: {fileID: 5340582191782841555, guid: f2c30e827e7436242bf46429803513aa, type: 3}
+      propertyPath: dissolveShader
+      value: 
+      objectReference: {fileID: -6465566751694194690, guid: 9ce042020d8115744ad0043ec95ffdfb, type: 3}
+    - target: {fileID: 5340582191782841555, guid: f2c30e827e7436242bf46429803513aa, type: 3}
+      propertyPath: fallbackTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 0d092b3c1d366c64ca48eb3b6d6e6163, type: 3}
+    - target: {fileID: 5340582191782841555, guid: f2c30e827e7436242bf46429803513aa, type: 3}
+      propertyPath: dissolveDuration
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340582191782841555, guid: f2c30e827e7436242bf46429803513aa, type: 3}
+      propertyPath: dissolveMaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: f4505a95b82d90449a60814081e2c22f, type: 2}
     - target: {fileID: 5359507980387874430, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 32.517868
@@ -18475,6 +18505,14 @@ PrefabInstance:
     - target: {fileID: 6527752520826855473, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -155.40343
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587797795776969626, guid: f2c30e827e7436242bf46429803513aa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587797795776969626, guid: f2c30e827e7436242bf46429803513aa, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6600558241936867060, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

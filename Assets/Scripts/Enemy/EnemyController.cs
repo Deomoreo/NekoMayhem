@@ -25,7 +25,8 @@ public class EnemyController : MonoBehaviour
         currentHealth -= damage;
         Debug.Log($"{gameObject.name} ha subito {damage} danni. Salute attuale: {currentHealth}");
         if (CameraShake.Instance != null)
-            CameraShake.Instance.Shake(0.4f, 0.9f); // Shake 
+            CameraShake.Instance.Shake(0.4f, 0.9f); // Esegue il camera shake
+
         if (animator != null)
         {
             animator.SetTrigger("Hurt");
@@ -45,26 +46,31 @@ public class EnemyController : MonoBehaviour
             if (agent != null)
             {
                 agent.isStopped = true;
+                agent.ResetPath();         
+                agent.velocity = Vector3.zero; 
             }
             EnemyMelee meleeComponent = GetComponent<EnemyMelee>();
             if (meleeComponent != null)
             {
-                meleeComponent.enabled = false; 
+                meleeComponent.enabled = false;
             }
 
             if (animator != null)
             {
-                animator.SetTrigger("Stunned");
+                animator.Play("Stunned");
+                animator.SetBool("IsStunned", true);
             }
 
             StartCoroutine(RecoverFromStun(duration));
         }
     }
 
+
     private IEnumerator RecoverFromStun(float duration)
     {
         yield return new WaitForSeconds(duration);
         isStunned = false;
+        animator.SetBool("IsStunned", false);
         if (agent != null)
         {
             agent.isStopped = false;
@@ -75,9 +81,23 @@ public class EnemyController : MonoBehaviour
             meleeComponent.enabled = true;
         }
     }
+
     private void Die()
     {
         Debug.Log($"{gameObject.name} è morto.");
-        Destroy(gameObject);
+        EnemyDissolve dissolve = GetComponent<EnemyDissolve>();
+        if (animator != null)
+        {
+            animator.Play("Death");
+            animator.SetBool("IsDeath", true);
+        }
+        if (agent != null)
+        {
+            agent.isStopped = true;
+        }
+        if (dissolve != null)
+        {
+            dissolve.StartDissolve();
+        }
     }
 }

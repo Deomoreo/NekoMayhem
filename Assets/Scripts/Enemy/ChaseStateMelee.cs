@@ -3,8 +3,7 @@
 public class ChaseStateMelee : EnemyState
 {
     private Animator animator;
-    // Imposta una velocità molto bassa per il cooldown
-    private float slowSpeed = 1f;
+    private float slowSpeed = 0.65f;
 
     public ChaseStateMelee(EnemyBase enemy) : base(enemy)
     {
@@ -38,24 +37,27 @@ public class ChaseStateMelee : EnemyState
 
         float distance = Vector3.Distance(enemy.transform.position, target.position);
 
-        // Se il nemico è melee, controlla il cooldown
         if (enemy is EnemyMelee melee)
         {
             float timeSinceLastAttack = Time.time - melee.lastAttackTime;
             if (timeSinceLastAttack < melee.attackCooldown)
             {
                 Debug.Log("ChaseStateMelee: Cooldown attivo (" + (melee.attackCooldown - timeSinceLastAttack) + " sec rimanenti). Rallento il nemico.");
-                // In cooldown, invece di fermarlo completamente, riduciamo la velocità a slowSpeed
                 enemy.agent.isStopped = false;
                 enemy.agent.speed = slowSpeed;
-                // Manteniamo la destinazione corrente per evitare movimenti indesiderati
-                enemy.agent.SetDestination(enemy.transform.position);
+                if (distance < melee.stopDistance)
+                {
+                    enemy.agent.SetDestination(enemy.transform.position);
+                }
+                else
+                {
+                    enemy.agent.SetDestination(target.position);
+                }
                 RotateTowardsTarget(target);
                 return;
             }
         }
 
-        // Se il cooldown è terminato, l'inseguimento procede normalmente
         enemy.agent.isStopped = false;
         enemy.agent.speed = enemy.chaseSpeed;
         enemy.agent.SetDestination(target.position);
