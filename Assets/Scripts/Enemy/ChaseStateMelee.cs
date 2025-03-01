@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.IO.LowLevel.Unsafe;
+using UnityEngine;
 
 public class ChaseStateMelee : EnemyState
 {
@@ -18,18 +19,14 @@ public class ChaseStateMelee : EnemyState
         {
             animator.SetBool("IsRunning", true);
             animator.SetBool("IsAttacking", false);
+            animator.SetBool("IsIdle", false);
         }
     }
 
     public override void Update()
     {
         Transform target = enemy.ActivePlayerTarget;
-        if (target == null)
-        {
-            enemy.TransitionToState(new PatrolState(enemy));
-            return;
-        }
-        if (!enemy.CanSeePlayer())
+        if (target == null || !enemy.CanSeePlayer())
         {
             enemy.TransitionToState(new PatrolState(enemy));
             return;
@@ -56,6 +53,7 @@ public class ChaseStateMelee : EnemyState
                     enemy.agent.SetDestination(target.position);
                 }
                 RotateTowardsTarget(target);
+                enemy.TransitionToState(new EnemyIdleState(enemy));
                 return;
             }
         }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine.AI;
 using UnityEngine;
+using Unity.IO.LowLevel.Unsafe;
 
 public class EnemyMelee : EnemyBase
 {
@@ -26,7 +27,6 @@ public class EnemyMelee : EnemyBase
 
     public override void AttackPlayer()
     {
-        // Semplicemente transitiamo nello stato d'attacco
         TransitionToState(new AttackState(this));
     }
 
@@ -62,7 +62,7 @@ public class EnemyMelee : EnemyBase
 
         if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
         {
-            TransitionToState(new ChaseStateMelee(this));
+            TransitionToState(new EnemyIdleState(this));
         }
     }
 
