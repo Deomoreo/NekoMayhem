@@ -55,6 +55,15 @@ public class EnemyMelee : EnemyBase
         {
             animator.SetBool("IsAttacking", false);
         }
-        TransitionToState(new ChaseStateMelee(this));
+
+        EnemyController controller = GetComponent<EnemyController>();
+        if (controller != null && controller.isDead)
+            return;
+
+        if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+        {
+            TransitionToState(new ChaseStateMelee(this));
+        }
     }
+
 }

@@ -91,11 +91,18 @@ public class AttackState : EnemyState
     private void ExitAttack()
     {
         if (isExitingAttack) return;
-        enemy.StartCoroutine(AdjustLayerWeight(0f, 0.2f));
-        animator.SetBool("IsAttacking", false);
-        isExitingAttack = true;
-        enemy.agent.isStopped = false;
-        enemy.agent.speed *= 2f; // Ripristina la velocità normale
+        EnemyController controller = enemy.GetComponent<EnemyController>();
+        if (controller != null && controller.isDead)
+            return;
+        if (enemy.agent != null && enemy.agent.isActiveAndEnabled && enemy.agent.isOnNavMesh)
+        {
+            enemy.StartCoroutine(AdjustLayerWeight(0f, 0.2f));
+            animator.SetBool("IsAttacking", false);
+            isExitingAttack = true;
+            enemy.agent.isStopped = false;
+            enemy.agent.speed *= 2f; // Ripristina la velocità normale
+            enemy.TransitionToState(new ChaseStateMelee(enemy));
+        }
     }
 
     private IEnumerator AdjustLayerWeight(float targetWeight, float duration)
@@ -121,9 +128,13 @@ public class AttackState : EnemyState
 
     private IEnumerator AttackRoutine()
     {
-        // Attende la durata dell'attacco
         yield return new WaitForSeconds(attackDuration);
-        // (Qui si assume che l'animazione o un evento esterno gestisca l'applicazione del danno)
+
+        // Prima di applicare il danno e transitare, controlla se l'enemy è morto
+        EnemyController controller = enemy.GetComponent<EnemyController>();
+        if (controller != null && controller.isDead)
+            yield break;
+
         enemy.StartCoroutine(AdjustLayerWeight(0f, 0.2f));
         enemy.TransitionToState(new ChaseStateMelee(enemy));
         isOnCooldown = false;

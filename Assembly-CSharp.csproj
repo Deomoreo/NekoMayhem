@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\Enemy\RangedAttackState.cs" />
      <Compile Include="Assets\Scripts\Cat\UpgradeSystem\ShopTrigger.cs" />
      <Compile Include="Assets\Scripts\Enemy\AI\EnemyMelee.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyDissolve.cs" />
      <Compile Include="Assets\Scripts\Maps\WorldMapToggle.cs" />
      <Compile Include="Assets\Scripts\UI\StaminaUI.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventorySystem.cs" />
@@ -98,7 +99,6 @@
      <Compile Include="Assets\Animations\CatInputActions.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-     <Compile Include="Assets\Scripts\Enemy\EnemyDissolve.cs" />
      <None Include="Assets\Hovl Studio\Procedural fire\Shaders\FireSphere.shader" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

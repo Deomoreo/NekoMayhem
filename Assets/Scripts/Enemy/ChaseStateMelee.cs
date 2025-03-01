@@ -39,10 +39,12 @@ public class ChaseStateMelee : EnemyState
 
         if (enemy is EnemyMelee melee)
         {
+            EnemyController controller = enemy.GetComponent<EnemyController>();
+            if (controller != null && controller.isDead)
+                return;
             float timeSinceLastAttack = Time.time - melee.lastAttackTime;
             if (timeSinceLastAttack < melee.attackCooldown)
             {
-                Debug.Log("ChaseStateMelee: Cooldown attivo (" + (melee.attackCooldown - timeSinceLastAttack) + " sec rimanenti). Rallento il nemico.");
                 enemy.agent.isStopped = false;
                 enemy.agent.speed = slowSpeed;
                 if (distance < melee.stopDistance)
@@ -65,7 +67,6 @@ public class ChaseStateMelee : EnemyState
 
         if (distance <= enemy.attackRadius)
         {
-            Debug.Log("ChaseStateMelee: Distanza di attacco raggiunta. Transizione ad AttackState.");
             enemy.TransitionToState(new AttackState(enemy));
             return;
         }
