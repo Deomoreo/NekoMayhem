@@ -3847,20 +3847,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &538850206
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538850200}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.42, z: 0}
 --- !u!1 &539436330
 GameObject:
   m_ObjectHideFlags: 0
@@ -18678,13 +18664,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeEnemyRun
       objectReference: {fileID: 0}
+    - target: {fileID: 8628928579008142740, guid: f2c30e827e7436242bf46429803513aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8974491530669541166, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8974491530669541166, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.94
+      value: 6.64
       objectReference: {fileID: 0}
     - target: {fileID: 8974491530669541166, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18692,7 +18682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8974491530669541166, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.41
+      value: 5.49
       objectReference: {fileID: 0}
     - target: {fileID: 8974491530669541166, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1409,7 +1409,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bb6fa484d1fc71a4b8e3009b8f2ad32a, type: 2}
+  - {fileID: 2100000, guid: f4505a95b82d90449a60814081e2c22f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1846,6 +1846,7 @@ GameObject:
   - component: {fileID: 1546444730473719341}
   - component: {fileID: 8128200525139845921}
   - component: {fileID: 5340582191782841555}
+  - component: {fileID: 5916237976848306047}
   m_Layer: 6
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -1909,6 +1910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  damageFlashDuration: 0.65
 --- !u!195 &8128200525139845921
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1943,8 +1945,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408a32fe64697414b9298ed658acb6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dissolveMaterial: {fileID: 2100000, guid: bb6fa484d1fc71a4b8e3009b8f2ad32a, type: 2}
-  dissolveDuration: 2
+  skinnedMesh: {fileID: 2855335755653149277}
+  dissolveMaterialTemplate: []
+  totalDissolveTime: 2.25
+  refreshRate: 0.001
+--- !u!136 &5916237976848306047
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628928579008142740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!1 &8727509306492805763
 GameObject:
   m_ObjectHideFlags: 0

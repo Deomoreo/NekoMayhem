@@ -14,12 +14,43 @@ public class ChaseStateMelee : EnemyState
     public override void Enter()
     {
         enemy.agent.isStopped = false;
-        enemy.agent.speed = enemy.chaseSpeed;
-        if (animator != null)
+
+        if (enemy is EnemyMelee melee)
         {
-            animator.SetBool("IsRunning", true);
-            animator.SetBool("IsAttacking", false);
-            animator.SetBool("IsIdle", false);
+            float timeSinceLastAttack = Time.time - melee.lastAttackTime;
+            if (timeSinceLastAttack < melee.attackCooldown)
+            {
+                // Durante il cooldown: impostiamo velocità ridotta e animazione Idle.
+                enemy.agent.speed = slowSpeed;
+                if (animator != null)
+                {
+                    animator.SetBool("IsIdle", true);
+                    animator.SetBool("IsRunning", false);
+                    animator.SetBool("IsAttacking", false);
+                }
+            }
+            else
+            {
+                // Nessun cooldown: modalità inseguimento attivo.
+                enemy.agent.speed = enemy.chaseSpeed;
+                if (animator != null)
+                {
+                    animator.SetBool("IsRunning", true);
+                    animator.SetBool("IsIdle", false);
+                    animator.SetBool("IsAttacking", false);
+                }
+            }
+        }
+        else
+        {
+            // Comportamento per altri tipi di enemy.
+            enemy.agent.speed = enemy.chaseSpeed;
+            if (animator != null)
+            {
+                animator.SetBool("IsRunning", true);
+                animator.SetBool("IsIdle", false);
+                animator.SetBool("IsAttacking", false);
+            }
         }
     }
 
@@ -39,11 +70,18 @@ public class ChaseStateMelee : EnemyState
             EnemyController controller = enemy.GetComponent<EnemyController>();
             if (controller != null && controller.isDead)
                 return;
+
             float timeSinceLastAttack = Time.time - melee.lastAttackTime;
             if (timeSinceLastAttack < melee.attackCooldown)
             {
-                enemy.agent.isStopped = false;
+                // Durante il cooldown: manteniamo velocità ridotta e animazione Idle.
                 enemy.agent.speed = slowSpeed;
+                if (animator != null)
+                {
+                    animator.SetBool("IsIdle", true);
+                    animator.SetBool("IsRunning", false);
+                }
+                // Se il target è troppo vicino, fermiamo il movimento, altrimenti continuiamo a seguire.
                 if (distance < melee.stopDistance)
                 {
                     enemy.agent.SetDestination(enemy.transform.position);
@@ -53,16 +91,27 @@ public class ChaseStateMelee : EnemyState
                     enemy.agent.SetDestination(target.position);
                 }
                 RotateTowardsTarget(target);
-                enemy.TransitionToState(new EnemyIdleState(enemy));
+                // Rimaniamo nello stesso stato fino a che il cooldown non è terminato.
                 return;
+            }
+            else
+            {
+                // Cooldown terminato: attiviamo l'inseguimento attivo.
+                enemy.agent.speed = enemy.chaseSpeed;
+                if (animator != null)
+                {
+                    animator.SetBool("IsRunning", true);
+                    animator.SetBool("IsIdle", false);
+                }
             }
         }
 
+        // Logica di inseguimento per quando il cooldown non è attivo (o per altri tipi di enemy).
         enemy.agent.isStopped = false;
-        enemy.agent.speed = enemy.chaseSpeed;
         enemy.agent.SetDestination(target.position);
         RotateTowardsTarget(target);
 
+        // Se il nemico è in portata, transizione allo stato di attacco.
         if (distance <= enemy.attackRadius)
         {
             enemy.TransitionToState(new AttackState(enemy));
