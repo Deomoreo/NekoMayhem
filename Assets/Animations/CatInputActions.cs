@@ -133,7 +133,7 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""id"": ""05742517-bc2d-439e-b5f4-6eb64966a9d1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -142,7 +142,7 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""27657107-cd5d-4f9f-966d-2a0cdbca4ff3"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""New action"",
@@ -402,6 +402,34 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""DrawWeapon"",
+            ""id"": ""12df2672-c14e-4aa7-8732-0222bc17df32"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""111ef630-271d-46f0-949e-0c9da91c2fc9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""53521608-41bf-4803-9350-71bbc6f3c390"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": ""Tap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -442,6 +470,9 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         // Transformation
         m_Transformation = asset.FindActionMap("Transformation", throwIfNotFound: true);
         m_Transformation_Newaction = m_Transformation.FindAction("New action", throwIfNotFound: true);
+        // DrawWeapon
+        m_DrawWeapon = asset.FindActionMap("DrawWeapon", throwIfNotFound: true);
+        m_DrawWeapon_Newaction = m_DrawWeapon.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -893,6 +924,39 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         }
     }
     public TransformationActions @Transformation => new TransformationActions(this);
+
+    // DrawWeapon
+    private readonly InputActionMap m_DrawWeapon;
+    private IDrawWeaponActions m_DrawWeaponActionsCallbackInterface;
+    private readonly InputAction m_DrawWeapon_Newaction;
+    public struct DrawWeaponActions
+    {
+        private @CatInputActions m_Wrapper;
+        public DrawWeaponActions(@CatInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_DrawWeapon_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_DrawWeapon; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DrawWeaponActions set) { return set.Get(); }
+        public void SetCallbacks(IDrawWeaponActions instance)
+        {
+            if (m_Wrapper.m_DrawWeaponActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_DrawWeaponActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_DrawWeaponActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_DrawWeaponActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_DrawWeaponActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public DrawWeaponActions @DrawWeapon => new DrawWeaponActions(this);
     public interface IMoveActions
     {
         void OnNewaction(InputAction.CallbackContext context);
@@ -938,6 +1002,10 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
         void OnNewaction(InputAction.CallbackContext context);
     }
     public interface ITransformationActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IDrawWeaponActions
     {
         void OnNewaction(InputAction.CallbackContext context);
     }

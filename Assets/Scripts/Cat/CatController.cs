@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class CatController : MonoBehaviour
 {
     private Animator animator;
@@ -11,13 +12,14 @@ public class CatController : MonoBehaviour
     public float walkSpeed;
     private float baseSpeed = 2f;
     public float rotationSpeed;
+    public float speedSmoothFactor = 5f;
+    public float speedThreshold = 0.01f;
 
     private bool lockRotation = false;
     private bool parryRotationActive = false;
 
     private Vector2 moveInput;
 
-    // Riferimenti per bloccare le azioni quando dash o parry sono attivi
     private CatDash dash;
     private CatParry parry;
 
@@ -54,6 +56,7 @@ public class CatController : MonoBehaviour
             // RotateToCursor();
         }
     }
+
     void RotateToCursor()
     {
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -69,22 +72,27 @@ public class CatController : MonoBehaviour
             }
         }
     }
+
     public void SetSpeed(float newSpeed)
     {
         walkSpeed = newSpeed;
     }
+
     public float GetBaseSpeed()
     {
         return baseSpeed;
     }
+
     public void ModifyMoveSpeed(float multiplier)
     {
         walkSpeed *= multiplier;
     }
+
     public void LockRotation(bool state)
     {
         lockRotation = state;
     }
+
     void Move()
     {
         Vector3 forward = Camera.main.transform.forward;
@@ -112,8 +120,50 @@ public class CatController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
 
-        animator.SetFloat("Speed", currentSpeed);
+        // Gestione del trigger "Move"
+        if (moveInput.magnitude > 0.1f)
+        {
+            // Se c'è input, attiva il trigger "Move"
+            animator.SetTrigger("Move");
+            // Inoltre, se il player sta attaccando e si muove, annulla la combo
+            if (combat != null)
+            {
+                combat.CancelCombo();
+            }
+        }
+        else
+        {
+            // Quando il player è fermo, resettiamo il trigger "Move" per evitare che rimanga attivo
+            animator.ResetTrigger("Move");
+        }
+        UpdateAnimatorSpeed(currentSpeed);
     }
+
+
+    /// <summary>
+    /// Aggiorna gradualmente il parametro "Speed" dell'Animator.
+    /// Se il valore interpolato è sufficientemente vicino al target, lo imposta esattamente.
+    /// Questo evita che il valore continui ad aggiornarsi in maniera infinita.
+    /// </summary>
+    /// <param name="targetSpeed">La velocità target (calcolata in base all'input)</param>
+    private void UpdateAnimatorSpeed(float targetSpeed)
+    {
+        if (animator != null)
+        {
+            float currentAnimSpeed = animator.GetFloat("Speed");
+            float smoothSpeed = Mathf.Lerp(currentAnimSpeed, targetSpeed, Time.deltaTime * speedSmoothFactor);
+            // Se siamo sufficientemente vicini al target, impostiamo esattamente il target per evitare aggiornamenti infinitesimali
+            if (Mathf.Abs(smoothSpeed - targetSpeed) < speedThreshold)
+            {
+                smoothSpeed = targetSpeed;
+            }
+            // Clamp per sicurezza, anche se non dovrebbe superare walkSpeed o scendere sotto 0
+            smoothSpeed = Mathf.Clamp(smoothSpeed, 0f, walkSpeed);
+            animator.SetFloat("Speed", smoothSpeed);
+            
+        }
+    }
+
     public void EnableParryRotation(bool state)
     {
         parryRotationActive = state;

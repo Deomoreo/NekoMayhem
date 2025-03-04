@@ -111,7 +111,7 @@
                     "id": "05742517-bc2d-439e-b5f4-6eb64966a9d1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -120,7 +120,7 @@
                     "name": "",
                     "id": "27657107-cd5d-4f9f-966d-2a0cdbca4ff3",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "New action",
@@ -373,6 +373,34 @@
                     "id": "79e63885-0c38-455b-9168-8447b63c01c6",
                     "path": "<Keyboard>/leftAlt",
                     "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "DrawWeapon",
+            "id": "12df2672-c14e-4aa7-8732-0222bc17df32",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "111ef630-271d-46f0-949e-0c9da91c2fc9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "53521608-41bf-4803-9350-71bbc6f3c390",
+                    "path": "<Keyboard>/r",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "New action",
