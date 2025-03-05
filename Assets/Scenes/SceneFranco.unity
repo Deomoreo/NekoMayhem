@@ -18820,9 +18820,6 @@ MonoBehaviour:
   attackAngle: 100
   attackRange: 1.5
   attackCooldown: 1
-  firstAttackDuration: 0.9
-  secondAttackDuration: 1
-  chainThreshold: 0.8
 --- !u!114 &1492194233
 MonoBehaviour:
   m_ObjectHideFlags: 0

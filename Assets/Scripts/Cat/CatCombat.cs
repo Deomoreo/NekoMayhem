@@ -13,15 +13,11 @@ public class CatCombat : MonoBehaviour
     private float baseAttackCooldown = 1.3f;
     public float attackCooldown;
 
-    // Stato d'attacco e flag per il chaining
+    // Stato della combo
     private bool isAttacking = false;
     private bool attackQueued = false;
-
-    // Parametri per il timing (in secondi)
-    public float firstAttackDuration = 1.0f;    // Durata stimata del primo attacco
-    public float secondAttackDuration = 1.0f;   // Durata stimata del secondo attacco
-    public float chainThreshold = 0.8f;         // Frazione della durata del primo attacco entro cui,
-                                                // se viene premuto nuovamente il tasto, viene concatenato il secondo attacco
+    // currentAttack: 1 = Attack1, 2 = Attack2
+    private int currentAttack = 0;
 
     private string currentWeapon = "Spada";
     private float attackDamage;
@@ -48,69 +44,71 @@ public class CatCombat : MonoBehaviour
     }
 
     /// <summary>
-    /// Viene chiamato quando si preme il tasto di attacco.
-    /// Se un attacco è già in corso, viene registrato l'input per concatenare il secondo (attackQueued = true).
-    /// Altrimenti, si inizia la sequenza del primo attacco.
+    /// Quando si preme il tasto di attacco.
+    /// Se non sei già in attacco, parte Attack1.
+    /// Se sei già in attacco (cioè Attack1 o Attack2 sono in corso) viene registrato l’input per concatenare il prossimo attacco.
     /// </summary>
     public void PerformAttack()
     {
+        Debug.Log("PerformAttack chiamato.");
         if (isAttacking)
         {
-            // Se già in corso, registra il chaining
+            // Registra l'input per il prossimo attacco se già in attacco.
             attackQueued = true;
+            Debug.Log("Input registrato per concatenare il prossimo attacco.");
             return;
         }
-
+        // Avvia Attack1 se non sei già in attacco
         isAttacking = true;
         attackQueued = false;
-        animator.SetInteger("AttackIndex", 1);
+        currentAttack = 1;
+        Debug.Log("Inizio combo: Attack1 eseguito.");
+        animator.SetInteger("AttackType", currentAttack);
         animator.SetTrigger("Attack");
-        StartCoroutine(AttackSequence());
     }
 
     /// <summary>
-    /// Coroutine che gestisce l'intera sequenza d'attacco.
-    /// Attende per il tempo di "chain" (chainThreshold * firstAttackDuration);
-    /// se è stato registrato un input (attackQueued) viene concatenato il secondo attacco.
-    /// Al termine della durata appropriata, viene chiamato EndAttack().
+    /// Questo metodo viene chiamato tramite Animation Event alla fine dell'animazione di attacco.
+    /// Se c'è un input in coda, alterna l'attacco (se Attack1, passa ad Attack2; se Attack2, passa ad Attack1)
+    /// e lancia il nuovo attacco. Se non c'è input in coda, termina la combo (ritorna al blendtree).
     /// </summary>
-    IEnumerator AttackSequence()
+    public void OnAttackAnimationEnd()
     {
-        float chainTime = chainThreshold * firstAttackDuration;
-        yield return new WaitForSeconds(chainTime);
-
+        Debug.Log("OnAttackAnimationEnd chiamato. CurrentAttack: " + currentAttack + ", AttackQueued: " + attackQueued);
         if (attackQueued)
         {
-            // Concatenazione del secondo attacco
-            animator.SetInteger("AttackIndex", 2);
-            animator.SetTrigger("Attack");
+            // Alterna il tipo di attacco: se Attack1, passa ad Attack2, altrimenti torna ad Attack1
             attackQueued = false;
-            yield return new WaitForSeconds(secondAttackDuration);
-            EndAttack();
+            currentAttack = (currentAttack == 1) ? 2 : 1;
+            Debug.Log("Eseguo nuovo attacco: Attack" + currentAttack);
+            animator.SetInteger("AttackType", currentAttack);
+            animator.SetTrigger("Attack");
         }
         else
         {
-            // Nessun chaining: attendi il resto del primo attacco
-            yield return new WaitForSeconds(firstAttackDuration - chainTime);
+            // Nessun input in coda: termina la combo
             EndAttack();
         }
     }
 
     /// <summary>
-    /// Al termine dell'attacco, resetta lo stato, riportando AttackIndex a 0 e consentendo nuove esecuzioni.
+    /// Termina la combo, resetta lo stato e riporta l'animator al blendtree (impostando AttackType a 0).
     /// </summary>
-    public void EndAttack()
+    private void EndAttack()
     {
+        Debug.Log("Combo terminata. Resetto lo stato e torno al blendtree.");
         isAttacking = false;
-        attackQueued = false;
-        animator.SetInteger("AttackIndex", 0);
-        swordTrailController.StopTrail();
+        currentAttack = 0;
+        animator.SetInteger("AttackType", 0);
     }
+
+    // I metodi ApplyDamage, UpdateStats e ChangeWeapon rimangono invariati
 
     public void ApplyDamageEvent()
     {
         ApplyDamage();
-        swordTrailController.StartTrail();
+        if (swordTrailController != null)
+            swordTrailController.StartTrail();
     }
 
     private void ApplyDamage()
@@ -139,7 +137,7 @@ public class CatCombat : MonoBehaviour
                     finalDamage = Mathf.RoundToInt(finalDamage * 2f);
                     catParry.RemoveStunnedEnemy(enemyController);
                 }
-                Debug.Log($"Colpito {enemy.name}, Danno: {finalDamage}");
+                Debug.Log("Colpito " + enemy.name + ", Danno: " + finalDamage);
                 enemyController.TakeDamage(finalDamage);
             }
         }
@@ -152,26 +150,15 @@ public class CatCombat : MonoBehaviour
         defense = PlayerStats.Instance.stats["Difesa"];
         if (WeaponStats.Instance.weaponStats.ContainsKey(currentWeapon))
             attackDamage += WeaponStats.Instance.weaponStats[currentWeapon];
-        attackSpeed = PlayerStats.Instance.stats.ContainsKey("Velocità Attacco") ? PlayerStats.Instance.stats["Velocità Attacco"] : 1.0f;
+        attackSpeed = PlayerStats.Instance.stats.ContainsKey("Velocità Attacco") ?
+                      PlayerStats.Instance.stats["Velocità Attacco"] : 1.0f;
         attackCooldown = baseAttackCooldown / attackSpeed;
-        Debug.Log($"Danni aggiornati: {attackDamage} | Critico: {critChance}% | Cooldown: {attackCooldown} | Difesa: {defense}");
+        Debug.Log($"Stats aggiornate: Danno: {attackDamage}, CritChance: {critChance}%, Cooldown: {attackCooldown}, Difesa: {defense}");
     }
 
     public void ChangeWeapon(string newWeapon)
     {
         currentWeapon = newWeapon;
         UpdateStats();
-    }
-
-    /// <summary>
-    /// Annulla la combo, resetta eventuali trigger e AttackIndex, e abilita nuovamente gli attacchi.
-    /// Questo metodo può essere chiamato anche dal movimento per interrompere la combo.
-    /// </summary>
-    public void CancelCombo()
-    {
-        attackQueued = false;
-        animator.ResetTrigger("Attack");
-        animator.SetInteger("AttackIndex", 0);
-        isAttacking = false;
     }
 }

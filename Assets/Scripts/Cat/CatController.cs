@@ -119,21 +119,8 @@ public class CatController : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
-
-        // Gestione del trigger "Move"
-        if (moveInput.magnitude > 0.1f)
-        {
-            // Se c'è input, attiva il trigger "Move"
-            animator.SetTrigger("Move");
-            // Inoltre, se il player sta attaccando e si muove, annulla la combo
-            if (combat != null)
-            {
-                combat.CancelCombo();
-            }
-        }
         else
         {
-            // Quando il player è fermo, resettiamo il trigger "Move" per evitare che rimanga attivo
             animator.ResetTrigger("Move");
         }
         UpdateAnimatorSpeed(currentSpeed);
