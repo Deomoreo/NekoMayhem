@@ -18820,6 +18820,8 @@ MonoBehaviour:
   attackAngle: 100
   attackRange: 1.5
   attackCooldown: 1
+  maxQueue: 2
+  pushForce: 3
 --- !u!114 &1492194233
 MonoBehaviour:
   m_ObjectHideFlags: 0

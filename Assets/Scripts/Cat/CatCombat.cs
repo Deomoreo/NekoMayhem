@@ -4,6 +4,7 @@ using UnityEngine;
 public class CatCombat : MonoBehaviour
 {
     private Animator animator;
+    private Rigidbody rb;
     public LayerMask enemyLayers;
     private CatParry catParry;
     private SwordTrailController swordTrailController;
@@ -13,11 +14,17 @@ public class CatCombat : MonoBehaviour
     private float baseAttackCooldown = 1.3f;
     public float attackCooldown;
 
-    // Stato della combo
+    // Gestione della combo
     private bool isAttacking = false;
-    private bool attackQueued = false;
-    // currentAttack: 1 = Attack1, 2 = Attack2
+    private int queuedAttacks = 0;  // Numero di input in coda (limite massimo 2)
+    public int maxQueue = 2;
+
+    // currentAttack: 1 = Attack1, 2 = Attack2.
+    // La logica alterna tra Attack1 e Attack2
     private int currentAttack = 0;
+
+    // Parametro per il push forward
+    public float pushForce = 10f;
 
     private string currentWeapon = "Spada";
     private float attackDamage;
@@ -28,6 +35,7 @@ public class CatCombat : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
         catParry = FindObjectOfType<CatParry>();
         if (catParry == null)
             Debug.LogError("CatParry non trovato! Assicurati che il player abbia lo script.");
@@ -44,65 +52,91 @@ public class CatCombat : MonoBehaviour
     }
 
     /// <summary>
-    /// Quando si preme il tasto di attacco.
-    /// Se non sei già in attacco, parte Attack1.
-    /// Se sei già in attacco (cioè Attack1 o Attack2 sono in corso) viene registrato l’input per concatenare il prossimo attacco.
+    /// Metodo chiamato quando viene premuto il tasto d'attacco.
+    /// Se non stai attaccando, parte Attack1.
+    /// Se stai già attaccando, registra l'input (fino a maxQueue) per concatenare il prossimo attacco.
     /// </summary>
     public void PerformAttack()
     {
         Debug.Log("PerformAttack chiamato.");
         if (isAttacking)
         {
-            // Registra l'input per il prossimo attacco se già in attacco.
-            attackQueued = true;
-            Debug.Log("Input registrato per concatenare il prossimo attacco.");
+            if (queuedAttacks < maxQueue)
+            {
+                queuedAttacks++;
+                Debug.Log("Input registrato per il prossimo attacco. queuedAttacks = " + queuedAttacks);
+            }
+            else
+            {
+                Debug.Log("Max input in coda raggiunto. Input ignorato.");
+            }
             return;
         }
-        // Avvia Attack1 se non sei già in attacco
+        // Non stai attaccando: inizia Attack1
         isAttacking = true;
-        attackQueued = false;
+        queuedAttacks = 0;
         currentAttack = 1;
         Debug.Log("Inizio combo: Attack1 eseguito.");
-        animator.SetInteger("AttackType", currentAttack);
-        animator.SetTrigger("Attack");
+        TriggerAttack();
     }
 
     /// <summary>
-    /// Questo metodo viene chiamato tramite Animation Event alla fine dell'animazione di attacco.
-    /// Se c'è un input in coda, alterna l'attacco (se Attack1, passa ad Attack2; se Attack2, passa ad Attack1)
-    /// e lancia il nuovo attacco. Se non c'è input in coda, termina la combo (ritorna al blendtree).
+    /// Invia il trigger "Attack" e applica il push forward.
+    /// </summary>
+    void TriggerAttack()
+    {
+        animator.SetInteger("AttackType", currentAttack);
+        animator.SetTrigger("Attack");
+        PushForward();
+    }
+
+    /// <summary>
+    /// Applica un impulso in avanti al player.
+    /// </summary>
+    void PushForward()
+    {
+        if (rb != null)
+        {
+            rb.AddForce(transform.forward * pushForce, ForceMode.VelocityChange);
+            Debug.Log("Push forward applicato: " + pushForce);
+        }
+    }
+
+    /// <summary>
+    /// Questo metodo deve essere chiamato tramite un Animation Event alla fine (o quasi) di ciascuna animazione d'attacco.
+    /// Se c'è un attacco registrato in coda, alterna l'attacco (se Attack1 passa a Attack2, altrimenti viceversa)
+    /// e lancia il nuovo attacco; altrimenti, termina la combo.
     /// </summary>
     public void OnAttackAnimationEnd()
     {
-        Debug.Log("OnAttackAnimationEnd chiamato. CurrentAttack: " + currentAttack + ", AttackQueued: " + attackQueued);
-        if (attackQueued)
+        Debug.Log("OnAttackAnimationEnd chiamato. currentAttack = " + currentAttack + ", queuedAttacks = " + queuedAttacks);
+        if (queuedAttacks > 0)
         {
-            // Alterna il tipo di attacco: se Attack1, passa ad Attack2, altrimenti torna ad Attack1
-            attackQueued = false;
+            queuedAttacks--;
+            // Alterna l'attacco: se Attack1, passa a Attack2; se Attack2, torna ad Attack1
             currentAttack = (currentAttack == 1) ? 2 : 1;
-            Debug.Log("Eseguo nuovo attacco: Attack" + currentAttack);
-            animator.SetInteger("AttackType", currentAttack);
-            animator.SetTrigger("Attack");
+            Debug.Log("Concateno nuovo attacco: Attack" + currentAttack);
+            TriggerAttack();
         }
         else
         {
-            // Nessun input in coda: termina la combo
             EndAttack();
         }
     }
 
     /// <summary>
-    /// Termina la combo, resetta lo stato e riporta l'animator al blendtree (impostando AttackType a 0).
+    /// Termina la combo, resetta lo stato e invia il trigger "EndAttack" per far tornare l'animator al blendtree.
     /// </summary>
-    private void EndAttack()
+    void EndAttack()
     {
         Debug.Log("Combo terminata. Resetto lo stato e torno al blendtree.");
         isAttacking = false;
+        queuedAttacks = 0;
         currentAttack = 0;
-        animator.SetInteger("AttackType", 0);
+        animator.SetTrigger("EndAttack");
     }
 
-    // I metodi ApplyDamage, UpdateStats e ChangeWeapon rimangono invariati
+    // I metodi per ApplyDamage, UpdateStats e ChangeWeapon restano invariati
 
     public void ApplyDamageEvent()
     {
@@ -111,7 +145,7 @@ public class CatCombat : MonoBehaviour
             swordTrailController.StartTrail();
     }
 
-    private void ApplyDamage()
+    void ApplyDamage()
     {
         Vector3 attackOrigin = transform.position;
         Vector3 attackDirection = transform.forward;
@@ -137,23 +171,24 @@ public class CatCombat : MonoBehaviour
                     finalDamage = Mathf.RoundToInt(finalDamage * 2f);
                     catParry.RemoveStunnedEnemy(enemyController);
                 }
-                Debug.Log("Colpito " + enemy.name + ", Danno: " + finalDamage);
+                Debug.Log($"Colpito {enemy.name}, Danno: {finalDamage}");
                 enemyController.TakeDamage(finalDamage);
             }
         }
     }
 
-    public void UpdateStats()
+    void UpdateStats()
     {
         attackDamage = PlayerStats.Instance.stats["Forza"];
         critChance = PlayerStats.Instance.stats["Critico"];
         defense = PlayerStats.Instance.stats["Difesa"];
         if (WeaponStats.Instance.weaponStats.ContainsKey(currentWeapon))
             attackDamage += WeaponStats.Instance.weaponStats[currentWeapon];
-        attackSpeed = PlayerStats.Instance.stats.ContainsKey("Velocità Attacco") ?
-                      PlayerStats.Instance.stats["Velocità Attacco"] : 1.0f;
+        attackSpeed = PlayerStats.Instance.stats.ContainsKey("Velocità Attacco")
+            ? PlayerStats.Instance.stats["Velocità Attacco"]
+            : 1.0f;
         attackCooldown = baseAttackCooldown / attackSpeed;
-        Debug.Log($"Stats aggiornate: Danno: {attackDamage}, CritChance: {critChance}%, Cooldown: {attackCooldown}, Difesa: {defense}");
+        Debug.Log($"Danni aggiornati: {attackDamage} | Critico: {critChance}% | Cooldown: {attackCooldown} | Difesa: {defense}");
     }
 
     public void ChangeWeapon(string newWeapon)
