@@ -18085,6 +18085,10 @@ PrefabInstance:
       value: 10.980131
       objectReference: {fileID: 0}
     - target: {fileID: 1546444730473719341, guid: f2c30e827e7436242bf46429803513aa, type: 3}
+      propertyPath: maxHealth
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546444730473719341, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: damageFlashDuration
       value: 0.65
       objectReference: {fileID: 0}
@@ -18666,7 +18670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628928579008142740, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8974491530669541166, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: m_RootOrder
@@ -18822,6 +18826,8 @@ MonoBehaviour:
   attackCooldown: 1
   maxQueue: 2
   pushForce: 3
+  lockOnRadius: 5
+  rotationSpeed: 15
 --- !u!114 &1492194233
 MonoBehaviour:
   m_ObjectHideFlags: 0

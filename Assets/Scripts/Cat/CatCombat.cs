@@ -7,7 +7,9 @@ public class CatCombat : MonoBehaviour
     private Rigidbody rb;
     public LayerMask enemyLayers;
     private CatParry catParry;
+    private CatController catController;
     private SwordTrailController swordTrailController;
+    private Coroutine rotationCoroutine;
 
     public float attackAngle = 30f;
     public float attackRange = 1.5f;
@@ -32,15 +34,23 @@ public class CatCombat : MonoBehaviour
     private float defense;
     private float attackSpeed;
 
+    [Header("Lock-On Settings")]
+    public float lockOnRadius = 5f;       // raggio entro cui cercare i nemici
+    public float rotationSpeed = 15f;     // velocità rotazione verso il nemico
+    private Transform currentTarget;      // nemico attualmente puntato
+
+
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         catParry = FindObjectOfType<CatParry>();
+        catController = GetComponent<CatController>();
+        swordTrailController = FindObjectOfType<SwordTrailController>();
+        
         if (catParry == null)
             Debug.LogError("CatParry non trovato! Assicurati che il player abbia lo script.");
         UpdateStats();
-        swordTrailController = FindObjectOfType<SwordTrailController>();
         PlayerStats.StatsUpdated += UpdateStats;
         WeaponStats.WeaponUpdated += UpdateStats;
     }
@@ -85,22 +95,88 @@ public class CatCombat : MonoBehaviour
     /// </summary>
     void TriggerAttack()
     {
+        animator.applyRootMotion = true;
         animator.SetInteger("AttackType", currentAttack);
         animator.SetTrigger("Attack");
-        PushForward();
-    }
 
-    /// <summary>
-    /// Applica un impulso in avanti al player.
-    /// </summary>
-    void PushForward()
-    {
-        if (rb != null)
+        if (catController != null)
         {
-            rb.AddForce(transform.forward * pushForce, ForceMode.VelocityChange);
-            Debug.Log("Push forward applicato: " + pushForce);
+            catController.EnableMovement(false);
+        }
+
+        FindClosestEnemy();
+
+        if (currentTarget != null)
+        {
+            rotationCoroutine = StartCoroutine(RotateTowardsTargetCoroutine());
         }
     }
+
+
+    /// <summary>
+    /// Termina la combo, resetta lo stato e invia il trigger "EndAttack" per far tornare l'animator al blendtree.
+    /// </summary>
+
+    void EndAttack()
+    {
+        animator.applyRootMotion = false;
+
+        if (catController != null)
+        {
+            catController.EnableMovement(true);
+        }
+
+        isAttacking = false;
+        queuedAttacks = 0;
+        currentAttack = 0;
+        animator.SetTrigger("EndAttack");
+
+        if (rotationCoroutine != null)
+        {
+            StopCoroutine(rotationCoroutine);
+            rotationCoroutine = null;
+        }
+
+        currentTarget = null;
+    }
+
+
+
+    private void FindClosestEnemy()
+    {
+        Collider[] enemies = Physics.OverlapSphere(transform.position, lockOnRadius, enemyLayers);
+        float closestDistance = Mathf.Infinity;
+        currentTarget = null;
+
+        foreach (Collider enemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                currentTarget = enemy.transform;
+            }
+        }
+
+        if (rotationCoroutine != null)
+            StopCoroutine(rotationCoroutine);
+
+        rotationCoroutine = StartCoroutine(RotateTowardsTargetCoroutine());
+    }
+
+    private IEnumerator RotateTowardsTargetCoroutine()
+    {
+        while (isAttacking && currentTarget != null)
+        {
+            Vector3 direction = currentTarget.position - transform.position;
+            direction.y = 0f;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            yield return null; // Attende un frame
+        }
+    }
+
 
     /// <summary>
     /// Questo metodo deve essere chiamato tramite un Animation Event alla fine (o quasi) di ciascuna animazione d'attacco.
@@ -124,20 +200,7 @@ public class CatCombat : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Termina la combo, resetta lo stato e invia il trigger "EndAttack" per far tornare l'animator al blendtree.
-    /// </summary>
-    void EndAttack()
-    {
-        Debug.Log("Combo terminata. Resetto lo stato e torno al blendtree.");
-        isAttacking = false;
-        queuedAttacks = 0;
-        currentAttack = 0;
-        animator.SetTrigger("EndAttack");
-    }
-
     // I metodi per ApplyDamage, UpdateStats e ChangeWeapon restano invariati
-
     public void ApplyDamageEvent()
     {
         ApplyDamage();

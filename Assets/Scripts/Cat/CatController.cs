@@ -17,6 +17,7 @@ public class CatController : MonoBehaviour
 
     private bool lockRotation = false;
     private bool parryRotationActive = false;
+    private bool canMove = true;
 
     private Vector2 moveInput;
 
@@ -55,6 +56,10 @@ public class CatController : MonoBehaviour
             // Puoi attivare la rotazione verso il cursore se necessario
             // RotateToCursor();
         }
+    }
+    public void EnableMovement(bool state)
+    {
+        canMove = state;
     }
 
     void RotateToCursor()
@@ -95,6 +100,9 @@ public class CatController : MonoBehaviour
 
     void Move()
     {
+        if (!canMove) // <— Aggiunto controllo
+            return;
+
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
 
@@ -106,11 +114,8 @@ public class CatController : MonoBehaviour
         Vector3 direction = (right * moveInput.x + forward * moveInput.y).normalized;
         float currentSpeed = moveInput.magnitude > 0 ? walkSpeed : 0f;
 
-        // Se dash o parry sono attivi, ignoriamo l'input di movimento (si permette solo la rotazione)
         if ((dash != null && dash.IsDashing) || (parry != null && parry.IsParryingActive))
-        {
             currentSpeed = 0f;
-        }
 
         transform.Translate(direction * currentSpeed * Time.deltaTime, Space.World);
 
@@ -119,12 +124,10 @@ public class CatController : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
-        else
-        {
-            animator.ResetTrigger("Move");
-        }
+
         UpdateAnimatorSpeed(currentSpeed);
     }
+
 
 
     /// <summary>

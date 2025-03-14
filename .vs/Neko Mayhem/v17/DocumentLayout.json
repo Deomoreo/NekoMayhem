@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Unity\\Neko Mayhem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\cat\\catcombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\cat\\catcombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cat\\catcombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -28,7 +28,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\CatCombat.cs",
               "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Cat\\CatCombat.cs",
               "RelativeToolTip": "Assets\\Scripts\\Cat\\CatCombat.cs",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAcwLEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAcwKUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-01T11:14:23.02Z",
               "EditorCaption": ""
@@ -41,9 +41,10 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Cat\\CatController.cs",
               "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\Cat\\CatController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Cat\\CatController.cs",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAMwHsAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAA3wIEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T11:08:11.846Z"
+              "WhenOpened": "2025-03-04T11:08:11.846Z",
+              "EditorCaption": ""
             }
           ]
         }
