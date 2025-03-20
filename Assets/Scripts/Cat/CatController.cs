@@ -106,13 +106,14 @@ public class CatController : MonoBehaviour
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
 
-        forward.y = 0;
-        right.y = 0;
-        forward.Normalize();
-        right.Normalize();
+        forward.y = 0; right.y = 0;
+        forward.Normalize(); right.Normalize();
 
         Vector3 direction = (right * moveInput.x + forward * moveInput.y).normalized;
-        float currentSpeed = moveInput.magnitude > 0 ? walkSpeed : 0f;
+
+        // Movimento parziale durante attacco (solo rallentato, non bloccato)
+        float speedMultiplier = canMove ? 1f : 0.7f; // 70% velocità durante attacco
+        float currentSpeed = (moveInput.magnitude > 0 ? walkSpeed : 0f) * speedMultiplier;
 
         if ((dash != null && dash.IsDashing) || (parry != null && parry.IsParryingActive))
             currentSpeed = 0f;

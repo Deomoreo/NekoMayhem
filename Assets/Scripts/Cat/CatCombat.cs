@@ -39,6 +39,12 @@ public class CatCombat : MonoBehaviour
     public float rotationSpeed = 15f;     // velocità rotazione verso il nemico
     private Transform currentTarget;      // nemico attualmente puntato
 
+    [Header("Combo Settings")]
+    public float comboInputWindow = 0.3f;
+    public int maxComboAttacks = 3;
+    private float lastAttackTime = 0f;
+    private bool comboQueued = false;
+
 
     void Start()
     {
@@ -68,26 +74,17 @@ public class CatCombat : MonoBehaviour
     /// </summary>
     public void PerformAttack()
     {
-        Debug.Log("PerformAttack chiamato.");
-        if (isAttacking)
+        if (!isAttacking)
         {
-            if (queuedAttacks < maxQueue)
-            {
-                queuedAttacks++;
-                Debug.Log("Input registrato per il prossimo attacco. queuedAttacks = " + queuedAttacks);
-            }
-            else
-            {
-                Debug.Log("Max input in coda raggiunto. Input ignorato.");
-            }
-            return;
+            currentAttack = 1;
+            isAttacking = true;
+            TriggerAttack();
         }
-        // Non stai attaccando: inizia Attack1
-        isAttacking = true;
-        queuedAttacks = 0;
-        currentAttack = 1;
-        Debug.Log("Inizio combo: Attack1 eseguito.");
-        TriggerAttack();
+        else if (currentAttack < maxComboAttacks)
+        {
+            comboQueued = true;
+            lastAttackTime = Time.time;
+        }
     }
 
     /// <summary>
@@ -120,26 +117,34 @@ public class CatCombat : MonoBehaviour
     void EndAttack()
     {
         animator.applyRootMotion = false;
-
         if (catController != null)
-        {
             catController.EnableMovement(true);
+
+        if (comboQueued && (Time.time - lastAttackTime) <= comboInputWindow)
+        {
+            comboQueued = false;
+            currentAttack++;
+            StartCoroutine(TriggerNextAttackAfterDelay(0.1f)); // finestra minima di recupero
+        }
+        else
+        {
+            isAttacking = false;
+            currentAttack = 0;
+            animator.SetTrigger("EndAttack");
         }
 
-        isAttacking = false;
-        queuedAttacks = 0;
-        currentAttack = 0;
-        animator.SetTrigger("EndAttack");
-
+        currentTarget = null;
         if (rotationCoroutine != null)
         {
             StopCoroutine(rotationCoroutine);
             rotationCoroutine = null;
         }
-
-        currentTarget = null;
     }
-
+    IEnumerator TriggerNextAttackAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        TriggerAttack();
+    }
 
 
     private void FindClosestEnemy()
@@ -170,12 +175,16 @@ public class CatCombat : MonoBehaviour
         {
             Vector3 direction = currentTarget.position - transform.position;
             direction.y = 0f;
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            yield return null; // Attende un frame
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+            // Rotazione meno aggressiva (10f invece che 15-20f)
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
+
+            yield return null;
         }
     }
+
 
 
     /// <summary>

@@ -89,7 +89,7 @@ BlendTree:
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 23978045f22ed274a9d32452d9cfa1d6, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 2e8d4f4d86894a342928288048e0e12a, type: 3}
     m_Threshold: 0.5
     m_Position: {x: -0.06460089, y: 1.6137116}
     m_TimeScale: 1
@@ -216,7 +216,7 @@ BlendTree:
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 23978045f22ed274a9d32452d9cfa1d6, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: 651420b400cd64342938f143242f7349, type: 3}
     m_Threshold: 0.5
     m_Position: {x: -0.06460089, y: 1.6137116}
     m_TimeScale: 1
@@ -485,7 +485,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: playerAttack1
-  m_Speed: 2
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7821841969354929698}
@@ -499,7 +499,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 514427736f102f64e9e19b1d61d9afa8, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7d5108d674dc6eb4eaaee37f7a203e59, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -641,7 +641,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: playerAttack2
-  m_Speed: 2
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2240094605789110821}
@@ -650,12 +650,12 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b7755eba2a615034e888981501101f54, type: 2}
+  m_Motion: {fileID: 7400000, guid: 44a79b6295f68e54fb5a2cb49eca968c, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
