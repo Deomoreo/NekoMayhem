@@ -3063,6 +3063,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1558168675}
     m_Modifications:
+    - target: {fileID: 118727427543434069, guid: 6590e99a522921647ac15769767472cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6664992325971334629, guid: 6590e99a522921647ac15769767472cd, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3130,6 +3134,10 @@ PrefabInstance:
     - target: {fileID: 9190878331159525150, guid: 6590e99a522921647ac15769767472cd, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190878331159525150, guid: 6590e99a522921647ac15769767472cd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9190878331159525150, guid: 6590e99a522921647ac15769767472cd, type: 3}
       propertyPath: m_TagString
@@ -18302,7 +18310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4247190589520988438, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: chaseSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4247190589520988438, guid: f2c30e827e7436242bf46429803513aa, type: 3}
       propertyPath: patrolSpeed
@@ -18828,6 +18836,8 @@ MonoBehaviour:
   pushForce: 3
   lockOnRadius: 5
   rotationSpeed: 15
+  comboInputWindow: 0.3
+  maxComboAttacks: 3
 --- !u!114 &1492194233
 MonoBehaviour:
   m_ObjectHideFlags: 0

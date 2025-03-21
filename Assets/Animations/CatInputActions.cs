@@ -133,7 +133,7 @@ public partial class @CatInputActions : IInputActionCollection2, IDisposable
                     ""id"": ""05742517-bc2d-439e-b5f4-6eb64966a9d1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
                 }
             ],

@@ -110,7 +110,7 @@ public class CatController : MonoBehaviour
         forward.Normalize(); right.Normalize();
 
         Vector3 direction = (right * moveInput.x + forward * moveInput.y).normalized;
-
+            
         // Movimento parziale durante attacco (solo rallentato, non bloccato)
         float speedMultiplier = canMove ? 1f : 0.7f; // 70% velocità durante attacco
         float currentSpeed = (moveInput.magnitude > 0 ? walkSpeed : 0f) * speedMultiplier;
