@@ -3,11 +3,11 @@ using UnityEngine;
 public class WorldMapToggle : MonoBehaviour
 {
     private WorldMapManager worldMapManager;
-    private CatInputActions controls;
+    //private CatInputActions controls;
 
     void Awake()
     {
-        controls = new CatInputActions();
+        //controls = new CatInputActions();
     }
 
     void Start()
@@ -19,11 +19,11 @@ public class WorldMapToggle : MonoBehaviour
             Debug.LogError("WorldMapManager non trovato nella scena!");
         }
 
-        controls.Map.Newaction.performed += _ => ToggleMap();
+       // controls.Map.Newaction.performed += _ => ToggleMap();
     }
 
-    void OnEnable() => controls.Enable();
-    void OnDisable() => controls.Disable();
+    //void OnEnable() => controls.Enable();
+    //void OnDisable() => controls.Disable();
 
     private void ToggleMap()
     {

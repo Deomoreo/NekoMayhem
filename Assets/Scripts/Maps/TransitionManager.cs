@@ -25,11 +25,11 @@ public class TransitionManager : MonoBehaviour
     private IEnumerator Transition(GameObject player, Vector2Int moveDirection, Transform exitPoint)
     {
         // Disabilita il controllo del player
-        var catController = player.GetComponent<CatController>();
-        if (catController != null)
-        {
-            catController.enabled = false;
-        }
+        //var catController = player.GetComponent<CatController>();
+        //if (catController != null)
+        //{
+        //    catController.enabled = false;
+        //}
 
         // Azzeriamo eventuali velocità per evitare movimenti indesiderati
         var rb = player.GetComponent<Rigidbody>();
@@ -64,9 +64,9 @@ public class TransitionManager : MonoBehaviour
         {
             animator.SetBool("IsTransitioning", false);
         }
-        if (catController != null)
-        {
-            catController.enabled = true;
-        }
+        //if (catController != null)
+        //{
+        //    catController.enabled = true;
+        //}
     }
 }

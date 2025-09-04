@@ -9,7 +9,7 @@ public class InventoryUI : MonoBehaviour
     public Transform inventoryPanel;
     public Text inventoryDescriptionText;
     private bool isInventoryOpen = false;
-    private CatInputActions controls;
+    //private CatInputActions controls;
 
     void Start()
     {
@@ -21,21 +21,21 @@ public class InventoryUI : MonoBehaviour
     void Awake()
     {
         // initialize input actions
-        controls = new CatInputActions();
-        controls.ToggleInventory.Newaction.performed += _ => ToggleInventory();
+        //controls = new CatInputActions();
+        //controls.ToggleInventory.Newaction.performed += _ => ToggleInventory();
     }
 
     void OnEnable()
     {
         // Enable input actions
-        controls.Enable();
+        //controls.Enable();
         
     }
 
     void OnDisable()
     {
         // Disable the Input Actions
-        controls.Disable();
+        //controls.Disable();
     }
 
     private void ToggleInventory()

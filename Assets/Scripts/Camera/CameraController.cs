@@ -9,7 +9,6 @@ public class CameraController : MonoBehaviour
     public float bipedeSize = 5f;
     public float quadrupedeSize = 7f;
     public float sizeSmoothSpeed = 2f;
-    public CatTransformation catTransformation;
 
     void LateUpdate()
     {
@@ -29,8 +28,6 @@ public class CameraController : MonoBehaviour
         Camera cam = GetComponent<Camera>();
         if (cam != null)
         {
-            float targetSize = (catTransformation != null && catTransformation.isQuadrupede) ? quadrupedeSize : bipedeSize;
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetSize, sizeSmoothSpeed * Time.deltaTime);
         }
     }
 }
