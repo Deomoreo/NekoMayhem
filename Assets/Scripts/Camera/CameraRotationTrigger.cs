@@ -1,13 +1,13 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class CameraRotationTrigger : MonoBehaviour
 {
     [Header("Impostazioni Rotazione")]
-    public float rotationAngle = 16f;      
-    public float rotationSpeed = 1f;       
-    public float minOffsetX = -180f;       
-    public float maxOffsetX = 180f;        
+    public float rotationAngle = 16f;
+    public float rotationSpeed = 1f;
+    public float minOffsetX = -180f;
+    public float maxOffsetX = 180f;
 
     private CameraController cameraController;
     private float originalRotationX;
@@ -50,7 +50,7 @@ public class CameraRotationTrigger : MonoBehaviour
     {
         float elapsedTime = 0f;
         float startRotationX = cameraController.offset.x;
-        float duration = 1f / rotationSpeed; 
+        float duration = 1f / rotationSpeed;
         while (elapsedTime < duration)
         {
             float newRotationX = Mathf.Lerp(startRotationX, targetRotationX, elapsedTime / duration);

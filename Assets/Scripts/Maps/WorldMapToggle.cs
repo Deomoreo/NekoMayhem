@@ -19,7 +19,7 @@ public class WorldMapToggle : MonoBehaviour
             Debug.LogError("WorldMapManager non trovato nella scena!");
         }
 
-       // controls.Map.Newaction.performed += _ => ToggleMap();
+        // controls.Map.Newaction.performed += _ => ToggleMap();
     }
 
     //void OnEnable() => controls.Enable();

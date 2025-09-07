@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class StaminaUI : MonoBehaviour
 {
-    public Slider staminaSlider; 
+    public Slider staminaSlider;
     //private CatDash playerDash;
     private CanvasGroup canvasGroup;
 
@@ -13,8 +13,8 @@ public class StaminaUI : MonoBehaviour
         //staminaSlider.maxValue = playerDash.maxStamina;
         //staminaSlider.value = playerDash.maxStamina;
 
-        canvasGroup = GetComponent<CanvasGroup>(); 
-        canvasGroup.alpha = 0; 
+        canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0;
     }
 
     private void Update()

@@ -37,7 +37,7 @@ public class InventorySystem : MonoBehaviour
         // if exists -> increase qty else add item
         if (existingItem != null)
         {
-            existingItem.quantity += newItem.quantity; 
+            existingItem.quantity += newItem.quantity;
         }
         else
         {
@@ -55,7 +55,7 @@ public class InventorySystem : MonoBehaviour
             //remove if zero or less qty
             if (itemToRemove.quantity <= 0)
             {
-                inventory.Remove(itemToRemove); 
+                inventory.Remove(itemToRemove);
             }
         }
     }

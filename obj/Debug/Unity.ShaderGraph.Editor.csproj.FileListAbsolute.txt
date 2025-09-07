@@ -1,0 +1,2 @@
+C:\Unity\Neko Mayhem\obj\Debug\Unity.ShaderGraph.Editor.csproj.AssemblyReference.cache
+C:\Unity\Neko Mayhem\obj\Debug\Unity.ShaderGraph.Editor.csproj.CoreCompileInputs.cache

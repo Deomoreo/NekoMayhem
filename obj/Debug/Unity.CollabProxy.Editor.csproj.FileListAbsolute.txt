@@ -1,0 +1,2 @@
+C:\Unity\Neko Mayhem\obj\Debug\Unity.CollabProxy.Editor.csproj.AssemblyReference.cache
+C:\Unity\Neko Mayhem\obj\Debug\Unity.CollabProxy.Editor.csproj.CoreCompileInputs.cache

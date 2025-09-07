@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Maps\WorldMapManager.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Maps\DoorTrigger.cs" />
+    <Compile Include="Assets\Scripts\MC\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Maps\GridManager.cs" />
     <Compile Include="Assets\Scripts\Maps\TransitionManager.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
+    <Compile Include="Assets\Scripts\MC\Hitbox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Hovl Studio\Procedural fire\Shaders\FireSphere.shader" />

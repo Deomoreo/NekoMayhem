@@ -1,0 +1,2 @@
+C:\Unity\Neko Mayhem\obj\Debug\Unity.RenderPipelines.Universal.Editor.csproj.AssemblyReference.cache
+C:\Unity\Neko Mayhem\obj\Debug\Unity.RenderPipelines.Universal.Editor.csproj.CoreCompileInputs.cache

@@ -1,0 +1,2 @@
+C:\Unity\Neko Mayhem\obj\Debug\Unity.Timeline.Editor.csproj.AssemblyReference.cache
+C:\Unity\Neko Mayhem\obj\Debug\Unity.Timeline.Editor.csproj.CoreCompileInputs.cache

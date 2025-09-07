@@ -12,7 +12,7 @@ public class CursorManager : MonoBehaviour
 
     private void Start()
     {
-        HideCursor(); 
+        HideCursor();
     }
 
     private void Update()

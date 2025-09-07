@@ -1,0 +1,2 @@
+C:\Unity\Neko Mayhem\obj\Debug\UnityEditor.TestRunner.csproj.AssemblyReference.cache
+C:\Unity\Neko Mayhem\obj\Debug\UnityEditor.TestRunner.csproj.CoreCompileInputs.cache
