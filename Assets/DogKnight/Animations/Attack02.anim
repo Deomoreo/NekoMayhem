@@ -50459,21 +50459,21 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.16666667
-    functionName: 
+    functionName: AE_Attack2Start
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.33333334
-    functionName: 
+    functionName: AE_AttackActive
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.73333335
-    functionName: 
+    functionName: AE_AttackEnd
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
