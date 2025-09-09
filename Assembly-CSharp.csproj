@@ -76,6 +76,10 @@
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
+    <Compile Include="Assets\Scripts\MC\CombatEventsBridge.cs" />
+    <Compile Include="Assets\Scripts\MC\PlayerCombat.cs" />
+    <Compile Include="Assets\Scripts\MC\Hitstopper.cs" />
+    <Compile Include="Assets\Scripts\MC\CameraJolt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Hovl Studio\Procedural fire\Shaders\FireSphere.shader" />

@@ -3599,13 +3599,13 @@ GameObject:
   - component: {fileID: 529570170}
   - component: {fileID: 529570169}
   - component: {fileID: 529570168}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ENEMY
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &529570168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4871,6 +4871,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 512311172252402974, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4925,6 +4929,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+--- !u!1 &603068503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 512311172252402974, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+  m_PrefabInstance: {fileID: 603068502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &603068504
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603068503}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 1, z: 0.075077206}
+  m_Center: {x: 0.00000013475967, y: -0.65, z: 0.00000029825392}
+--- !u!114 &603068505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603068503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e773938a01f5fe649b29d053b96c7ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  targetTag: Enemy
 --- !u!1 &603453266
 GameObject:
   m_ObjectHideFlags: 0
@@ -6042,14 +6078,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 963194227}
-  animatorOverride: {fileID: 0}
+  anim: {fileID: 698691409}
   walkSpeed: 4
   runSpeed: 6.5
-  acceleration: 25
-  deceleration: 30
-  rotationSharpness: 14
+  acceleration: 28
+  deceleration: 52
+  rotationSharpness: 20
+  inputDeadzone: 0.1
   useSprint: 0
-  inputDeadzone: 0.08
   gravity: -20
   groundStick: -5
   skinDownForce: -2
@@ -6057,21 +6093,10 @@ MonoBehaviour:
   dashDuration: 0.18
   dashCooldown: 0.4
   iFrameDuration: 0.18
-  attackBuffer: 0.18
-  parryBuffer: 0.12
-  minAttackInterval: 0.35
-  useAnimEvents: 0
-  combo1OpenNorm: 0.35
-  combo1CloseNorm: 0.7
   speedParam: Speed
   isDashingParam: IsDashing
-  isAttackingParam: IsAttacking
-  nextComboParam: NextCombo
-  attackTrigger: Attack
-  parryTrigger: Parry
   moveXParam: MoveX
   moveZParam: MoveZ
-  debugLogs: 0
 --- !u!143 &698691405
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6090,6 +6115,80 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &698691406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698691402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3476c6ded19a6394993a69e6d0c753e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &698691407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698691402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbd356096877654a92c3b6533752bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &698691408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698691402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57cc358001b632748b21da1540555859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 698691409}
+  eventsBridge: {fileID: 698691406}
+  cc: {fileID: 698691405}
+  playerMove: {fileID: 698691404}
+  hitbox: {fileID: 529570168}
+  cameraJolt: {fileID: 0}
+  hitstopper: {fileID: 698691407}
+  input: {fileID: 698691403}
+  attackTrigger: Attack
+  nextComboParam: NextCombo
+  isAttackingParam: IsAttacking
+  attackLayerIndex: 1
+  layerLerpUp: 18
+  layerLerpDown: 9
+  attack1StateName: Light_A1
+  attack2StateName: Light_A2
+  attackLayerIdleState: AttackLayer_Idle
+  inputBufferSeconds: 0.2
+  aimAssistMaxAngle: 15
+  aimAssistRange: 2.5
+  aimLockDuration: 0.1
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  enemyTag: Enemy
+  windupSpeedMul: 0.55
+  hitSpeedMul: 0.8
+  recoverSpeedMul: 1
+  lungeDistance: 1.1
+  lungeDuration: 0.085
+  hitstopSeconds: 0.05
+  cameraJoltSeconds: 0.02
+  debugLogs: 0
+--- !u!95 &698691409 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8422892626592999198, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+  m_PrefabInstance: {fileID: 603068502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705254252
 GameObject:
   m_ObjectHideFlags: 0
@@ -8877,6 +8976,7 @@ GameObject:
   - component: {fileID: 963194231}
   - component: {fileID: 963194230}
   - component: {fileID: 963194232}
+  - component: {fileID: 963194233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9025,6 +9125,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41c52b90046ce94f898ed4b0750379e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d052b01efc9e0d548816c162bd229ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0.05, y: 0, z: 0}
 --- !u!1 &976295681
 GameObject:
   m_ObjectHideFlags: 0
