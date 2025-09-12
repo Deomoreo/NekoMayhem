@@ -1,0 +1,1366 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.30f1 (1fb1bf06830e) revision 2077119'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Professional' Language: 'it' Physical Memory: 16305 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.30f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Unity/Neko Mayhem
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52456
+Successfully changed project path to: C:/Unity/Neko Mayhem
+C:/Unity/Neko Mayhem
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 48.62 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.30f1 (1fb1bf06830e)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Unity/Neko Mayhem/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Ti (ID=0x2489)
+    Vendor:   
+    VRAM:     8024 MB
+    Driver:   32.0.15.8115
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56640
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002267 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 44.30 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.449 seconds
+Domain Reload Profiling:
+	ReloadAssembly (449ms)
+		BeginReloadAssembly (54ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (337ms)
+			LoadAssemblies (51ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (97ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (24ms)
+			SetupLoadedEditorAssemblies (147ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (44ms)
+				BeforeProcessingInitializeOnLoad (12ms)
+				ProcessInitializeOnLoadAttributes (66ms)
+				ProcessInitializeOnLoadMethodAttributes (20ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003576 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 43.71 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.887 seconds
+Domain Reload Profiling:
+	ReloadAssembly (888ms)
+		BeginReloadAssembly (117ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (726ms)
+			LoadAssemblies (84ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (212ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (320ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (44ms)
+				BeforeProcessingInitializeOnLoad (73ms)
+				ProcessInitializeOnLoadAttributes (186ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3172 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 142.7 MB.
+System memory in use after: 142.9 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 3614.
+Total: 3.070600 ms (FindLiveObjects: 0.213000 ms CreateObjectMapping: 0.078900 ms MarkObjects: 2.714700 ms  DeleteObjects: 0.063200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/MiniZulu_-_Generic
+  artifactKey: Guid(9ce752d9cd9bcc345aa14d322f6e3c0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic using Guid(9ce752d9cd9bcc345aa14d322f6e3c0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67f45f289a8a6a38c9230e823e0c14ad') in 0.015516 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic
+  artifactKey: Guid(fc5803c1b0d286445aeaa426b3aec96f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic using Guid(fc5803c1b0d286445aeaa426b3aec96f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b5472ee9ed966457ac91f615d1d2843') in 0.011837 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.459391 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX
+  artifactKey: Guid(74ef3180d08a1c04ab4cca2b6aad508f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX using Guid(74ef3180d08a1c04ab4cca2b6aad508f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9ac2e648b150b901bafc7cea77c0e03') in 0.010274 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.155800 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/ZuluDagger.fbx
+  artifactKey: Guid(8c3fbb22240cba0439946d7a3286e488) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/ZuluDagger.fbx using Guid(8c3fbb22240cba0439946d7a3286e488) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bdcdb8846d919aa6c30f15242e389af') in 0.242920 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.307735 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97b56c50b291a25fa8075afa5e9548f6') in 0.064464 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 38.005106 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations
+  artifactKey: Guid(395d816a077594e4b8f036479a9777c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations using Guid(395d816a077594e4b8f036479a9777c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75769b9891a103ed26be9d53799a1b5f') in 0.012653 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.709241 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx
+  artifactKey: Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx using Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1486cb36813ceb16c18a70c29ef05c00') in 0.015089 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.536216 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee
+  artifactKey: Guid(20439a0ef21cb044a9a22c305f4c0fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee using Guid(20439a0ef21cb044a9a22c305f4c0fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78eb11bbc9c3f97d3ec70774e93da211') in 0.010128 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.395836 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Melee Attack Downward.fbx
+  artifactKey: Guid(4bcaedeb3de87ee448b50dd6ff6e5c76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Melee Attack Downward.fbx using Guid(4bcaedeb3de87ee448b50dd6ff6e5c76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01e2e27c721cfbbdf1e965f0ff58a4e7') in 0.014221 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.053814 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Textures
+  artifactKey: Guid(f973d3fc8d8aec547a6631dfe76a8706) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Textures using Guid(f973d3fc8d8aec547a6631dfe76a8706) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc6f75fcda7acfc25102a1ef9b4afd47') in 0.010490 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.187000 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Textures/Character
+  artifactKey: Guid(c5d0c0f19a8697a4ebc5b43115fb50a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Textures/Character using Guid(c5d0c0f19a8697a4ebc5b43115fb50a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f26c06960c8b94abf2446d554f0e90f') in 0.010148 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.049762 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Previews
+  artifactKey: Guid(3012754907ae7d7429197bdeb56b14e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Previews using Guid(3012754907ae7d7429197bdeb56b14e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4da4aab3cfd845c47deda35717a27cc5') in 0.009556 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.064867 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Previews/Idle.mp4
+  artifactKey: Guid(5e854aa43ccf8b142b9253824b3267e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Previews/Idle.mp4 using Guid(5e854aa43ccf8b142b9253824b3267e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d3aeb74fda75d0dcc13e0fcd4423cdd') in 0.023984 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.778474 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Previews/IdleFront.png
+  artifactKey: Guid(d261f06f06455d0469dcad379536443a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Previews/IdleFront.png using Guid(d261f06f06455d0469dcad379536443a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7c724034497efd5243719fdfb604f75') in 0.024942 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.641883 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/T-Pose.fbx
+  artifactKey: Guid(55a967c1a060a89458ddcda8b370c20e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/T-Pose.fbx using Guid(55a967c1a060a89458ddcda8b370c20e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0774caee41ca41e0ead33c12a18bde61') in 0.036520 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.787497 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Kicking.fbx
+  artifactKey: Guid(7434bb86297fa5e42a6d0c92f2964db4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Kicking.fbx using Guid(7434bb86297fa5e42a6d0c92f2964db4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '284f5857c52e79dae9e103e214643265') in 0.014483 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.613304 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Reaction.fbx
+  artifactKey: Guid(cdd3f5509b6c49c4d86165fb7ba04c61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Reaction.fbx using Guid(cdd3f5509b6c49c4d86165fb7ba04c61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f53bbed2254bdce17b90bbd37c07b86a') in 0.014261 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.945080 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Kick (Armed).fbx
+  artifactKey: Guid(e443a00287bde404f87f030a5b3a4447) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Kick (Armed).fbx using Guid(e443a00287bde404f87f030a5b3a4447) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bdd06aa700f6bde800c5863963cb749') in 0.017974 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.276680 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Stabbing 1.fbx
+  artifactKey: Guid(c15bd63a517e4304b8ae56dc01478431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Stabbing 1.fbx using Guid(c15bd63a517e4304b8ae56dc01478431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5617bf88b9f943b9b1ff397df680ebfa') in 0.014136 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 38.280546 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fe3734a99694343129605f698e7b1cc') in 0.150033 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 98.284773 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/ZuluController.mask
+  artifactKey: Guid(672d1b4839322a34a969c5f1b2decd0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/ZuluController.mask using Guid(672d1b4839322a34a969c5f1b2decd0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11202526774e424a07b4594e0685d3f7') in 0.014639 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.337998 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16a0e284cb1ff3b21e1b00680770ef6b') in 0.047843 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 52.921895 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8207853e093451f1322d3bcdfcecaf17') in 0.054942 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.197704 seconds.
+  path: Assets/DogKnight/Material/PBR.mat
+  artifactKey: Guid(da05e49adf02c134f88f541992ee78d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DogKnight/Material/PBR.mat using Guid(da05e49adf02c134f88f541992ee78d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3e113da1e2622a1398504e07d752065') in 0.038650 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000315 seconds.
+  path: Assets/DogKnight/Material/Polyart.mat
+  artifactKey: Guid(421140039854e8c42938a8cb73d3480c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DogKnight/Material/Polyart.mat using Guid(421140039854e8c42938a8cb73d3480c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6b926c8e1ccf44172fcf066bcbb7175') in 0.017477 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/DogKnight/Material/Stage.mat
+  artifactKey: Guid(4cafe8a18bb8d2a4794bfd7693442026) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DogKnight/Material/Stage.mat using Guid(4cafe8a18bb8d2a4794bfd7693442026) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9fbea0ff6c120bf38c42fa0c844144b') in 0.482218 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/DogKnight/Material/Skybox_Mat.mat
+  artifactKey: Guid(5f62bea3b5185c2488588e50d05df87f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DogKnight/Material/Skybox_Mat.mat using Guid(5f62bea3b5185c2488588e50d05df87f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94edf651af5ec78e10470a36ebecc45b') in 0.031430 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 60.784794 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluAnimator.controller
+  artifactKey: Guid(ac2d24127b7c9624cbb915d124c05668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluAnimator.controller using Guid(ac2d24127b7c9624cbb915d124c05668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd341799e0bf83cd666dd22d37220be8') in 0.012248 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 41.171468 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle
+  artifactKey: Guid(1c084b3a70db294439923487280185b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle using Guid(1c084b3a70db294439923487280185b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd4420553b2b9893b5daaa0e4558ad89') in 0.002613 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.182903 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx
+  artifactKey: Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx using Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43864ef6fa38bfc2f91df184891046fd') in 0.013403 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003804 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.65 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.839 seconds
+Domain Reload Profiling:
+	ReloadAssembly (839ms)
+		BeginReloadAssembly (113ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (679ms)
+			LoadAssemblies (76ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (200ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (268ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (70ms)
+				ProcessInitializeOnLoadAttributes (179ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (15ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3059 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 154.7 MB.
+System memory in use after: 155.0 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3700.
+Total: 3.045100 ms (FindLiveObjects: 0.277000 ms CreateObjectMapping: 0.081000 ms MarkObjects: 2.666700 ms  DeleteObjects: 0.019400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 24.226301 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Bouncing Fight Idle.fbx
+  artifactKey: Guid(37a51ee86a795264791c2bb45ca411cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Bouncing Fight Idle.fbx using Guid(37a51ee86a795264791c2bb45ca411cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'baa03fd150e13d7d9c51bff90da027ee') in 0.034556 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000146 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running 1.fbx
+  artifactKey: Guid(cf65e8e894cca9b49ad3d2860cca8a30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running 1.fbx using Guid(cf65e8e894cca9b49ad3d2860cca8a30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df0d54968343b68189d406f1a669d4f9') in 0.013275 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle Looking 1 (Armed).fbx
+  artifactKey: Guid(c7bb9eb8e2e3724459eeda112daf0804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle Looking 1 (Armed).fbx using Guid(c7bb9eb8e2e3724459eeda112daf0804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0166d29ef5e53dd30dceff3116829a20') in 0.013394 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Breathing Idle.fbx
+  artifactKey: Guid(9820c86c2445d8c4aabcf927738e032b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Breathing Idle.fbx using Guid(9820c86c2445d8c4aabcf927738e032b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55fe26e22c127d92103f1d4e9c1984be') in 0.014497 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Stabbing 2.fbx
+  artifactKey: Guid(3dac5601ea1b5f94599b0739993efbb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Stabbing 2.fbx using Guid(3dac5601ea1b5f94599b0739993efbb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7391b012c217046b7cc3d628b9d63e1') in 0.013314 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running.fbx
+  artifactKey: Guid(bfe8baf2d26d9284683058ace098ae9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running.fbx using Guid(bfe8baf2d26d9284683058ace098ae9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17c482624b86322c4b682974019552da') in 0.013725 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Jog.fbx
+  artifactKey: Guid(5c40e151e25f6134d9b3b9aaeea071ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Jog.fbx using Guid(5c40e151e25f6134d9b3b9aaeea071ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd734165460eb23938ee97623924282ef') in 0.013266 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000140 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Running Jump.fbx
+  artifactKey: Guid(ff3697406c883594394c46562a6c09e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Running Jump.fbx using Guid(ff3697406c883594394c46562a6c09e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16610328aee1ae4e8ac40f26dcf6b2d9') in 0.013400 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Left Turn.fbx
+  artifactKey: Guid(5c41cf0a6c2970845bc089fd6a4c475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Left Turn.fbx using Guid(5c41cf0a6c2970845bc089fd6a4c475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80af1ee0b7cb9279f73c2dcd322e6033') in 0.013977 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 2.fbx
+  artifactKey: Guid(b15f4eaff2c43fc499100ec0b99e15d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 2.fbx using Guid(b15f4eaff2c43fc499100ec0b99e15d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b490accb461502674f34bd6bdb42033') in 0.019397 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Kneeling Down.fbx
+  artifactKey: Guid(26253ea3fc2aace4092455bb74aa6d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Kneeling Down.fbx using Guid(26253ea3fc2aace4092455bb74aa6d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7107907e52fe249ff5142c92f4a8b5db') in 0.013533 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running 2.fbx
+  artifactKey: Guid(4dd27e4003c9e724b80855611ab300e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running 2.fbx using Guid(4dd27e4003c9e724b80855611ab300e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57274e74bb93eba931d826c837747bee') in 0.014796 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle Looking 2 (Armed).fbx
+  artifactKey: Guid(d9df535a3fbb2e940a752188df9a58b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle Looking 2 (Armed).fbx using Guid(d9df535a3fbb2e940a752188df9a58b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06d61cf8f605f087bac4689123b377f0') in 0.013945 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jump (Armed).fbx
+  artifactKey: Guid(9d3102e1ee0e9d7479858d43ef6846bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jump (Armed).fbx using Guid(9d3102e1ee0e9d7479858d43ef6846bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccc48d762cea140a16cdc3b1a34848fd') in 0.012578 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000148 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Picking Up.fbx
+  artifactKey: Guid(b8ac7056b8bb8314883f5651004d2aca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Picking Up.fbx using Guid(b8ac7056b8bb8314883f5651004d2aca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96f24ef42984d3c81705b80865af3b07') in 0.014122 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Stumble Backwards.fbx
+  artifactKey: Guid(4c6e59219c458cc4faae2b37b827186a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Stumble Backwards.fbx using Guid(4c6e59219c458cc4faae2b37b827186a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb5b05eb1680a196db49ba78bff66d38') in 0.012812 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Forward Jump.fbx
+  artifactKey: Guid(985a8cc7af6bd5945b64bd6830667717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Forward Jump.fbx using Guid(985a8cc7af6bd5945b64bd6830667717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a490f7df2c07a7f0f863fb5288058fae') in 0.012618 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Start Walking.fbx
+  artifactKey: Guid(077e3eee112c44449ab209e8f6171efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Start Walking.fbx using Guid(077e3eee112c44449ab209e8f6171efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ead6f2c29cc41cfae381474a8c3bb78') in 0.014077 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000137 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Crouched Walking.fbx
+  artifactKey: Guid(a88abdede0937cc44827e75878a4bb6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Crouched Walking.fbx using Guid(a88abdede0937cc44827e75878a4bb6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5c56bf7f480f69f851c3b12b7575fd0') in 0.012882 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Confident Walking.fbx
+  artifactKey: Guid(8964993fa5453d34493149ba3a39e14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Confident Walking.fbx using Guid(8964993fa5453d34493149ba3a39e14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62427f10da1b0d465b254199b2f42364') in 0.011949 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/High Running Jump.fbx
+  artifactKey: Guid(23968833cb5360d4ba3467e9e0ddb82a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/High Running Jump.fbx using Guid(23968833cb5360d4ba3467e9e0ddb82a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45637b64b1160d6edaec6b34a7d1d087') in 0.013100 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Right Turn.fbx
+  artifactKey: Guid(fa1fbda862c182242ac11d12523279c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Right Turn.fbx using Guid(fa1fbda862c182242ac11d12523279c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49a772fb340ac9a14a0045909f635259') in 0.013161 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000136 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Knife Idle.fbx
+  artifactKey: Guid(8fbcd35eed60b2f47854dc83c6e35874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Knife Idle.fbx using Guid(8fbcd35eed60b2f47854dc83c6e35874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6998f6b20b086eebe9713142e41eb69') in 0.012921 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Dying 2.fbx
+  artifactKey: Guid(a45fca4d06be88f44a089022b1aae789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Dying 2.fbx using Guid(a45fca4d06be88f44a089022b1aae789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6141e090c34b6fda246ac84888202ad') in 0.014543 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Dying 1.fbx
+  artifactKey: Guid(137c9dbb6e591c6429cca4aee2abd953) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Dying 1.fbx using Guid(137c9dbb6e591c6429cca4aee2abd953) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0b1c06954fb2787dd84112a20734db2') in 0.014384 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Outward Slash.fbx
+  artifactKey: Guid(8a5c49f1dd96c7b488f1f6f2de67f9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Outward Slash.fbx using Guid(8a5c49f1dd96c7b488f1f6f2de67f9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '263233b3e72612276fb2a3f4cf397ddf') in 0.013782 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Running Jump (Armed).fbx
+  artifactKey: Guid(8e765c9850b18f540937ffa2c2e1717d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Running Jump (Armed).fbx using Guid(8e765c9850b18f540937ffa2c2e1717d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbf7bd5a86ca3d5ef86553320ea65d1a') in 0.014084 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000135 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Right Turn 1.fbx
+  artifactKey: Guid(11287f09f0fb37445ab738546beca57a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Right Turn 1.fbx using Guid(11287f09f0fb37445ab738546beca57a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a251821861e4bb33018253baa7854bca') in 0.012546 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Knocked Down.fbx
+  artifactKey: Guid(d372aed57aa41454fa5d43a3d7d21352) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Knocked Down.fbx using Guid(d372aed57aa41454fa5d43a3d7d21352) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b2875341c9de3241314d105bf9bc2cc') in 0.013277 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Looking Around.fbx
+  artifactKey: Guid(95ee296d7d79bfd48b1ca71fd4881507) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Looking Around.fbx using Guid(95ee296d7d79bfd48b1ca71fd4881507) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc75226555b1d14e66dd6d01c043cf3a') in 0.012289 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Sword Slash.fbx
+  artifactKey: Guid(6338a9d340179b34e89d53d3d0d3c1ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Sword Slash.fbx using Guid(6338a9d340179b34e89d53d3d0d3c1ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd38ebaca9bf2cb37fa7e0d47b192acf2') in 0.013504 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000139 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jumping 1.fbx
+  artifactKey: Guid(ae65c4dbeba115441a0715534e377f99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jumping 1.fbx using Guid(ae65c4dbeba115441a0715534e377f99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5a5c34f0bae526117e7542c17be7535') in 0.013213 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Stop Walking.fbx
+  artifactKey: Guid(924801147ead39d4aa7851f94e60af7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Stop Walking.fbx using Guid(924801147ead39d4aa7851f94e60af7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d9d5d529085edd825c7302878687437') in 0.013554 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Left Turn 1.fbx
+  artifactKey: Guid(1f19eff44e534b548bd88bf4b691b797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Left Turn 1.fbx using Guid(1f19eff44e534b548bd88bf4b691b797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4ed12f5e61bf8e6a6e0965bdf1fe253') in 0.013830 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Standing Up.fbx
+  artifactKey: Guid(d2437e00497cbee4cab7238f567b6211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Standing Up.fbx using Guid(d2437e00497cbee4cab7238f567b6211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e703857e3f208c4bc71d43d97befc1b') in 0.012089 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Fight Idle.fbx
+  artifactKey: Guid(3fe2e323f88ca3041bc5d862dfbf4cc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Fight Idle.fbx using Guid(3fe2e323f88ca3041bc5d862dfbf4cc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '014fff3cd0a02fc78b91d04fb4c98be1') in 0.013712 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jumping 2.fbx
+  artifactKey: Guid(060d0bd540246ee45ba30621ab85d4b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jumping 2.fbx using Guid(060d0bd540246ee45ba30621ab85d4b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c3b2a03d84089b08a2cfb358e5b10c7') in 0.013083 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 35.205666 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d9e99d7527a3cfc8a0728429123dad8') in 0.169125 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003243 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.823 seconds
+Domain Reload Profiling:
+	ReloadAssembly (824ms)
+		BeginReloadAssembly (109ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (670ms)
+			LoadAssemblies (78ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (196ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (266ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (70ms)
+				ProcessInitializeOnLoadAttributes (179ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (18ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3059 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.8 MB.
+System memory in use after: 156.0 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3738.
+Total: 3.103600 ms (FindLiveObjects: 0.275900 ms CreateObjectMapping: 0.112400 ms MarkObjects: 2.696500 ms  DeleteObjects: 0.018200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 93.474568 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a31ee4d8d8dc11b8333c73c54220bf6') in 0.201174 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 49.950684 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'baeb4f203cc74131714cdda4fbedb484') in 0.060974 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 50.005563 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3d61463cf7d791881e7e22f9bf109f5') in 0.045950 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.333924 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f9f6d791b3a41de715537ca90ac5d22') in 0.081473 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.617050 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2b028a5eb2558e57114dd710b055243') in 0.043324 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.675188 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f853e1ef6a7a019991cde43244169be') in 0.075484 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 76.054757 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking
+  artifactKey: Guid(e3b24d4cd87dd9c42b85a60505855fd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking using Guid(e3b24d4cd87dd9c42b85a60505855fd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd12ebfa7a0b058a3958195595ccaa9c0') in 0.010871 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.853455 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Walking 1.fbx
+  artifactKey: Guid(55d8c095bf0865e489301c38d3e08e83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Walking 1.fbx using Guid(55d8c095bf0865e489301c38d3e08e83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63e53677729791f17218327592bd3be6') in 0.014170 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 35.581763 seconds.
+  path: Assets/DogKnight/Animator/DogControl.controller
+  artifactKey: Guid(b60dc9aa529b314489f628aa3b57c470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DogKnight/Animator/DogControl.controller using Guid(b60dc9aa529b314489f628aa3b57c470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '065dccd959feb9707e3a58320226716c') in 0.050831 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.568628 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Thrust Slash.fbx
+  artifactKey: Guid(a5bd07e7b3904664eaaaa06930ab27bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Thrust Slash.fbx using Guid(a5bd07e7b3904664eaaaa06930ab27bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c92ab2226e09def8b3e57873dabf481') in 0.017197 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Walking Turn 180.fbx
+  artifactKey: Guid(e7f0bb02d2c4d03498ada8815c319435) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Walking Turn 180.fbx using Guid(e7f0bb02d2c4d03498ada8815c319435) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f9e67d7c129335edb6f8f5acc580e6a') in 0.013874 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Upward Thrust.fbx
+  artifactKey: Guid(2334d591a3801d642812b24aa74d3685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Upward Thrust.fbx using Guid(2334d591a3801d642812b24aa74d3685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a8b7582b62a864653452d74674b175f') in 0.013394 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Turn Left (Armed).fbx
+  artifactKey: Guid(b2a757bacc26a2141b1cd9f811d643ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Turn Left (Armed).fbx using Guid(b2a757bacc26a2141b1cd9f811d643ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dca41ea350fc530966a9e92a8228c79d') in 0.012867 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Turn Right (Armed).fbx
+  artifactKey: Guid(24a840de92221364eb73355988d6296a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Turn Right (Armed).fbx using Guid(24a840de92221364eb73355988d6296a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '309a2e368d362461645003d36773fd7a') in 0.012669 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Victory Idle.fbx
+  artifactKey: Guid(f9fe1e2abed57bc459449e9866a4df7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Victory Idle.fbx using Guid(f9fe1e2abed57bc459449e9866a4df7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03771e777bc933825d2a7b463bda9c3e') in 0.012948 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Walking 2.fbx
+  artifactKey: Guid(87c862ed91d191b4ea8fb27093a2c0f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Walking 2.fbx using Guid(87c862ed91d191b4ea8fb27093a2c0f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca852c06b90bbf6e55bdbdab12c9149f') in 0.013508 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.534371 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump
+  artifactKey: Guid(8b4f7146a107ff445a804f516b0ebf3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump using Guid(8b4f7146a107ff445a804f516b0ebf3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '079190f468bb23234a9d540a9fc8bb96') in 0.009597 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003911 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.843 seconds
+Domain Reload Profiling:
+	ReloadAssembly (844ms)
+		BeginReloadAssembly (108ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (689ms)
+			LoadAssemblies (81ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (213ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (265ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (68ms)
+				ProcessInitializeOnLoadAttributes (179ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (17ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3059 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 156.0 MB.
+System memory in use after: 156.3 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3776.
+Total: 3.466300 ms (FindLiveObjects: 0.274300 ms CreateObjectMapping: 0.081000 ms MarkObjects: 3.089400 ms  DeleteObjects: 0.020500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003316 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.818 seconds
+Domain Reload Profiling:
+	ReloadAssembly (818ms)
+		BeginReloadAssembly (100ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (672ms)
+			LoadAssemblies (76ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (202ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (265ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (67ms)
+				ProcessInitializeOnLoadAttributes (179ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (17ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3059 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 156.0 MB.
+System memory in use after: 156.3 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3778.
+Total: 3.259800 ms (FindLiveObjects: 0.270400 ms CreateObjectMapping: 0.079800 ms MarkObjects: 2.889600 ms  DeleteObjects: 0.019400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 129.023616 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluAnimator.controller
+  artifactKey: Guid(ac2d24127b7c9624cbb915d124c05668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluAnimator.controller using Guid(ac2d24127b7c9624cbb915d124c05668) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18bf3889c9c0f5054eb7ab7dbf248265') in 0.027460 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 60.593021 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8f3a36ce34693df671f264afc2f1e2d') in 0.189215 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 108.421893 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx
+  artifactKey: Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/FBX/MiniZuluWarrior.fbx using Guid(ea343fee0495a1d479c7bfa7e64899a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ffe95f8c55c41639bc6f0881186ae45') in 0.103306 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 81.733231 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx
+  artifactKey: Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx using Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5f2aa2737c532144467b8c16bc0642e') in 0.025435 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.570308 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx
+  artifactKey: Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx using Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51ddfec4c07860a09502c59f32c7b4db') in 0.009099 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.624721 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx
+  artifactKey: Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx using Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7734b94a8244e2844a91f947c8cb1960') in 0.008447 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 30.316733 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx
+  artifactKey: Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx using Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bb0362b8efa70e127c57ef154ab525f') in 0.007832 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003310 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.837 seconds
+Domain Reload Profiling:
+	ReloadAssembly (837ms)
+		BeginReloadAssembly (108ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (681ms)
+			LoadAssemblies (79ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (206ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (266ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (68ms)
+				ProcessInitializeOnLoadAttributes (179ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (18ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3059 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 156.3 MB.
+System memory in use after: 156.5 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3816.
+Total: 3.759000 ms (FindLiveObjects: 0.263800 ms CreateObjectMapping: 0.128300 ms MarkObjects: 3.342700 ms  DeleteObjects: 0.023300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 47.107259 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/mixamo.com.anim
+  artifactKey: Guid(1c48e0bd2d625a843b57b8284de78be5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/mixamo.com.anim using Guid(1c48e0bd2d625a843b57b8284de78be5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b52ab159c883630f8de0aade93200832') in 0.038886 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003782 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.827 seconds
+Domain Reload Profiling:
+	ReloadAssembly (827ms)
+		BeginReloadAssembly (101ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (680ms)
+			LoadAssemblies (77ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (199ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (272ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (70ms)
+				ProcessInitializeOnLoadAttributes (183ms)
+				ProcessInitializeOnLoadMethodAttributes (8ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (17ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.67 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3059 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 156.3 MB.
+System memory in use after: 156.5 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3818.
+Total: 3.037000 ms (FindLiveObjects: 0.273100 ms CreateObjectMapping: 0.080500 ms MarkObjects: 2.664800 ms  DeleteObjects: 0.018000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 59.427391 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 2.fbx
+  artifactKey: Guid(b15f4eaff2c43fc499100ec0b99e15d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 2.fbx using Guid(b15f4eaff2c43fc499100ec0b99e15d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7372be95a715778e4d1699e0d66dcd5') in 0.074800 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 60.559292 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx
+  artifactKey: Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx using Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68135567f487d33a8afb5130c73681cd') in 0.009591 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.977302 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx
+  artifactKey: Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx using Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1324a60e812a215b451c55011f8d37b') in 0.006656 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 52.290741 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx
+  artifactKey: Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx using Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57413d4fb28e4a06457c3d45648fa9e5') in 0.008225 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.753591 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx
+  artifactKey: Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx using Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44fc271db787b06622929997fc0c186f') in 0.007403 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 34.718695 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 2.fbx
+  artifactKey: Guid(b15f4eaff2c43fc499100ec0b99e15d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 2.fbx using Guid(b15f4eaff2c43fc499100ec0b99e15d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '616433b1e48e98284df5220e8af0ef99') in 0.008135 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.224746 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Breathing Idle.fbx
+  artifactKey: Guid(9820c86c2445d8c4aabcf927738e032b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Breathing Idle.fbx using Guid(9820c86c2445d8c4aabcf927738e032b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acf215b263b49ca2458b5b3d288696c4') in 0.007334 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.093242 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall
+  artifactKey: Guid(493da2735f0a46d47a939f97f767aec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall using Guid(493da2735f0a46d47a939f97f767aec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c6f35bb5dc7ff02d7cfc3c139bebabc') in 0.009418 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.055900 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Knocked Down.fbx
+  artifactKey: Guid(d372aed57aa41454fa5d43a3d7d21352) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Knocked Down.fbx using Guid(d372aed57aa41454fa5d43a3d7d21352) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc2eb6d22118bd8be84a7a1363c8f2ce') in 0.006363 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.944810 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jump (Armed).fbx
+  artifactKey: Guid(9d3102e1ee0e9d7479858d43ef6846bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jump (Armed).fbx using Guid(9d3102e1ee0e9d7479858d43ef6846bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12db1098daac0630ef56f45e889631d4') in 0.006740 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.918108 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Sword Slash.fbx
+  artifactKey: Guid(6338a9d340179b34e89d53d3d0d3c1ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Sword Slash.fbx using Guid(6338a9d340179b34e89d53d3d0d3c1ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8b74120b1dabe7774f46cf8bf62585a') in 0.006652 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.797314 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves
+  artifactKey: Guid(77cae64f1a8b83f49a286b35f7e0e111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves using Guid(77cae64f1a8b83f49a286b35f7e0e111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4936527a8819f99d5ac2f096620b329b') in 0.009628 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.358617 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Jog.fbx
+  artifactKey: Guid(5c40e151e25f6134d9b3b9aaeea071ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Jog.fbx using Guid(5c40e151e25f6134d9b3b9aaeea071ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '312a51b83171c221930edf1dfba0a87f') in 0.006804 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.429754 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Crouched Walking.fbx
+  artifactKey: Guid(a88abdede0937cc44827e75878a4bb6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Crouched Walking.fbx using Guid(a88abdede0937cc44827e75878a4bb6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04509f91d304374b566b62c269d55d4c') in 0.006642 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 24.195681 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Kick (Armed).fbx
+  artifactKey: Guid(e443a00287bde404f87f030a5b3a4447) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Kick (Armed).fbx using Guid(e443a00287bde404f87f030a5b3a4447) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '931ea6b20c55a0fe5a692cc81b546645') in 0.006909 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.416633 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Thrust Slash.fbx
+  artifactKey: Guid(a5bd07e7b3904664eaaaa06930ab27bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Thrust Slash.fbx using Guid(a5bd07e7b3904664eaaaa06930ab27bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb0c1b402b731785cf87e9dc2cd8ebb4') in 0.009069 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.120639 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Bouncing Fight Idle.fbx
+  artifactKey: Guid(37a51ee86a795264791c2bb45ca411cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Bouncing Fight Idle.fbx using Guid(37a51ee86a795264791c2bb45ca411cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2890db7e77e3ddf8f1e672b474938824') in 0.006626 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000142 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Confident Walking.fbx
+  artifactKey: Guid(8964993fa5453d34493149ba3a39e14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Confident Walking.fbx using Guid(8964993fa5453d34493149ba3a39e14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b05e0d955dcf9243fba704838dcd661e') in 0.006414 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000128 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle Looking 1 (Armed).fbx
+  artifactKey: Guid(c7bb9eb8e2e3724459eeda112daf0804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle Looking 1 (Armed).fbx using Guid(c7bb9eb8e2e3724459eeda112daf0804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36e4ad4a6b3f011541814ed8fe8e887b') in 0.016506 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running 1.fbx
+  artifactKey: Guid(cf65e8e894cca9b49ad3d2860cca8a30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running 1.fbx using Guid(cf65e8e894cca9b49ad3d2860cca8a30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '380be83d9cfc0a70564713d8f11a9af0') in 0.007274 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Stabbing 1.fbx
+  artifactKey: Guid(c15bd63a517e4304b8ae56dc01478431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Stabbing 1.fbx using Guid(c15bd63a517e4304b8ae56dc01478431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ab401cbaba22c2f6efab1b4a71b933d') in 0.007070 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Stabbing 2.fbx
+  artifactKey: Guid(3dac5601ea1b5f94599b0739993efbb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Stabbing 2.fbx using Guid(3dac5601ea1b5f94599b0739993efbb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '741cef2680c10135d309e1f61e86ab3d') in 0.006811 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000132 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running.fbx
+  artifactKey: Guid(bfe8baf2d26d9284683058ace098ae9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running.fbx using Guid(bfe8baf2d26d9284683058ace098ae9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '648851b44f7852d186b39050a02300d9') in 0.008247 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Running Jump.fbx
+  artifactKey: Guid(ff3697406c883594394c46562a6c09e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Running Jump.fbx using Guid(ff3697406c883594394c46562a6c09e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ccd32ce95df6ca38a7d49faa98ffdd0') in 0.006695 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx
+  artifactKey: Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Hip Hop Dancing.fbx using Guid(a0fb3fec2a1c75e498d8e8c358f82db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '371c972a4834c6f8ce8c6e6086b125cb') in 0.006522 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Left Turn.fbx
+  artifactKey: Guid(5c41cf0a6c2970845bc089fd6a4c475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Left Turn.fbx using Guid(5c41cf0a6c2970845bc089fd6a4c475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58b2ce8c9e53c37f3d57a0107ab9696e') in 0.006645 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 2.fbx
+  artifactKey: Guid(b15f4eaff2c43fc499100ec0b99e15d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 2.fbx using Guid(b15f4eaff2c43fc499100ec0b99e15d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '607ca7d4d988de1ae38839dc683102f3') in 0.006439 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000149 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Kneeling Down.fbx
+  artifactKey: Guid(26253ea3fc2aace4092455bb74aa6d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Kneeling Down.fbx using Guid(26253ea3fc2aace4092455bb74aa6d68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fd2d58f85fef4221248304b494a25c0') in 0.006105 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running 2.fbx
+  artifactKey: Guid(4dd27e4003c9e724b80855611ab300e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Running 2.fbx using Guid(4dd27e4003c9e724b80855611ab300e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e330d5e19e77fc3a1d77d6454972dc04') in 0.005991 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000139 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle Looking 2 (Armed).fbx
+  artifactKey: Guid(d9df535a3fbb2e940a752188df9a58b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle Looking 2 (Armed).fbx using Guid(d9df535a3fbb2e940a752188df9a58b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48192e93d767d1e6e936ed413b113986') in 0.007910 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Picking Up.fbx
+  artifactKey: Guid(b8ac7056b8bb8314883f5651004d2aca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Picking Up.fbx using Guid(b8ac7056b8bb8314883f5651004d2aca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99a3103f5e822a3f0a770b768bbdcd13') in 0.007280 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Stumble Backwards.fbx
+  artifactKey: Guid(4c6e59219c458cc4faae2b37b827186a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Stumble Backwards.fbx using Guid(4c6e59219c458cc4faae2b37b827186a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71a07047b229ddbc13e48cc717343c92') in 0.006345 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000131 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Forward Jump.fbx
+  artifactKey: Guid(985a8cc7af6bd5945b64bd6830667717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Forward Jump.fbx using Guid(985a8cc7af6bd5945b64bd6830667717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0f6ab7d9fe2d043125cc79bdc18decb') in 0.006553 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000140 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Start Walking.fbx
+  artifactKey: Guid(077e3eee112c44449ab209e8f6171efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Start Walking.fbx using Guid(077e3eee112c44449ab209e8f6171efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a04e14d6c5fc81e5b36b0c891316d6a2') in 0.014615 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000171 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/High Running Jump.fbx
+  artifactKey: Guid(23968833cb5360d4ba3467e9e0ddb82a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/High Running Jump.fbx using Guid(23968833cb5360d4ba3467e9e0ddb82a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35886eef671d3b29d9cd957024c43d2c') in 0.007055 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000146 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Knife Idle.fbx
+  artifactKey: Guid(8fbcd35eed60b2f47854dc83c6e35874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Knife Idle.fbx using Guid(8fbcd35eed60b2f47854dc83c6e35874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24c604a6ad71543f4bb8bae619f3f7f4') in 0.011794 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Right Turn.fbx
+  artifactKey: Guid(fa1fbda862c182242ac11d12523279c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Right Turn.fbx using Guid(fa1fbda862c182242ac11d12523279c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b5c8169daefdfa1284fb42f4d882488') in 0.006895 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Melee Attack Downward.fbx
+  artifactKey: Guid(4bcaedeb3de87ee448b50dd6ff6e5c76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Melee Attack Downward.fbx using Guid(4bcaedeb3de87ee448b50dd6ff6e5c76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8113862619b04a58a2b8e0cac6177a69') in 0.011966 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000142 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Dying 2.fbx
+  artifactKey: Guid(a45fca4d06be88f44a089022b1aae789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Dying 2.fbx using Guid(a45fca4d06be88f44a089022b1aae789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a6aa4cc536a8b0350e9f142d09e8fa2') in 0.013265 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Dying 1.fbx
+  artifactKey: Guid(137c9dbb6e591c6429cca4aee2abd953) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Fall/Dying 1.fbx using Guid(137c9dbb6e591c6429cca4aee2abd953) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81c0a385ea06d55135672761d16a9892') in 0.007017 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Outward Slash.fbx
+  artifactKey: Guid(8a5c49f1dd96c7b488f1f6f2de67f9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Outward Slash.fbx using Guid(8a5c49f1dd96c7b488f1f6f2de67f9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1d4dd6d34749b7a9633d40e1c1edda0') in 0.006900 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Running Jump (Armed).fbx
+  artifactKey: Guid(8e765c9850b18f540937ffa2c2e1717d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Running Jump (Armed).fbx using Guid(8e765c9850b18f540937ffa2c2e1717d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0e61e692fbc6d686df73bf5cbb2a12d') in 0.006960 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Reaction.fbx
+  artifactKey: Guid(cdd3f5509b6c49c4d86165fb7ba04c61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Reaction.fbx using Guid(cdd3f5509b6c49c4d86165fb7ba04c61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddfb153e78530b3d387bd3bc9a87e7a3') in 0.006326 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000135 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx
+  artifactKey: Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Idle 1.fbx using Guid(1bc4fa08ec6ba2b429467a96022f4ba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5c05b20a2462028e47b562d2800978b') in 0.006944 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Right Turn 1.fbx
+  artifactKey: Guid(11287f09f0fb37445ab738546beca57a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Right Turn 1.fbx using Guid(11287f09f0fb37445ab738546beca57a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8aed54e521428f8ecabba15cdd22a61a') in 0.006399 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000161 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Looking Around.fbx
+  artifactKey: Guid(95ee296d7d79bfd48b1ca71fd4881507) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Looking Around.fbx using Guid(95ee296d7d79bfd48b1ca71fd4881507) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6efb70ca4d72e2a2c99144425d59f16') in 0.014113 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000163 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jumping 1.fbx
+  artifactKey: Guid(ae65c4dbeba115441a0715534e377f99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jumping 1.fbx using Guid(ae65c4dbeba115441a0715534e377f99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cbfff68288c2803cc7b5e4086a7e4a9') in 0.006652 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Kicking.fbx
+  artifactKey: Guid(7434bb86297fa5e42a6d0c92f2964db4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Kicking.fbx using Guid(7434bb86297fa5e42a6d0c92f2964db4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f18af7455c408c091a8f1740a7b6a382') in 0.012415 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Stop Walking.fbx
+  artifactKey: Guid(924801147ead39d4aa7851f94e60af7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Stop Walking.fbx using Guid(924801147ead39d4aa7851f94e60af7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f24b5738b1c13994765faa16a18f17b5') in 0.007389 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000146 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Left Turn 1.fbx
+  artifactKey: Guid(1f19eff44e534b548bd88bf4b691b797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Left Turn 1.fbx using Guid(1f19eff44e534b548bd88bf4b691b797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ce4e46f713e3b61bcf11da59d89697b') in 0.006743 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Standing Up.fbx
+  artifactKey: Guid(d2437e00497cbee4cab7238f567b6211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Moves/Standing Up.fbx using Guid(d2437e00497cbee4cab7238f567b6211) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2674cb32f6fe5875d868436fec14715') in 0.007383 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Fight Idle.fbx
+  artifactKey: Guid(3fe2e323f88ca3041bc5d862dfbf4cc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Idle/Fight Idle.fbx using Guid(3fe2e323f88ca3041bc5d862dfbf4cc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd073cbdca7f18838cff8210ccf52db0f') in 0.006581 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000148 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jumping 2.fbx
+  artifactKey: Guid(060d0bd540246ee45ba30621ab85d4b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Jump/Jumping 2.fbx using Guid(060d0bd540246ee45ba30621ab85d4b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39743190319acd68b508484db80005d8') in 0.006396 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 132.905531 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Upward Thrust.fbx
+  artifactKey: Guid(2334d591a3801d642812b24aa74d3685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Upward Thrust.fbx using Guid(2334d591a3801d642812b24aa74d3685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e72d11a009d7793b0760d86732a6fa42') in 0.008633 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 115.194245 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Walking 1.fbx
+  artifactKey: Guid(55d8c095bf0865e489301c38d3e08e83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Walking 1.fbx using Guid(55d8c095bf0865e489301c38d3e08e83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bccce523fd8f5e7d0d4e131474ba2625') in 0.007670 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.099728 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Walking 2.fbx
+  artifactKey: Guid(87c862ed91d191b4ea8fb27093a2c0f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Walking/Walking 2.fbx using Guid(87c862ed91d191b4ea8fb27093a2c0f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '895a272492e2022efd5b2b3a37ba2206') in 0.007938 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 202.281726 seconds.
+  path: Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Outward Slash.fbx
+  artifactKey: Guid(8a5c49f1dd96c7b488f1f6f2de67f9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MiniZulu_-_Generic/MiniZulu - Generic/Animations/Melee/Outward Slash.fbx using Guid(8a5c49f1dd96c7b488f1f6f2de67f9fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '070f3659c1b95b19c04a6ba96d11a908') in 0.025754 seconds 

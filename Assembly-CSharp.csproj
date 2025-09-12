@@ -66,22 +66,23 @@
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Maps\GridManager.cs" />
     <Compile Include="Assets\Scripts\Maps\TransitionManager.cs" />
+    <Compile Include="Assets\Scripts\MC\PlayerCombat.cs" />
     <Compile Include="Assets\Scripts\UI\CursorManager.cs" />
     <Compile Include="Assets\Scripts\Maps\ScreenFader.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlotHover.cs" />
     <Compile Include="Assets\Scripts\Maps\Room.cs" />
+    <Compile Include="Assets\Scripts\MC\Hitstopper.cs" />
+    <Compile Include="Assets\Scripts\MC\CameraJolt.cs" />
     <Compile Include="Assets\Scripts\Maps\WorldMapToggle.cs" />
     <Compile Include="Assets\Scripts\UI\StaminaUI.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySystem.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
+    <Compile Include="Assets\Scripts\MC\CombatEventsBridge.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\MC\CombatEventsBridge.cs" />
-    <Compile Include="Assets\Scripts\MC\PlayerCombat.cs" />
-    <Compile Include="Assets\Scripts\MC\Hitstopper.cs" />
-    <Compile Include="Assets\Scripts\MC\CameraJolt.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\MiniZulu_-_Generic\MiniZulu - Generic\README.txt" />
     <None Include="Assets\Hovl Studio\Procedural fire\Shaders\FireSphere.shader" />
   </ItemGroup>
   <ItemGroup>
