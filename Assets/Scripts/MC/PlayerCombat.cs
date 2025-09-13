@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerCombat : MonoBehaviour
 {
     [Header("Refs")]
-    [SerializeField] private Animator animator;               // Animator con MC_Animator_v01 (quello che suona A1/A2)
-    [SerializeField] private CombatEventsBridge eventsBridge; // sullo stesso GO dell'Animator
+    [SerializeField] private Animator animator;               // L'UNICO Animator con MC_Animator_v01
+    [SerializeField] private CombatEventsBridge eventsBridge; // Sullo stesso GO dell'Animator
     [SerializeField] private CharacterController cc;
-    [SerializeField] private PlayerController playerMove;     // movement only
+    [SerializeField] private PlayerController playerMove;     // MovementOnly (anim opzionale)
     [SerializeField] private Hitbox hitbox;
     [SerializeField] private CameraJolt cameraJolt;
     [SerializeField] private Hitstopper hitstopper;
@@ -20,22 +20,21 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private string nextComboParam = "NextCombo";
     [SerializeField] private string isAttackingParam = "IsAttacking";
     [SerializeField] private int attackLayerIndex = 1;        // "Attack_UpperBody"
-    [SerializeField] private float layerLerpUp = 18f;
-    [SerializeField] private float layerLerpDown = 10f;
 
-    [Header("State names (layer Attack)")]
+    [Header("State names (Layer Attack)")]
     [SerializeField] private string attack1StateName = "Light_A1";
     [SerializeField] private string attack2StateName = "Light_A2";
-    [SerializeField] private string attackLayerIdleState = ""; // opzionale
+    [SerializeField] private string attackLayerIdleState = ""; // opzionale (es. "AttackLayer_Idle")
 
     [Header("Combo & Buffer")]
-    [SerializeField] private float inputBufferSeconds = 0.20f;
+    [SerializeField] private float inputBufferSeconds = 0.20f; // (non usato per re-attack ora, ma teniamolo)
     private float lastAttackPressed = -999f;
+    private float nextAttackAllowedAt = 0f; // anti-spam tra catene
+
     private bool isAttacking;
-    private int comboStep = 0;               // 0=none, 1=A1, 2=A2
+    private int comboStep = 0;            // 0=none, 1=A1, 2=A2
     private bool comboWindowOpen = false;
     private bool comboQueued = false;
-    private float nextAttackAllowedAt = 0f;
 
     [Header("Aim Assist & Lock")]
     [SerializeField] private float aimAssistMaxAngle = 15f;
@@ -55,6 +54,27 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float hitstopSeconds = 0.05f;
     [SerializeField] private float cameraJoltSeconds = 0.02f;
 
+    // ---------------- LAYER WEIGHT DRIVER (nuovo) ----------------
+    [Header("Layer Weight Tuning")]
+    [SerializeField, Tooltip("Tempo SmoothDamp per salire a 1 all’inizio.")]
+    private float weightSmoothUp = 0.06f;
+    [SerializeField, Tooltip("Target dopo HitEnd (passaggio morbido verso recover).")]
+    private float weightAfterHitEnd = 0.90f;
+    [SerializeField, Tooltip("Tempo SmoothDamp per scendere a weightAfterHitEnd.")]
+    private float weightAfterHitEndSmooth = 0.12f;
+    [SerializeField, Tooltip("Target a RecoverStart (ancora controllo braccia).")]
+    private float weightDuringRecover = 0.55f;
+    [SerializeField, Tooltip("Tempo SmoothDamp per scendere a weightDuringRecover.")]
+    private float weightDuringRecoverSmooth = 0.16f;
+    [SerializeField, Tooltip("Peso tenuto per un attimo dopo la fine clip per evitare pop.")]
+    private float postEndHoldWeight = 0.35f;
+    [SerializeField, Tooltip("Attendi questo tempo prima di entrare nell'hold post-fine.")]
+    private float postEndHoldDelay = 0.02f;
+    [SerializeField, Tooltip("Durata dell'hold post-fine prima del rilascio a 0.")]
+    private float postEndHoldDuration = 0.12f;
+    [SerializeField, Tooltip("Tempo SmoothDamp per rilasciare da hold a 0.")]
+    private float weightReleaseSmooth = 0.22f;
+
     [Header("Debug")]
     [SerializeField] private bool debugLogs = false;
 
@@ -63,12 +83,14 @@ public class PlayerCombat : MonoBehaviour
     private const string ATTACK = "Attack";
 
     // Runtime
-    private Coroutine layerCR;
-    private int attackTagHash;
-    private int a1ShortHash, a2ShortHash;
-
-    // param existence cache
+    private int attackTagHash, a1ShortHash, a2ShortHash;
     private bool hasIsAttackingParam, hasNextComboParam, hasAttackTrigger;
+
+    // Weight driver runtime
+    private float weightTarget = 0f;
+    private float weightSmoothTime = 0.1f;
+    private float weightVel = 0f;
+    private Coroutine postEndCR;
 
     private void Awake()
     {
@@ -122,47 +144,67 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        var st = animator.GetCurrentAnimatorStateInfo(attackLayerIndex);
+        // --- Weight driver (SmoothDamp verso il target corrente) ---
         float w = animator.GetLayerWeight(attackLayerIndex);
+        float newW = Mathf.SmoothDamp(w, weightTarget, ref weightVel, Mathf.Max(0.01f, weightSmoothTime), Mathf.Infinity, Time.deltaTime);
+        if (!Mathf.Approximately(newW, w))
+            animator.SetLayerWeight(attackLayerIndex, newW);
+
+        // --- Stato Animator ---
+        var st = animator.GetCurrentAnimatorStateInfo(attackLayerIndex);
         bool inAttackTag = (st.tagHash == attackTagHash);
 
-        // Autodetect Attack2
+        // Autodetect ingresso in A2
         if (st.shortNameHash == a2ShortHash && comboStep != 2)
         {
             comboStep = 2;
             if (hasNextComboParam) animator.SetBool(nextComboParam, false);
             SetAttacking(true);
+            // tieni peso alto durante A2
+            SetLayerTarget(1f, weightSmoothUp);
             if (debugLogs) Debug.Log("[Combat] Enter A2 → comboStep=2");
         }
 
-        // Se stiamo attaccando e per sicurezza il weight è sceso, rialzalo
-        if (inAttackTag && w < 0.95f) SetAttackLayerWeight(1f);
+        // Safety: se stai in Attack ma per qualche motivo il target fosse basso, riallinealo
+        if (inAttackTag && weightTarget < 0.95f)
+            SetLayerTarget(1f, weightSmoothUp);
 
-        // --- FINISH-FIRST: sblocco SOLO a fine clip/stato ---
-        // A1 finita, NESSUNA combo → sblocco
+        // Fine A1: decidi combo o chiusura
         if (comboStep == 1 &&
             st.shortNameHash == a1ShortHash &&
             st.normalizedTime >= 0.98f &&
-            !animator.IsInTransition(attackLayerIndex) &&
-            !(hasNextComboParam && animator.GetBool(nextComboParam)))
+            !animator.IsInTransition(attackLayerIndex))
         {
-            if (debugLogs) Debug.Log("[Combat] A1 finished (no combo) → unlock");
-            EndChain();
+            bool shouldCombo = comboQueued || (hasNextComboParam && animator.GetBool(nextComboParam));
+            if (shouldCombo)
+            {
+                comboQueued = false;
+                if (hasNextComboParam) animator.SetBool(nextComboParam, false);
+                comboStep = 2;
+                animator.CrossFadeInFixedTime(attack2StateName, 0.05f, attackLayerIndex, 0f);
+                SetLayerTarget(1f, weightSmoothUp);
+                if (debugLogs) Debug.Log("[Combat] A1 finished → force CrossFade to A2");
+            }
+            else
+            {
+                if (debugLogs) Debug.Log("[Combat] A1 finished (no combo) → smooth end");
+                EndChainSmooth(false);
+            }
         }
 
-        // A1 finita, combo presente → NON sblocco (lascia che la transizione scatti ora, grazie a Exit Time ON)
-        // A2 finita → sblocco
+        // Fine A2 → chiudi catena con blend-out morbido
         if (comboStep == 2 &&
             st.shortNameHash == a2ShortHash &&
             st.normalizedTime >= 0.98f &&
             !animator.IsInTransition(attackLayerIndex))
         {
-            if (debugLogs) Debug.Log("[Combat] A2 finished → unlock");
-            EndChain();
+            if (debugLogs) Debug.Log("[Combat] A2 finished → smooth end");
+            EndChainSmooth(true);
         }
 
-        // Se non attacchi e il weight è rimasto su, riportalo giù piano
-        if (!isAttacking && w > 0.01f) SetAttackLayerWeight(0f);
+        // Failsafe: se non stai attaccando e il target fosse rimasto alto (rari casi), punta a 0
+        if (!isAttacking && weightTarget > 0.001f && postEndCR == null)
+            SetLayerTarget(0f, weightReleaseSmooth);
     }
 
     // ================= INPUT =================
@@ -170,8 +212,17 @@ public class PlayerCombat : MonoBehaviour
     {
         lastAttackPressed = Time.time;
 
-        if (!isAttacking) { TryStartAttack1(); return; }
-        if (isAttacking && comboStep == 1 && comboWindowOpen) comboQueued = true;
+        if (!isAttacking)
+        {
+            TryStartAttack1();
+            return;
+        }
+
+        if (isAttacking && comboStep == 1 && comboWindowOpen)
+        {
+            comboQueued = true;
+            if (debugLogs) Debug.Log("[Combat] Combo QUEUED (press in window)");
+        }
     }
 
     private bool CanStartAttack1() => Time.time >= nextAttackAllowedAt;
@@ -180,8 +231,11 @@ public class PlayerCombat : MonoBehaviour
     {
         if (!CanStartAttack1()) return;
 
+        // Interrompi eventuale rilascio post-fine
+        if (postEndCR != null) { StopCoroutine(postEndCR); postEndCR = null; }
+
         // Pre-raise
-        SetAttackLayerWeight(1f);
+        SetLayerTarget(1f, weightSmoothUp);
         SetAttacking(true);
 
         // Prep
@@ -205,7 +259,7 @@ public class PlayerCombat : MonoBehaviour
     // ================= EVENTI CLIP =================
     private void OnWindupStart()
     {
-        SetAttackLayerWeight(1f);
+        SetLayerTarget(1f, weightSmoothUp);
         SetAttacking(true);
         if (playerMove) playerMove.SetExternalSpeedMultiplier(windupSpeedMul);
         StartCoroutine(AimAssistLock(aimLockDuration));
@@ -220,6 +274,8 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnHitEnd()
     {
+        // Inizia a cedere un filo il layer
+        SetLayerTarget(weightAfterHitEnd, weightAfterHitEndSmooth);
         if (hitbox) hitbox.SetActive(false);
         if (hitstopper) hitstopper.DoHitstop(hitstopSeconds);
         if (cameraJolt) cameraJolt.DoJolt(cameraJoltSeconds);
@@ -228,77 +284,80 @@ public class PlayerCombat : MonoBehaviour
     private void OnRecoverStart()
     {
         if (playerMove) playerMove.SetExternalSpeedMultiplier(recoverSpeedMul);
-        // NON sblocchiamo qui: lasciamo finire la clip (finish-first)
+        // Cedi ancora un po’ il layer per mano al base layer, ma senza staccare di colpo
+        SetLayerTarget(weightDuringRecover, weightDuringRecoverSmooth);
     }
 
     private void OnComboOpen()
     {
         comboWindowOpen = true;
-        comboQueued = false;
         if (debugLogs) Debug.Log("[Combat] Combo window OPEN");
     }
 
     private void OnComboClose()
     {
+        // Chiudi la finestra; se abbiamo input, abilita NextCombo per chi usa anche la transizione da Animator
         comboWindowOpen = false;
-
-        // Se hai premuto in finestra: abilita la combo ma NON transizionare prima della fine (ci pensa l'Exit Time)
         if (comboStep == 1 && comboQueued)
         {
             if (hasNextComboParam) animator.SetBool(nextComboParam, true);
-            comboQueued = false;
-            if (debugLogs) Debug.Log("[Combat] Combo queued → NextCombo TRUE (wait end)");
+            if (debugLogs) Debug.Log("[Combat] Combo queued → NextCombo TRUE (wait/end)");
         }
-        // Se non hai premuto, NON sblocchiamo qui: lo faremo a fine clip
     }
 
-    public void AttackClipEnd() { /* opzionale: non usato in finish-first */ }
+    public void AttackClipEnd() { /* non usato: finiamo in Update() a 0.98 */ }
 
-    // ================= FINE CATENA =================
-    private void EndChain()
+    // ================= FINE CATENA (morbida) =================
+    private void EndChainSmooth(bool fromA2)
     {
         comboStep = 0;
         SetAttacking(false);
+
         if (hasNextComboParam) animator.SetBool(nextComboParam, false);
         if (hasAttackTrigger) animator.ResetTrigger(attackTrigger);
 
         nextAttackAllowedAt = Time.time + 0.35f;
-        SetAttackLayerWeight(0f);
         if (playerMove) playerMove.SetExternalSpeedMultiplier(1f);
+
+        // Post-fine: piccola attesa, hold a 0.35, poi rilascio a 0 con SmoothDamp
+        if (postEndCR != null) StopCoroutine(postEndCR);
+        postEndCR = StartCoroutine(PostEndReleaseRoutine());
 
         if (!string.IsNullOrEmpty(attackLayerIdleState))
             animator.Play(attackLayerIdleState, attackLayerIndex, 0f);
 
-        if (debugLogs) Debug.Log("[Combat] Chain END → unlock & cooldown");
+        if (debugLogs) Debug.Log("[Combat] Chain END → smooth unlock");
     }
 
-    // ================= Layer weight =================
-    private void SetAttackLayerWeight(float target)
+    private IEnumerator PostEndReleaseRoutine()
     {
-        if (layerCR != null) StopCoroutine(layerCR);
-        layerCR = StartCoroutine(LayerLerpRoutine(target));
+        // breve delay prima dell'hold per far “respirare” l'ultima posa
+        if (postEndHoldDelay > 0f) yield return new WaitForSeconds(postEndHoldDelay);
+
+        // tieni un minimo di controllo upper-body
+        SetLayerTarget(postEndHoldWeight, 0.10f);
+        if (postEndHoldDuration > 0f) yield return new WaitForSeconds(postEndHoldDuration);
+
+        // poi rilascia dolcemente a 0
+        SetLayerTarget(0f, weightReleaseSmooth);
+        postEndCR = null;
     }
 
-    private IEnumerator LayerLerpRoutine(float target)
+    // ================= Weight driver helper =================
+    private void SetLayerTarget(float target, float smoothTime)
     {
-        float w = animator.GetLayerWeight(attackLayerIndex);
-        while (!Mathf.Approximately(w, target))
-        {
-            float speed = (target > w) ? layerLerpUp : layerLerpDown;
-            w = Mathf.MoveTowards(w, target, speed * Time.deltaTime);
-            animator.SetLayerWeight(attackLayerIndex, w);
-            yield return null;
-        }
-        animator.SetLayerWeight(attackLayerIndex, target);
+        weightTarget = Mathf.Clamp01(target);
+        weightSmoothTime = Mathf.Max(0.01f, smoothTime);
+        // Nota: l'attuale valore scivolerà verso il target in Update() via SmoothDamp
     }
 
+    // ================= Stato / utils vari =================
     private void SetAttacking(bool v)
     {
         isAttacking = v;
         if (hasIsAttackingParam) animator.SetBool(isAttackingParam, v);
     }
 
-    // ================= Aim Assist =================
     private IEnumerator AimAssistLock(float duration)
     {
         if (playerMove) playerMove.SetRotationOverride(true);
@@ -333,7 +392,6 @@ public class PlayerCombat : MonoBehaviour
         return best;
     }
 
-    // ================= Lunge =================
     private IEnumerator DoLunge(float distance, float duration)
     {
         if (distance <= 0f || duration <= 0f) yield break;
@@ -348,7 +406,6 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    // ================= Utils =================
     private static bool HasAnimatorBool(Animator a, string name)
     {
         foreach (var p in a.parameters)

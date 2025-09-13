@@ -55800,15 +55800,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.33333334
+  - time: 0.26666668
     functionName: ComboOpen
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.7
-    functionName: HitEnd
+  - time: 0.5
+    functionName: RecoverStart
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -55821,8 +55821,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8
-    functionName: RecoverStart
+  - time: 0.76666665
+    functionName: HitEnd
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
