@@ -138,8 +138,8 @@ public class PlayerController : MonoBehaviour
         {
             float normalized = planarVel.magnitude / Mathf.Max(runSpeed, 0.0001f);
             anim.SetFloat(speedParam, Mathf.Clamp01(normalized));
-            if (!string.IsNullOrEmpty(moveXParam)) anim.SetFloat(moveXParam, moveInput.x);
-            if (!string.IsNullOrEmpty(moveZParam)) anim.SetFloat(moveZParam, moveInput.y);
+            //if (!string.IsNullOrEmpty(moveXParam)) anim.SetFloat(moveXParam, moveInput.x);
+            //if (!string.IsNullOrEmpty(moveZParam)) anim.SetFloat(moveZParam, moveInput.y);
             anim.SetBool(isDashingParam, isDashing);
         }
     }
