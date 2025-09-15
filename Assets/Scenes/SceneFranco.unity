@@ -981,8 +981,6 @@ MonoBehaviour:
   nextComboParam: NextCombo
   isAttackingParam: IsAttacking
   attackLayerIndex: 1
-  layerLerpUp: 18
-  layerLerpDown: 10
   attack1StateName: Light_A1
   attack2StateName: Light_A2
   attackLayerIdleState: AttackLayer_Idle
@@ -1001,9 +999,15 @@ MonoBehaviour:
   lungeDuration: 0.085
   hitstopSeconds: 0.05
   cameraJoltSeconds: 0.02
-  blendOutDelay: 0.03
-  blendOutTimeA1: 0.18
-  blendOutTimeA2: 0.24
+  weightSmoothUp: 0.06
+  weightAfterHitEnd: 5
+  weightAfterHitEndSmooth: 0.12
+  weightDuringRecover: 0.55
+  weightDuringRecoverSmooth: 0.16
+  postEndHoldWeight: 0.35
+  postEndHoldDelay: 0.02
+  postEndHoldDuration: 0.12
+  weightReleaseSmooth: 0.22
   debugLogs: 0
 --- !u!114 &181689845
 MonoBehaviour:
@@ -6023,43 +6027,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.154
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.022
+      value: 0.109
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.012
+      value: -0.041
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.09170909
+      value: -0.46101788
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7162897
+      value: 0.32764792
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.688284
+      value: 0.8175049
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.069165275
+      value: 0.10860542
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 2.073
+      value: -151.336
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 166.969
+      value: 51.072006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -267.952
+      value: -510.237
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d51a8b126accff348858a80fac793d6c, type: 3}
       propertyPath: m_Name
