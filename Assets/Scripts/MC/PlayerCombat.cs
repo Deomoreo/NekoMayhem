@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerCombat : MonoBehaviour
 {
     [Header("Refs")]
-    [SerializeField] private Animator animator;               // L'UNICO Animator con MC_Animator_v01
-    [SerializeField] private CombatEventsBridge eventsBridge; // Sullo stesso GO dell'Animator
+    [SerializeField] private Animator animator;
+    [SerializeField] private CombatEventsBridge eventsBridge;
     [SerializeField] private CharacterController cc;
-    [SerializeField] private PlayerController playerMove;     // MovementOnly (anim opzionale)
+    [SerializeField] private PlayerController playerMove;
     [SerializeField] private Hitbox hitbox;
     [SerializeField] private CameraJolt cameraJolt;
     [SerializeField] private Hitstopper hitstopper;
@@ -19,68 +19,62 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private string attackTrigger = "Attack";
     [SerializeField] private string nextComboParam = "NextCombo";
     [SerializeField] private string isAttackingParam = "IsAttacking";
-    [SerializeField] private int attackLayerIndex = 1;        // "Attack_UpperBody"
+    [SerializeField] private int attackLayerIndex = 1;
     [SerializeField] private float layerLerpUp = 18f;
-    [SerializeField] private float layerLerpDown = 8f;        // più morbido in discesa
+    [SerializeField] private float layerLerpDown = 10f;
 
-    [Header("Stati d’attacco (Layer Attack)")]
+    [Header("Stati (Layer Attack)")]
     [SerializeField] private string attack1StateName = "Light_A1";
     [SerializeField] private string attack2StateName = "Light_A2";
-    [SerializeField] private string attackLayerIdleState = ""; // opzionale (es. "AttackLayer_Idle")
+    [SerializeField] private string attackLayerIdleState = ""; // opzionale
 
-    [Header("Combo & Buffer")]
-    [SerializeField] private float inputBufferSeconds = 0.20f;
-    private float lastAttackPressed = -999f;
-    private bool isAttacking;
-    private int comboStep = 0;               // 0=none, 1=A1, 2=A2
-    private bool comboWindowOpen = false;
-    private bool comboQueued = false;
+    // Niente cooldown forzato dopo la fine catena
     private float nextAttackAllowedAt = 0f;
 
-    // Debounce finestra combo
-    private int comboWindowToken = 0;
-    private int comboWindowTokenProcessed = -1;
+    // Stato combo
+    private bool isAttacking;
+    private int comboStep = 0;         // 0=none, 1=A1, 2=A2
+    private bool comboWindowOpen = false;
+    private bool comboQueued = false;
 
-    [Header("Aim Assist & Lock")]
+    [Header("Early-Restart A2")]
+    [SerializeField, Tooltip("Soglia (normalized time) oltre la quale, se premi durante A2, riparte subito A1.")]
+    private float a2RestartThresholdNormalized = 0.96f;
+
+    [Header("Aim/Lunge/FX")]
     [SerializeField] private float aimAssistMaxAngle = 15f;
     [SerializeField] private float aimAssistRange = 2.5f;
     [SerializeField] private float aimLockDuration = 0.10f;
     [SerializeField] private LayerMask enemyMask = ~0;
     [SerializeField] private string enemyTag = "Enemy";
-
-    [Header("Slow & Lunge")]
     [SerializeField] private float windupSpeedMul = 0.55f;
     [SerializeField] private float hitSpeedMul = 0.80f;
     [SerializeField] private float recoverSpeedMul = 1.0f;
     [SerializeField] private float lungeDistance = 1.1f;
     [SerializeField] private float lungeDuration = 0.085f;
-
-    [Header("Hitbox & Feedback")]
     [SerializeField] private float hitstopSeconds = 0.05f;
     [SerializeField] private float cameraJoltSeconds = 0.02f;
 
-    [Header("Blend-out morbido (anti-pop)")]
-    [SerializeField, Tooltip("Ritardo prima di iniziare a sfumare il layer durante il recover.")]
-    private float blendOutDelay = 0.03f;
-    [SerializeField, Tooltip("Durata sfumatura weight su Attack1 (s).")]
-    private float blendOutTimeA1 = 0.18f;
-    [SerializeField, Tooltip("Durata sfumatura weight su Attack2 (s).")]
-    private float blendOutTimeA2 = 0.24f;
+    [Header("Blend-out morbido")]
+    [SerializeField] private float blendOutDelay = 0.03f;
+    [SerializeField] private float blendOutTimeA1 = 0.18f;
+    [SerializeField] private float blendOutTimeA2 = 0.24f;
 
     [Header("Debug")]
     [SerializeField] private bool debugLogs = false;
 
-    private Coroutine layerCR;
-    private Coroutine blendOutCR;
-    private int attackTagHash;
-    private int a1ShortHash, a2ShortHash;
-
-    // param existence cache
+    // Runtime
+    private Coroutine layerCR, blendOutCR;
+    private int attackTagHash, a1ShortHash, a2ShortHash;
     private bool hasIsAttackingParam, hasNextComboParam, hasAttackTrigger;
 
-    // Input
+    // Input map/action
     private const string MAP = "Gameplay";
     private const string ATTACK = "Attack";
+
+    // Watchdog anti-stallo NextCombo
+    private float nextComboSetAt = -999f;
+    private const float nextComboMaxHang = 0.6f;
 
     private void Awake()
     {
@@ -138,44 +132,101 @@ public class PlayerCombat : MonoBehaviour
         float w = animator.GetLayerWeight(attackLayerIndex);
         bool inAttackTag = (st.tagHash == attackTagHash);
 
-        // Autodetect ingresso A2
+        // Autodetect A2
         if (st.shortNameHash == a2ShortHash && comboStep != 2)
         {
             comboStep = 2;
             if (hasNextComboParam) animator.SetBool(nextComboParam, false);
+            nextComboSetAt = -999f;
             SetAttacking(true);
+            StopBlendOut();
             if (debugLogs) Debug.Log("[Combat] Enter A2 → comboStep=2");
         }
 
-        // Safety: se sei in Attack ma weight giù, rialza
+        // Se sto in Attack ma il weight è sceso, rialzalo
         if (inAttackTag && w < 0.95f) SetAttackLayerWeight(1f);
 
-        // Watchdog: fine attacco (no combo) → sblocca
-        if (isAttacking && inAttackTag && st.normalizedTime >= 0.98f &&
-            !animator.IsInTransition(attackLayerIndex) && !(hasNextComboParam && animator.GetBool(nextComboParam)))
+        // FINE A1 → decide combo SOLO se è stata premuta una seconda volta nella finestra
+        if (comboStep == 1 &&
+            st.shortNameHash == a1ShortHash &&
+            st.normalizedTime >= 0.98f &&
+            !animator.IsInTransition(attackLayerIndex))
         {
-            if (debugLogs) Debug.Log("[Combat] Watchdog end → unlock");
-            EndOrChain();
+            if (comboQueued || (hasNextComboParam && animator.GetBool(nextComboParam)))
+            {
+                ForceA2();
+            }
+            else
+            {
+                if (debugLogs) Debug.Log("[Combat] A1 finished (no combo) → end");
+                EndChainSmooth(false);
+            }
         }
 
-        // Se non attacchi e weight è su → abbassa
+        // FINE A2 → end
+        if (comboStep == 2 &&
+            st.shortNameHash == a2ShortHash &&
+            st.normalizedTime >= 0.98f &&
+            !animator.IsInTransition(attackLayerIndex))
+        {
+            if (debugLogs) Debug.Log("[Combat] A2 finished → end");
+            EndChainSmooth(true);
+        }
+
+        // Watchdog: NextCombo non deve appendersi
+        if (hasNextComboParam && animator.GetBool(nextComboParam))
+        {
+            if (nextComboSetAt < 0f) nextComboSetAt = Time.time;
+
+            bool inA1orA2 = (st.shortNameHash == a1ShortHash) || (st.shortNameHash == a2ShortHash);
+            if (!inA1orA2 && !animator.IsInTransition(attackLayerIndex))
+            {
+                if (debugLogs) Debug.LogWarning("[Combat] NEXT stuck fuori da Attack → reset");
+                HardResetFlags();
+            }
+            else if (comboStep == 1 && Time.time - nextComboSetAt > nextComboMaxHang)
+            {
+                if (debugLogs) Debug.LogWarning("[Combat] NEXT appeso troppo → FORCE A2");
+                ForceA2();
+            }
+        }
+        else nextComboSetAt = -999f;
+
+        // Se non attacco e weight su → abbassa
         if (!isAttacking && w > 0.01f) SetAttackLayerWeight(0f);
 
-        // Failsafe: se non sei più in tag Attack e weight basso, spegni bool se fosse stuck
+        // Failsafe: se non sei in tag Attack e weight basso → spegni bool
         if (isAttacking && !inAttackTag && w <= 0.01f)
-        {
-            if (debugLogs) Debug.Log("[Combat] Failsafe clear IsAttacking");
             ForceClearAttacking();
-        }
     }
 
-    // ================= INPUT =================
+    // =============== INPUT ===============
     private void OnAttackPressed(InputAction.CallbackContext ctx)
     {
-        lastAttackPressed = Time.time;
+        // 1) Early-restart SOLO per fine A2: se sei oltre soglia, fai ripartire A1 subito
+        if (IsAtEndOfA2())
+        {
+            // non serve aspettare che isAttacking diventi false: crossfade diretto
+            TryStartAttack1();
+            return;
+        }
 
-        if (!isAttacking) { TryStartAttack1(); return; }
-        if (isAttacking && comboStep == 1 && comboWindowOpen) comboQueued = true;
+        // 2) Primo click → avvia A1 (se non in attacco)
+        if (!isAttacking)
+        {
+            TryStartAttack1();
+            return;
+        }
+
+        // 3) Secondo click valido SOLO dentro la finestra combo di A1
+        if (isAttacking && comboStep == 1 && comboWindowOpen)
+        {
+            comboQueued = true;
+            if (hasNextComboParam) animator.SetBool(nextComboParam, true);
+            nextComboSetAt = Time.time;
+            if (debugLogs) Debug.Log("[Combat] Combo QUEUED (press in window)");
+        }
+        // Fuori finestra → ignoriamo (niente buffer, niente hold)
     }
 
     private bool CanStartAttack1() => Time.time >= nextAttackAllowedAt;
@@ -184,20 +235,17 @@ public class PlayerCombat : MonoBehaviour
     {
         if (!CanStartAttack1()) return;
 
-        // Interrompi eventuale blend-out precedente
-        if (blendOutCR != null) { StopCoroutine(blendOutCR); blendOutCR = null; }
+        StopBlendOut();
 
-        // Pre-raise
         SetAttackLayerWeight(1f);
         SetAttacking(true);
 
-        // Prep
         comboStep = 1;
         comboQueued = false;
         comboWindowOpen = false;
         if (hasNextComboParam) animator.SetBool(nextComboParam, false);
+        nextComboSetAt = -999f;
 
-        // Ingresso A1 (anti self-transition)
         if (!string.IsNullOrEmpty(attack1StateName))
             animator.CrossFadeInFixedTime(attack1StateName, 0.05f, attackLayerIndex, 0f);
         else if (hasAttackTrigger)
@@ -209,7 +257,7 @@ public class PlayerCombat : MonoBehaviour
         if (debugLogs) Debug.Log("[Combat] Attack1 start");
     }
 
-    // ================= EVENTI CLIP =================
+    // =============== EVENTI CLIP ===============
     private void OnWindupStart()
     {
         SetAttackLayerWeight(1f);
@@ -236,87 +284,104 @@ public class PlayerCombat : MonoBehaviour
     {
         if (playerMove) playerMove.SetExternalSpeedMultiplier(recoverSpeedMul);
 
-        // Blend-out morbido del layer durante il recover
-        var st = animator.GetCurrentAnimatorStateInfo(attackLayerIndex);
-        bool inA2Now = (st.shortNameHash == a2ShortHash);
-        float time = inA2Now ? blendOutTimeA2 : blendOutTimeA1;
-
-        if (blendOutCR != null) StopCoroutine(blendOutCR);
-        blendOutCR = StartCoroutine(BlendOutRoutine(time, blendOutDelay));
-
-        // Sblocco deterministico (manteniamo la logica esistente)
-        if (inA2Now || (comboStep == 1 && !(hasNextComboParam && animator.GetBool(nextComboParam))))
+        // Se NON c’è combo in arrivo → avvia blend-out e chiudi
+        bool comboIncoming = (comboStep == 1) && (comboQueued || (hasNextComboParam && animator.GetBool(nextComboParam)));
+        if (!comboIncoming)
         {
-            if (debugLogs) Debug.Log("[Combat] RecoverStart → unlock");
-            EndOrChain(false); // false = non forzare weight a 0 qui; ci pensa BlendOutRoutine
+            float t = (comboStep == 2) ? blendOutTimeA2 : blendOutTimeA1;
+            StartBlendOut(t, blendOutDelay);
+
+            if (comboStep == 2 || comboStep == 1)
+                EndChain(false); // chiusura deterministica del colpo
+        }
+        else
+        {
+            // Combo in arrivo: nessun blend-out, tieni peso alto
+            StopBlendOut();
+            SetAttackLayerWeight(1f);
+            if (debugLogs) Debug.Log("[Combat] RecoverStart (combo incoming) → keep layer UP");
         }
     }
 
     private void OnComboOpen()
     {
         comboWindowOpen = true;
-        comboQueued = false;
-        comboWindowToken++;
-        comboWindowTokenProcessed = -1;
         if (debugLogs) Debug.Log("[Combat] Combo window OPEN");
     }
 
     private void OnComboClose()
     {
-        if (!comboWindowOpen) return;
         comboWindowOpen = false;
-
-        if (comboWindowTokenProcessed == comboWindowToken) return;
-        comboWindowTokenProcessed = comboWindowToken;
-
-        if (comboStep == 1 && comboQueued)
-        {
-            if (hasNextComboParam) animator.SetBool(nextComboParam, true); // A1 → A2
-            comboQueued = false;
-            if (debugLogs) Debug.Log("[Combat] Combo queued → NextCombo TRUE");
-        }
-        else if (comboStep == 1 && !(hasNextComboParam && animator.GetBool(nextComboParam)))
-        {
-            if (debugLogs) Debug.Log("[Combat] Combo window CLOSE (no input) → unlock");
-            EndOrChain(false); // lascia il blend-out gestire il weight
-        }
+        if (debugLogs) Debug.Log("[Combat] Combo window CLOSE");
+        // Decisione finale a fine A1 (Update a 0.98)
     }
 
-    public void AttackClipEnd() => EndOrChain(false);
+    public void AttackClipEnd() { /* decisione a 0.98 in Update() */ }
 
-    // ================= FINE CATENA / SBLOCCO =================
-    private void EndOrChain(bool forceWeightZero = true)
+    // =============== COMBO / TRANSIZIONI ===============
+    private void ForceA2()
     {
-        // Se stiamo per entrare in A2, non rilasciare ora
-        if (comboStep == 1 && hasNextComboParam && animator.GetBool(nextComboParam)) return;
+        comboQueued = false;
+        StopBlendOut();
+        if (hasNextComboParam) animator.SetBool(nextComboParam, false);
+        nextComboSetAt = -999f;
 
-        // Fine catena (A2) o A1 senza combo → rilascia
-        if (comboStep >= 2 || (comboStep == 1 && !(hasNextComboParam && animator.GetBool(nextComboParam))))
-        {
-            comboStep = 0;
-            comboWindowOpen = false;
-            comboQueued = false;
+        comboStep = 2;
+        SetAttackLayerWeight(1f);
+        SetAttacking(true);
+        animator.CrossFadeInFixedTime(attack2StateName, 0.05f, attackLayerIndex, 0f);
 
-            SetAttacking(false);
-            if (hasNextComboParam) animator.SetBool(nextComboParam, false);
-            if (hasAttackTrigger) animator.ResetTrigger(attackTrigger);
+        if (debugLogs) Debug.Log("[Combat] FORCE A2");
+    }
 
-            nextAttackAllowedAt = Time.time + 0.35f;
+    // =============== FINE CATENA ===============
+    private void EndChainSmooth(bool fromA2)
+    {
+        comboStep = 0;
+        comboQueued = false;
+        comboWindowOpen = false;
 
-            // Se non stiamo già sfumando, e serve, abbassa di colpo (fallback sicurezza)
-            if (forceWeightZero && blendOutCR == null)
-                SetAttackLayerWeight(0f);
+        SetAttacking(false);
+        if (hasNextComboParam) animator.SetBool(nextComboParam, false);
+        if (hasAttackTrigger) animator.ResetTrigger(attackTrigger);
+        nextComboSetAt = -999f;
 
-            if (playerMove) playerMove.SetExternalSpeedMultiplier(1f);
+        // Sblocco immediato del prossimo attacco
+        nextAttackAllowedAt = Time.time;
 
-            if (!string.IsNullOrEmpty(attackLayerIdleState))
-                animator.Play(attackLayerIdleState, attackLayerIndex, 0f);
+        if (playerMove) playerMove.SetExternalSpeedMultiplier(1f);
 
-            // Force-unlock al frame successivo contro rimbalzi
-            StartCoroutine(ForceUnlockNextFrame());
+        StartBlendOut(fromA2 ? blendOutTimeA2 : blendOutTimeA1, blendOutDelay);
 
-            if (debugLogs) Debug.Log("[Combat] Chain END → unlock & cooldown");
-        }
+        if (!string.IsNullOrEmpty(attackLayerIdleState))
+            animator.Play(attackLayerIdleState, attackLayerIndex, 0f);
+
+        StartCoroutine(ForceUnlockNextFrame());
+        if (debugLogs) Debug.Log("[Combat] Chain END → ready immediately");
+    }
+
+    private void EndChain(bool forceWeightZero = true)
+    {
+        comboStep = 0;
+        comboQueued = false;
+        comboWindowOpen = false;
+
+        SetAttacking(false);
+        if (hasNextComboParam) animator.SetBool(nextComboParam, false);
+        if (hasAttackTrigger) animator.ResetTrigger(attackTrigger);
+        nextComboSetAt = -999f;
+
+        // Sblocco immediato del prossimo attacco
+        nextAttackAllowedAt = Time.time;
+
+        if (playerMove) playerMove.SetExternalSpeedMultiplier(1f);
+
+        if (forceWeightZero) SetAttackLayerWeight(0f);
+        if (!string.IsNullOrEmpty(attackLayerIdleState))
+            animator.Play(attackLayerIdleState, attackLayerIndex, 0f);
+
+        StartCoroutine(ForceUnlockNextFrame());
+        if (debugLogs) Debug.Log("[Combat] Chain END (hard) → ready immediately");
     }
 
     private IEnumerator ForceUnlockNextFrame()
@@ -333,11 +398,33 @@ public class PlayerCombat : MonoBehaviour
         if (hasAttackTrigger) animator.ResetTrigger(attackTrigger);
     }
 
-    // ================= Blend utilities =================
+    private void HardResetFlags()
+    {
+        StopBlendOut();
+        SetAttackLayerWeight(0f);
+        comboStep = 0;
+        comboQueued = false;
+        comboWindowOpen = false;
+        nextComboSetAt = -999f;
+        ForceClearAttacking();
+        nextAttackAllowedAt = Time.time; // sempre sbloccato dopo hard reset
+    }
+
+    // =============== Blend utils ===============
+    private void StartBlendOut(float duration, float delay)
+    {
+        StopBlendOut();
+        blendOutCR = StartCoroutine(BlendOutRoutine(duration, delay));
+    }
+
+    private void StopBlendOut()
+    {
+        if (blendOutCR != null) { StopCoroutine(blendOutCR); blendOutCR = null; }
+    }
+
     private IEnumerator BlendOutRoutine(float duration, float delay)
     {
         if (delay > 0f) yield return new WaitForSeconds(delay);
-
         float start = animator.GetLayerWeight(attackLayerIndex);
         float t = 0f;
         while (t < duration)
@@ -351,7 +438,6 @@ public class PlayerCombat : MonoBehaviour
         blendOutCR = null;
     }
 
-    // ================= Layer weight (fallback generale) =================
     private void SetAttackLayerWeight(float target)
     {
         if (layerCR != null) StopCoroutine(layerCR);
@@ -377,11 +463,19 @@ public class PlayerCombat : MonoBehaviour
         if (hasIsAttackingParam) animator.SetBool(isAttackingParam, v);
     }
 
-    // ================= Aim Assist =================
+    private bool IsAtEndOfA2()
+    {
+        var st = animator.GetCurrentAnimatorStateInfo(attackLayerIndex);
+        if (comboStep != 2) return false;
+        if (st.shortNameHash != a2ShortHash) return false;
+        if (animator.IsInTransition(attackLayerIndex)) return false;
+        return st.normalizedTime >= a2RestartThresholdNormalized;
+    }
+
+    // =============== Aim / Lunge ===============
     private IEnumerator AimAssistLock(float duration)
     {
         if (playerMove) playerMove.SetRotationOverride(true);
-
         Transform target = AcquireSoftLockTarget();
         if (target)
         {
@@ -389,10 +483,7 @@ public class PlayerCombat : MonoBehaviour
             if (dir.sqrMagnitude > 0.0001f)
                 transform.rotation = Quaternion.LookRotation(dir.normalized, Vector3.up);
         }
-
-        float t = 0f;
-        while (t < duration) { t += Time.deltaTime; yield return null; }
-
+        float t = 0f; while (t < duration) { t += Time.deltaTime; yield return null; }
         if (playerMove) playerMove.SetRotationOverride(false);
     }
 
@@ -401,7 +492,6 @@ public class PlayerCombat : MonoBehaviour
         Collider[] cols = Physics.OverlapSphere(transform.position, aimAssistRange, enemyMask, QueryTriggerInteraction.Ignore);
         Transform best = null; float bestAngle = Mathf.Infinity;
         Vector3 fwd = transform.forward;
-
         foreach (var c in cols)
         {
             if (!string.IsNullOrEmpty(enemyTag) && !c.CompareTag(enemyTag)) continue;
@@ -412,7 +502,6 @@ public class PlayerCombat : MonoBehaviour
         return best;
     }
 
-    // ================= Lunge =================
     private IEnumerator DoLunge(float distance, float duration)
     {
         if (distance <= 0f || duration <= 0f) yield break;
@@ -427,7 +516,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    // ================= Utils =================
+    // =============== Utils ===============
     private static bool HasAnimatorBool(Animator a, string name)
     {
         foreach (var p in a.parameters)

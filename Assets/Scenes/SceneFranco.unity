@@ -507,15 +507,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2b939e27bd624b844b987ff5dd792633, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.7539005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2b939e27bd624b844b987ff5dd792633, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000011920929
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2b939e27bd624b844b987ff5dd792633, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.895811
+      value: -7.942
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2b939e27bd624b844b987ff5dd792633, type: 3}
       propertyPath: m_LocalRotation.w
@@ -981,12 +981,14 @@ MonoBehaviour:
   nextComboParam: NextCombo
   isAttackingParam: IsAttacking
   attackLayerIndex: 1
-  layerLerpUp: 10
+  layerLerpUp: 4
   layerLerpDown: 8
   attack1StateName: Light_A1
   attack2StateName: Light_A2
   attackLayerIdleState: AttackLayer_Idle
   inputBufferSeconds: 0.2
+  postEndBufferSeconds: 0.22
+  chainCooldown: 0.1
   aimAssistMaxAngle: 15
   aimAssistRange: 2.5
   aimLockDuration: 0.1
@@ -997,10 +999,10 @@ MonoBehaviour:
   windupSpeedMul: 0.55
   hitSpeedMul: 0.8
   recoverSpeedMul: 1
-  lungeDistance: 1.1
-  lungeDuration: 0.085
-  hitstopSeconds: 0.05
-  cameraJoltSeconds: 0.02
+  lungeDistance: 0
+  lungeDuration: 0
+  hitstopSeconds: 0
+  cameraJoltSeconds: 0
   blendOutDelay: 0.03
   blendOutTimeA1: 0.18
   blendOutTimeA2: 0.24

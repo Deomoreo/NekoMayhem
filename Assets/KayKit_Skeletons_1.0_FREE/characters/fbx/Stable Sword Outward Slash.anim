@@ -51340,7 +51340,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.26666668
+  - time: 0.06666667
     functionName: OnComboOpen
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -51361,15 +51361,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.1666666
-    functionName: OnRecoverStart
+  - time: 1.7333333
+    functionName: OnComboClose
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.8333334
-    functionName: OnComboClose
+    functionName: OnRecoverStart
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
