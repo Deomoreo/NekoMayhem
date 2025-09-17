@@ -986,9 +986,8 @@ MonoBehaviour:
   attack1StateName: Light_A1
   attack2StateName: Light_A2
   attackLayerIdleState: AttackLayer_Idle
-  inputBufferSeconds: 0.2
-  postEndBufferSeconds: 0.22
-  chainCooldown: 0.1
+  a2RestartThresholdNormalized: 0.54
+  comboPreOpenGrace: 0.08
   aimAssistMaxAngle: 15
   aimAssistRange: 2.5
   aimLockDuration: 0.1
