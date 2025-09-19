@@ -980,6 +980,7 @@ MonoBehaviour:
   attackTrigger: Attack
   nextComboParam: NextCombo
   isAttackingParam: IsAttacking
+  attackLayerName: Attack_UpperBody
   attackLayerIndex: 1
   layerLerpUp: 4
   layerLerpDown: 8
@@ -987,24 +988,24 @@ MonoBehaviour:
   attack2StateName: Light_A2
   attackLayerIdleState: AttackLayer_Idle
   a2RestartThresholdNormalized: 0.54
-  comboPreOpenGrace: 0.08
-  aimAssistMaxAngle: 15
-  aimAssistRange: 2.5
-  aimLockDuration: 0.1
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  enemyTag: Enemy
-  windupSpeedMul: 0.55
-  hitSpeedMul: 0.8
-  recoverSpeedMul: 1
+  comboPreOpenGraceA1: 0.08
   lungeDistance: 0
   lungeDuration: 0
   hitstopSeconds: 0
   cameraJoltSeconds: 0
-  blendOutDelay: 0.03
-  blendOutTimeA1: 0.18
-  blendOutTimeA2: 0.24
+  assistAngleLight: 60
+  assistAngleHeavy: 40
+  assistRange: 2.5
+  assistWindow: 0.1
+  idealHitDistance: 0.9
+  maxLungeLight: 1.1
+  turnSpeedDegPerSec: 720
+  stickyTimeout: 0.8
+  heightTolerance: 0.5
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  enemyTag: Enemy
   debugLogs: 0
 --- !u!114 &181689845
 MonoBehaviour:
@@ -3855,7 +3856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  targetTag: Player
+  targetTag: 
 --- !u!65 &529570169
 BoxCollider:
   m_ObjectHideFlags: 0

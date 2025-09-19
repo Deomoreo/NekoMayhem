@@ -41656,6 +41656,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.06666667
+    functionName: OnComboOpen
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.16666667
     functionName: OnHitStart
     data: 
@@ -41672,6 +41679,13 @@ AnimationClip:
     messageOptions: 0
   - time: 1.3333334
     functionName: OnRecoverStart
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.5
+    functionName: OnComboClose
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
