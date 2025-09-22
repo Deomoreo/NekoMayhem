@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\MC\CombatEventsBridge.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraRotationChildTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
+    <Compile Include="Assets\Scripts\MC\AssistDebugGizmos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Hovl Studio\Procedural fire\Shaders\FireSphere.shader" />

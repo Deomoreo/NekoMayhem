@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mc\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\mc\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mc\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|c:\\unity\\neko mayhem\\assets\\scripts\\mc\\assistdebuggizmos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mc\\assistdebuggizmos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\camera\\camerashake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera\\camerashake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\mc\\hitbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mc\\hitbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\mc\\camerajolt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,6 +25,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\mc\\combateventsbridge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mc\\combateventsbridge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\mc\\hitbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mc\\hitbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|C:\\Unity\\Neko Mayhem\\assets\\scripts\\mc\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{549595A6-BE38-F4EF-5A0F-C580740295EE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\mc\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,37 +46,37 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MC\\PlayerController.cs",
               "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\MC\\PlayerController.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAswK0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-07T10:31:14.026Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Hitbox.cs",
               "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\Hitbox.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MC\\Hitbox.cs",
               "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\Hitbox.cs",
               "RelativeToolTip": "Assets\\Scripts\\MC\\Hitbox.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAuwCcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-07T11:19:00.715Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "CombatEventsBridge.cs",
               "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\CombatEventsBridge.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MC\\CombatEventsBridge.cs",
               "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\CombatEventsBridge.cs",
               "RelativeToolTip": "Assets\\Scripts\\MC\\CombatEventsBridge.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-09T10:21:22.06Z"
             },
@@ -84,14 +88,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\MC\\PlayerCombat.cs",
               "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\PlayerCombat.cs",
               "RelativeToolTip": "Assets\\Scripts\\MC\\PlayerCombat.cs",
-              "ViewState": "AgIAALECAAAAAAAAAAAkwNgCAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD4CAAAAAAAAAIAywEwCAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-09T10:21:54.447Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Hitstopper.cs",
               "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\Hitstopper.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MC\\Hitstopper.cs",
@@ -103,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "CameraJolt.cs",
               "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\CameraJolt.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MC\\CameraJolt.cs",
@@ -124,6 +128,19 @@
               "ViewState": "AgIAAAUAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-10T09:54:28.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AssistDebugGizmos.cs",
+              "DocumentMoniker": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\AssistDebugGizmos.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MC\\AssistDebugGizmos.cs",
+              "ToolTip": "C:\\Unity\\Neko Mayhem\\Assets\\Scripts\\MC\\AssistDebugGizmos.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MC\\AssistDebugGizmos.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T10:46:08.324Z",
+              "EditorCaption": ""
             }
           ]
         }
