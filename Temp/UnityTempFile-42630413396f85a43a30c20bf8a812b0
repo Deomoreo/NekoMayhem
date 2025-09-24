@@ -337,7 +337,7 @@ Assets\Scripts\Inventory\InventoryItem.cs
 Assets\Scripts\Inventory\InventorySlotHover.cs
 Assets\Scripts\Inventory\InventorySystem.cs
 Assets\Scripts\Inventory\InventoryUI.cs
-Assets\Scripts\MC\AssistDebugGizmos.cs
+Assets\Scripts\MC\AssistTargeting.cs
 Assets\Scripts\MC\CameraJolt.cs
 Assets\Scripts\MC\CombatEventsBridge.cs
 Assets\Scripts\MC\Hitbox.cs

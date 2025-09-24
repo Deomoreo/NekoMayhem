@@ -563,7 +563,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 3a998278a6a61b94281a708c844d58a1, type: 2}
     - target: {fileID: 5866666021909216657, guid: 2b939e27bd624b844b987ff5dd792633, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b939e27bd624b844b987ff5dd792633, type: 3}
@@ -973,10 +973,11 @@ MonoBehaviour:
   eventsBridge: {fileID: 181689846}
   cc: {fileID: 181689849}
   playerMove: {fileID: 181689847}
-  hitbox: {fileID: 0}
+  hitbox: {fileID: 627349062}
   cameraJolt: {fileID: 963194233}
   hitstopper: {fileID: 181689845}
   input: {fileID: 181689848}
+  assistTargeting: {fileID: 1278745888}
   attackTrigger: Attack
   nextComboParam: NextCombo
   isAttackingParam: IsAttacking
@@ -1006,13 +1007,10 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 8192
-  stickyTimeout: 0.8
   losMask:
     serializedVersion: 2
     m_Bits: 4294967295
   advanceDriver: 0
-  autoFallbackToTranslate: 1
-  stallFramesBeforeFallback: 3
   debugLogs: 0
   assistDebugLogs: 1
 --- !u!114 &181689845
@@ -1114,9 +1112,9 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 42.47
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &181689850 stripped
@@ -5537,6 +5535,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5726521, y: 1.497194, z: 0.22225037}
   m_Center: {x: -0.000012308309, y: 0.41917026, z: -0.0000005413587}
+--- !u!114 &627349062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627349057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e773938a01f5fe649b29d053b96c7ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  targetTag: Enemy
 --- !u!1 &628784889
 GameObject:
   m_ObjectHideFlags: 0
@@ -11162,8 +11174,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 181689850}
-  coneDegrees: 70
-  range: 5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8192
+  coneDegrees: 180
+  range: 5.5
+  minNoAssistDistance: 0.6
+  stopDistance: 1.7
+  dashSpeed: 30
+  maxDashTime: 0.7
+  faceTargetDuringAttack: 1
+  faceMaintainRadius: 3
+  facingSlerpSpeed: 20
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 1152
+  losOriginHeight: 1.1
+  losTargetHeight: 0.9
+  useNavMeshReachabilityCheck: 0
+  navMeshAreaMask: -1
+  drawRays: 1
+  rangeColor: {r: 0, g: 1, b: 1, a: 0.15}
+  coneColor: {r: 0, g: 0.8, b: 1, a: 0.9}
 --- !u!4 &1278745889
 Transform:
   m_ObjectHideFlags: 0
