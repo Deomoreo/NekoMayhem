@@ -58,13 +58,14 @@ public class PlayerController : MonoBehaviour
 
     private float externalSpeedMul = 1f;
     private bool rotationOverride = false;
+    private Coroutine rotationOverrideCR;
 
     private void Awake()
     {
         cc = GetComponent<CharacterController>();
         pi = GetComponent<PlayerInput>();
         if (!mainCam) mainCam = Camera.main;
-        // anim è opzionale: se non assegnato, semplicemente non aggiorniamo i parametri
+        // anim è opzionale
     }
 
     private void OnEnable()
@@ -90,6 +91,8 @@ public class PlayerController : MonoBehaviour
                 map.FindAction(SPRINT, false).canceled -= ctx => sprintHeld = false;
             }
         }
+        if (rotationOverrideCR != null) { StopCoroutine(rotationOverrideCR); rotationOverrideCR = null; }
+        rotationOverride = false;
     }
 
     private void Update()
@@ -119,6 +122,8 @@ public class PlayerController : MonoBehaviour
         // Rotazione
         if (!rotationOverride)
         {
+            // Quando non c'è input, usiamo lastPlanarDir. Se qualcuno (es. Assist) ha appena
+            // impostato il facing con ApplyExternalFacing, lastPlanarDir è già aggiornato.
             Vector3 faceDir = (inputMag > 0.0001f) ? desiredDir : lastPlanarDir;
             if (faceDir.sqrMagnitude > 0.0001f)
             {
@@ -172,9 +177,32 @@ public class PlayerController : MonoBehaviour
         canDash = true;
     }
 
-    // Hooks per il Combat
+    // -------------------- HOOKS per il Combat --------------------
+
+    /// Imposta un moltiplicatore di velocità esterno (es. durante attacco).
     public void SetExternalSpeedMultiplier(float mul) => externalSpeedMul = Mathf.Max(0f, mul);
+
+    /// Abilita/disabilita il blocco della rotazione GUIDATA da input.
     public void SetRotationOverride(bool enabled) => rotationOverride = enabled;
+
+    /// Imposta SUBITO la rotazione, aggiorna lastPlanarDir e (opzionale) blocca per lockSeconds.
+    /// Usa questa al termine dell'attacco per mantenere il forward verso il nemico senza snapback.
+    public void ApplyExternalFacing(Quaternion rot, float lockSeconds = 0f)
+    {
+        transform.rotation = rot;
+        lastPlanarDir = transform.forward;      // ← punto chiave: evitiamo che Update torni alla dir precedente
+        if (rotationOverrideCR != null) { StopCoroutine(rotationOverrideCR); rotationOverrideCR = null; }
+        if (lockSeconds > 0f) rotationOverrideCR = StartCoroutine(RotationOverrideFor(lockSeconds));
+    }
+
+    private IEnumerator RotationOverrideFor(float secs)
+    {
+        rotationOverride = true;
+        float t = 0f;
+        while (t < secs) { t += Time.deltaTime; yield return null; }
+        rotationOverride = false;
+        rotationOverrideCR = null;
+    }
 
     private bool HasAction(string name)
     {

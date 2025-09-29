@@ -8,8 +8,8 @@ public class PlayerCombat : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private Animator animator;
     [SerializeField] private CombatEventsBridge eventsBridge;
-    [SerializeField] private CharacterController cc;
-    [SerializeField] private PlayerController playerMove;   // se presente, NON useremo rotation override
+    [SerializeField] private CharacterController cc;        // opzionale
+    [SerializeField] private PlayerController playerMove;   // per ApplyExternalFacing()
     [SerializeField] private Hitbox hitbox;
     [SerializeField] private CameraJolt cameraJolt;
     [SerializeField] private Hitstopper hitstopper;
@@ -35,11 +35,11 @@ public class PlayerCombat : MonoBehaviour
     // ===== Stato / Combo =====
     private float nextAttackAllowedAt = 0f;
     private bool isAttacking;
-    private int comboStep = 0;
+    private int comboStep = 0;              // 0=none,1=A1,2=A2
     private bool comboWindowOpen = false;
     private bool comboQueuedA2 = false;
 
-    [Header("Early-Restart (fine A2)")]
+    [Header("Fine A2 (early restart)")]
     [SerializeField] private float a2RestartThresholdNormalized = 0.96f;
 
     [Header("Micro-grace per A1")]
@@ -47,63 +47,43 @@ public class PlayerCombat : MonoBehaviour
     private bool preComboPressedA1 = false;
     private float preComboPressedAt = -999f;
 
-    // ===== Micro-lunge fallback =====
-    [Header("Micro-lunge fallback (solo se NO assist)")]
-    [SerializeField] private float lungeDistance = 1.1f;
-    [SerializeField] private float lungeDuration = 0.085f;
+    // ===== Stato facing per attacco corrente =====
+    [Header("Refacing guard")]
+    [Tooltip("Se true, durante questo attacco è consentito ruotare verso il target.")]
+    private bool allowFacingThisAttack = false;
+    [Tooltip("Diventa true solo se abbiamo davvero iniziato il facing (StartAttackFacing).")]
+    private bool facingActiveThisAttack = false;
+    private Transform facingTargetThisAttack = null;
 
-    [Header("Hit feedback")]
-    [SerializeField] private float hitstopSeconds = 0.05f;
-    [SerializeField] private float cameraJoltSeconds = 0.02f;
+    [Tooltip("Soglia di input (stick) oltre la quale si cancella il facing dell'attacco.")]
+    [SerializeField] private float moveCancelFacingThreshold = 0.18f;
+    [Tooltip("Dopo aver cancellato il facing, per questo tempo non permettiamo di rifarlo.")]
+    [SerializeField] private float refacingCooldownSeconds = 0.30f;
+    private float refacingCooldownUntil = -999f;
 
-    // ===== Assist/gap close (solo quanto serve qui) =====
-    [Header("Assist — Parametri")]
-    [SerializeField] private float assistAngleLight = 70f;
-    [SerializeField] private float assistRange = 5.0f;
-    [SerializeField] private float assistWindow = 0.20f;
-    [SerializeField] private float idealHitDistance = 0.8f;
-    [SerializeField] private float maxLungeLight = 1.2f;
-    [SerializeField] private float minAdvanceVisual = 0.12f;
-    [SerializeField] private float turnSpeedDegPerSec = 900f;
-    [SerializeField] private float heightTolerance = 1.5f;
-
-    [Header("Ricerca target")]
-    [SerializeField] private bool useTagFilter = false;
-    [SerializeField] private string enemyTag = "Enemy";
-    [SerializeField] private LayerMask enemyMask = ~0;
-
-    [Header("LoS")]
-    [SerializeField] private LayerMask losMask = ~0;
-
-    // ===== Driver advance (se usi lunge locale) =====
-    public enum AdvanceDriver { CharacterController, TransformTranslate }
-    [Header("Advance Driver")]
-    [SerializeField] private AdvanceDriver advanceDriver = AdvanceDriver.CharacterController;
-
-    // ===== Stato assist =====
-    private Transform stickyTarget;
-    private float stickyUntil = -999f;
-    private float attackStartTime = -999f;
-    private bool assistLockedThisAttack = false;
-    private Transform assistTarget;
-    private bool assistActivePhase = false;
-    private Coroutine assistCR;
+    // ===== Camera shake smoothing =====
+    [Header("Camera shake (comfort)")]
+    [Tooltip("Se la velocità planare supera questa soglia, riduciamo o annulliamo il jolt.")]
+    [SerializeField] private float movingSpeedForNoJolt = 0.15f;
+    [Tooltip("Fattore con cui ridurre il jolt quando stai muovendo (0 = disabilita, 1 = normale).")]
+    [Range(0f, 1f)][SerializeField] private float joltWhileMovingScale = 0.0f; // di default: niente jolt mentre ti muovi
+    [Tooltip("Se >0, usa questa durata più breve per il jolt quando ti muovi (se joltWhileMovingScale > 0).")]
+    [SerializeField] private float cameraJoltSecondsWhileMoving = 0.008f;
 
     // ===== Debug =====
     [Header("Debug")]
     [SerializeField] private bool debugLogs = false;
-    [SerializeField] private bool assistDebugLogs = false;
 
-    private Coroutine layerCR, blendOutCR, advParamCR;
+    private Coroutine layerCR, blendOutCR;
     private int attackTagHash, a1ShortHash, a2ShortHash;
     private bool hasIsAttackingParam, hasNextComboParam, hasAttackTrigger;
 
     // Input
     private const string MAP = "Gameplay";
     private const string ATTACK = "Attack";
+    private const string MOVE = "Move";
     private InputAction attackAction;
-
-    private LayerMask losMaskNoSelf;
+    private InputAction moveAction;
 
     private void Awake()
     {
@@ -115,8 +95,8 @@ public class PlayerCombat : MonoBehaviour
 
         if (!string.IsNullOrEmpty(attackLayerName))
         {
-            int found = FindLayerIndexByName(animator, attackLayerName);
-            if (found >= 0) attackLayerIndex = found;
+            int idx = FindLayerIndexByName(animator, attackLayerName);
+            if (idx >= 0) attackLayerIndex = idx;
         }
         attackLayerIndex = Mathf.Clamp(attackLayerIndex, 0, animator.layerCount - 1);
 
@@ -127,14 +107,14 @@ public class PlayerCombat : MonoBehaviour
         hasIsAttackingParam = HasAnimatorBool(animator, isAttackingParam);
         hasNextComboParam = HasAnimatorBool(animator, nextComboParam);
         hasAttackTrigger = HasAnimatorTrigger(animator, attackTrigger);
-
-        losMaskNoSelf = losMask & ~(1 << gameObject.layer);
     }
 
     private void OnEnable()
     {
         var map = input.actions.FindActionMap(MAP, true);
         attackAction = map.FindAction(ATTACK, true);
+        moveAction = map.FindAction(MOVE, false);
+
         attackAction.performed += OnAttackPressed;
 
         if (eventsBridge)
@@ -153,6 +133,7 @@ public class PlayerCombat : MonoBehaviour
     private void OnDisable()
     {
         if (attackAction != null) attackAction.performed -= OnAttackPressed;
+
         if (eventsBridge)
         {
             eventsBridge.OnWindupStart -= OnWindupStart;
@@ -166,6 +147,19 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
+        // --- CANCELLAZIONE IMMEDIATA DEL FACING SU INPUT ---
+        if (moveAction != null)
+        {
+            Vector2 mv = Vector2.zero;
+            try { mv = moveAction.ReadValue<Vector2>(); } catch { }
+            if (mv.sqrMagnitude >= moveCancelFacingThreshold * moveCancelFacingThreshold)
+            {
+                // se stai dando input e l’attacco stava forzando facing → stop + cooldown
+                if (facingActiveThisAttack || allowFacingThisAttack)
+                    CancelFacingForThisAttack(startCooldown: true);
+            }
+        }
+
         var st = animator.GetCurrentAnimatorStateInfo(attackLayerIndex);
         float w = animator.GetLayerWeight(attackLayerIndex);
         bool inAttackTag = (st.tagHash == attackTagHash);
@@ -175,7 +169,8 @@ public class PlayerCombat : MonoBehaviour
             comboStep = 2;
             if (hasNextComboParam) animator.SetBool(nextComboParam, false);
             SetAttacking(true);
-            StopBlendOut(); SetAttackLayerWeightInstant(1f);
+            StopBlendOut();
+            SetAttackLayerWeightInstant(1f);
         }
 
         if (inAttackTag && w < 0.95f) SetAttackLayerWeightInstant(1f);
@@ -197,6 +192,7 @@ public class PlayerCombat : MonoBehaviour
     private void OnAttackPressed(InputAction.CallbackContext ctx)
     {
         if (!isAttacking) { TryStartAttack1(); return; }
+
         if (isAttacking && comboStep == 1)
         {
             if (comboWindowOpen)
@@ -218,18 +214,20 @@ public class PlayerCombat : MonoBehaviour
     {
         if (!CanStartAttack1()) return;
 
-        StopBlendOut(); StopLayerLerp();
-        SetAttackLayerWeightInstant(1f); SetAttacking(true);
+        // reset facing state per questo attacco
+        allowFacingThisAttack = false;
+        facingActiveThisAttack = false;
+        facingTargetThisAttack = null;
 
-        comboStep = 1; comboQueuedA2 = false; comboWindowOpen = false;
+        StopBlendOut(); StopLayerLerp();
+        SetAttackLayerWeightInstant(1f);
+        SetAttacking(true);
+
+        comboStep = 1;
+        comboQueuedA2 = false;
+        comboWindowOpen = false;
         preComboPressedA1 = false;
         if (hasNextComboParam) animator.SetBool(nextComboParam, false);
-
-        attackStartTime = Time.time;
-        assistLockedThisAttack = false;
-        assistTarget = null;
-        assistActivePhase = false;
-        StopAssist();
 
         if (!string.IsNullOrEmpty(attack1StateName))
             animator.CrossFadeInFixedTime(attack1StateName, 0.05f, attackLayerIndex, 0f);
@@ -239,28 +237,27 @@ public class PlayerCombat : MonoBehaviour
     // ===================== EVENTI CLIP =====================
     private void OnWindupStart()
     {
-        bool insideWindow = (Time.time - attackStartTime) <= assistWindow;
-
-        if (!assistLockedThisAttack && insideWindow)
-        {
-            assistTarget = AcquireAssistTarget(false);
-            if (assistTarget != null)
-            {
-                assistLockedThisAttack = true;
-                stickyTarget = assistTarget;
-                stickyUntil = Time.time + 0.8f;
-                //StartAssistAdvance();
-            }
-        }
-
-        // Facing + (opz) dash dal sistema AssistTargeting
         if (assistTargeting != null)
         {
-            var t = assistTargeting.AcquireAssistTarget();
-            if (t != null)
+            // se siamo in cooldown anti-refacing → non concedere facing
+            if (Time.time >= refacingCooldownUntil)
             {
-                assistTargeting.StartAttackFacing(t);
-                StartCoroutine(assistTargeting.DoAssistCoroutine(t));
+                var t = assistTargeting.AcquireAssistTarget();
+                bool should = (t != null) && assistTargeting.ShouldFaceNow(t);
+                allowFacingThisAttack = should;
+
+                if (should)
+                {
+                    facingTargetThisAttack = t;
+                    assistTargeting.StartAttackFacing(t);
+                    facingActiveThisAttack = assistTargeting.IsFacingActive;
+
+                    if (facingActiveThisAttack && playerMove != null)
+                        playerMove.ApplyExternalFacing(assistTargeting.LastLockedRotation, 0.05f);
+
+                    if (assistTargeting.IsEligibleForAssist(t))
+                        StartCoroutine(assistTargeting.DoAssistCoroutine(t));
+                }
             }
         }
 
@@ -270,34 +267,67 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnHitStart()
     {
-        assistActivePhase = true;
+        // failsafe: abilita facing solo se non in cooldown
+        if (!allowFacingThisAttack && assistTargeting != null && Time.time >= refacingCooldownUntil)
+        {
+            var t = assistTargeting.AcquireAssistTarget();
+            if (t != null && assistTargeting.ShouldFaceNow(t))
+            {
+                allowFacingThisAttack = true;
+                facingTargetThisAttack = t;
+                assistTargeting.StartAttackFacing(t);
+                facingActiveThisAttack = assistTargeting.IsFacingActive;
 
-        if (assistTarget == null && lungeDistance > 0f && lungeDuration > 0f)
-            StartCoroutine(DoLunge(lungeDistance, lungeDuration));
+                if (facingActiveThisAttack && playerMove != null)
+                    playerMove.ApplyExternalFacing(assistTargeting.LastLockedRotation, 0.03f);
+
+                if (assistTargeting.IsEligibleForAssist(t))
+                    StartCoroutine(assistTargeting.DoAssistCoroutine(t));
+            }
+        }
 
         if (hitbox) { hitbox.BeginSwing(); hitbox.SetActive(true); }
     }
 
     private void OnHitEnd()
     {
-        assistActivePhase = false;
-        StopAssist();
-
         if (hitbox) hitbox.SetActive(false);
-        if (hitstopper) hitstopper.DoHitstop(hitstopSeconds);
-        if (cameraJolt) cameraJolt.DoJolt(cameraJoltSeconds);
+
+        // ---- Camera jolt comfort ----
+        if (cameraJolt)
+        {
+            float speed = 0f;
+            if (playerMove != null) speed = playerMove.GetPlanarVelocity().magnitude;
+
+            if (speed <= movingSpeedForNoJolt)
+            {
+                // fermo → jolt pieno
+                cameraJolt.DoJolt(0.1f);
+            }
+            else if (joltWhileMovingScale > 0f)
+            {
+                // in movimento → jolt ridotto
+                float dur = (cameraJoltSecondsWhileMoving > 0f) ? cameraJoltSecondsWhileMoving : 0.1f * joltWhileMovingScale;
+                cameraJolt.DoJolt(dur);
+            }
+            // altrimenti (joltWhileMovingScale==0) niente jolt mentre cammini
+        }
+
+        if (hitstopper) hitstopper.DoHitstop(0.05f);
     }
 
     private void OnRecoverStart()
     {
-        bool comboIncoming = (comboStep == 1) && (comboQueuedA2 || (hasNextComboParam && animator.GetBool(nextComboParam)));
-        if (!comboIncoming) { StartBlendOut(0.18f, 0.03f); EndChain(false); }
-        else { StopBlendOut(); SetAttackLayerWeightInstant(1f); }
+        FinalizeFacingNow();   // solo se abbiamo davvero ruotato in questo attacco
+
+        bool goingCombo = (comboStep == 1) && hasNextComboParam && animator.GetBool(nextComboParam);
+        if (!goingCombo) EndChainSmooth(comboStep == 2);
     }
 
     private void OnComboOpen()
     {
         comboWindowOpen = true;
+
         if (comboStep == 1 && preComboPressedA1 && (Time.time - preComboPressedAt) <= comboPreOpenGraceA1)
         {
             comboQueuedA2 = true;
@@ -305,22 +335,42 @@ public class PlayerCombat : MonoBehaviour
         }
         preComboPressedA1 = false;
     }
+
     private void OnComboClose() { comboWindowOpen = false; }
 
-    /// Animation Event al termine della clip d’attacco
-    public void AttackClipEnd()
+    public void AttackClipEnd() { FinalizeFacingNow(); }
+
+    // ======= Finale/cancellazione facing =======
+    private void FinalizeFacingNow()
     {
-        // 1) imponi UNA VOLTA la rotazione buona calcolata
-        if (assistTargeting != null)
-        {
-            assistTargeting.EndAttackFacing(applyFinalFacing: true);
-            transform.rotation = assistTargeting.LastLockedRotation;
-            assistTargeting.FullReleaseFacing(); // KILL SWITCH: niente update dopo
-        }
-        // 2) nessun override, nessuna finestra post-hold → il controller torna libero SUBITO.
+        if (!allowFacingThisAttack || !facingActiveThisAttack || assistTargeting == null) return;
+
+        assistTargeting.EndAttackFacing(applyFinalFacing: true);
+
+        if (playerMove != null)
+            playerMove.ApplyExternalFacing(assistTargeting.LastLockedRotation, 0.04f);
+
+        assistTargeting.FullReleaseFacing();
+
+        facingActiveThisAttack = false;
+        allowFacingThisAttack = false;
+        facingTargetThisAttack = null;
     }
 
-    // ===================== COMBO =====================
+    private void CancelFacingForThisAttack(bool startCooldown)
+    {
+        if (assistTargeting != null) assistTargeting.FullReleaseFacing();
+        allowFacingThisAttack = false;
+        facingActiveThisAttack = false;
+        facingTargetThisAttack = null;
+
+        if (startCooldown)
+            refacingCooldownUntil = Time.time + refacingCooldownSeconds;
+
+        if (debugLogs) Debug.Log($"[Combat] Facing cancellato. Cooldown fino a {refacingCooldownUntil:0.00}");
+    }
+
+    // ===================== COMBO / FINE =====================
     private void ForceA2()
     {
         comboQueuedA2 = false;
@@ -329,21 +379,17 @@ public class PlayerCombat : MonoBehaviour
         if (hasNextComboParam) animator.SetBool(nextComboParam, false);
 
         comboStep = 2; SetAttacking(true);
-
-        attackStartTime = Time.time;
-        assistLockedThisAttack = false;
-        assistTarget = null;
-        assistActivePhase = false;
-        StopAssist();
-
-        animator.CrossFadeInFixedTime(attack2StateName, 0.05f, attackLayerIndex, 0f);
+        if (!string.IsNullOrEmpty(attack2StateName))
+            animator.CrossFadeInFixedTime(attack2StateName, 0.05f, attackLayerIndex, 0f);
     }
 
-    // ===================== FINE CATENA =====================
     private void EndChainSmooth(bool fromA2)
     {
-        comboStep = 0; comboQueuedA2 = false; comboWindowOpen = false;
+        comboStep = 0;
+        comboQueuedA2 = false;
+        comboWindowOpen = false;
         SetAttacking(false);
+
         if (hasNextComboParam) animator.SetBool(nextComboParam, false);
         if (hasAttackTrigger) animator.ResetTrigger(attackTrigger);
 
@@ -359,29 +405,6 @@ public class PlayerCombat : MonoBehaviour
         }
 
         StartCoroutine(ForceUnlockNextFrame());
-        StopAssist();
-    }
-
-    private void EndChain(bool forceWeightZero = true)
-    {
-        comboStep = 0; comboQueuedA2 = false; comboWindowOpen = false;
-        SetAttacking(false);
-        if (hasNextComboParam) animator.SetBool(nextComboParam, false);
-        if (hasAttackTrigger) animator.ResetTrigger(attackTrigger);
-
-        nextAttackAllowedAt = Time.time;
-
-        if (forceWeightZero) SetAttackLayerWeightInstant(0f);
-
-        if (!string.IsNullOrEmpty(attackLayerIdleState))
-        {
-            int idleHash = Animator.StringToHash(attackLayerIdleState);
-            if (animator.HasState(attackLayerIndex, idleHash))
-                animator.Play(attackLayerIdleState, attackLayerIndex, 0f);
-        }
-
-        StartCoroutine(ForceUnlockNextFrame());
-        StopAssist();
     }
 
     private IEnumerator ForceUnlockNextFrame() { yield return null; ForceClearAttacking(); }
@@ -394,29 +417,7 @@ public class PlayerCombat : MonoBehaviour
         if (hasAttackTrigger) animator.ResetTrigger(attackTrigger);
     }
 
-    private void StopAssist()
-    {
-        if (assistCR != null) { StopCoroutine(assistCR); assistCR = null; }
-        assistTarget = null;
-        assistActivePhase = false;
-    }
-
-    // ====== util ======
-    private IEnumerator DoLunge(float distance, float duration)
-    {
-        if (distance <= 0f || duration <= 0f) yield break;
-        float moved = 0f;
-        while (moved < distance)
-        {
-            float step = (distance / duration) * Time.deltaTime;
-            Vector3 delta = transform.forward * step;
-            if (advanceDriver == AdvanceDriver.CharacterController && cc && cc.enabled) cc.Move(delta);
-            else transform.position += delta;
-            moved += step;
-            yield return null;
-        }
-    }
-
+    // ===== Blend helpers =====
     private void StartBlendOut(float duration, float delay)
     {
         StopBlendOut();
@@ -441,9 +442,10 @@ public class PlayerCombat : MonoBehaviour
         animator.SetLayerWeight(attackLayerIndex, 0f);
         blendOutCR = null;
     }
+
     private void SetAttackLayerWeight(float target)
     {
-        if (layerCR != null) StopCoroutine(layerCR);
+        StopLayerLerp();
         layerCR = StartCoroutine(LayerLerpRoutine(target));
     }
     private void StopLayerLerp()
@@ -452,7 +454,7 @@ public class PlayerCombat : MonoBehaviour
     }
     private void SetAttackLayerWeightInstant(float target)
     {
-        if (layerCR != null) { StopCoroutine(layerCR); layerCR = null; }
+        StopLayerLerp();
         animator.SetLayerWeight(attackLayerIndex, target);
     }
     private IEnumerator LayerLerpRoutine(float target)
@@ -474,24 +476,24 @@ public class PlayerCombat : MonoBehaviour
         if (hasIsAttackingParam) animator.SetBool(isAttackingParam, v);
     }
 
+    // ===== Utils Animator =====
     private static bool HasAnimatorBool(Animator a, string name)
     {
-        foreach (var p in a.parameters) if (p.type == AnimatorControllerParameterType.Bool && p.name == name) return true;
+        foreach (var p in a.parameters)
+            if (p.type == AnimatorControllerParameterType.Bool && p.name == name) return true;
         return false;
     }
     private static bool HasAnimatorTrigger(Animator a, string name)
     {
-        foreach (var p in a.parameters) if (p.type == AnimatorControllerParameterType.Trigger && p.name == name) return true;
+        foreach (var p in a.parameters)
+            if (p.type == AnimatorControllerParameterType.Trigger && p.name == name) return true;
         return false;
     }
     private static int FindLayerIndexByName(Animator a, string layerName)
     {
         if (a == null || string.IsNullOrEmpty(layerName)) return -1;
-        for (int i = 0; i < a.layerCount; i++) if (a.GetLayerName(i) == layerName) return i;
+        for (int i = 0; i < a.layerCount; i++)
+            if (a.GetLayerName(i) == layerName) return i;
         return -1;
     }
-
-    // ---- Stub minimi per AcquireAssistTarget / Check LOS (se li usi) ----
-    private Transform AcquireAssistTarget(bool isHeavy) { return null; } // usi AssistTargeting
-    private Vector3 GetRayOrigin() { var o = transform.position; o.y += 1.2f; return o; }
 }
