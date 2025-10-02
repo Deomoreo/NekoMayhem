@@ -990,29 +990,12 @@ MonoBehaviour:
   attackLayerIdleState: AttackLayer_Idle
   a2RestartThresholdNormalized: 0.54
   comboPreOpenGraceA1: 0.08
-  lungeDistance: 0
-  lungeDuration: 0
-  hitstopSeconds: 0
-  cameraJoltSeconds: 0
-  assistAngleLight: 70
-  assistRange: 5
-  assistWindow: 0.2
-  idealHitDistance: 0.9
-  maxLungeLight: 1.2
-  minAdvanceVisual: 0.12
-  turnSpeedDegPerSec: 900
-  heightTolerance: 1.5
-  useTagFilter: 0
-  enemyTag: Enemy
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 8192
-  losMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  advanceDriver: 0
+  moveCancelFacingThreshold: 0.18
+  refacingCooldownSeconds: 0.3
+  movingSpeedForNoJolt: 0.15
+  joltWhileMovingScale: 0
+  cameraJoltSecondsWhileMoving: 0.008
   debugLogs: 0
-  assistDebugLogs: 1
 --- !u!114 &181689845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11177,25 +11160,30 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8192
-  coneDegrees: 180
-  range: 5.5
-  minNoAssistDistance: 0.6
+  coneDegrees: 120
+  range: 4.5
+  minNoAssistDistance: 3.5
   stopDistance: 1.7
   dashSpeed: 30
   maxDashTime: 0.7
   faceTargetDuringAttack: 1
   faceMaintainRadius: 3
-  facingSlerpSpeed: 20
+  facingSlerpSpeed: 22
+  faceOnlyWhenInRangeOrAssist: 1
+  attackFaceRange: 1.6
   obstructionMask:
     serializedVersion: 2
     m_Bits: 1152
   losOriginHeight: 1.1
-  losTargetHeight: 0.9
+  visSamplesVertical: 3
+  visSamplesHorizontal: 3
+  visibilityFractionThreshold: 0.8
   useNavMeshReachabilityCheck: 0
   navMeshAreaMask: -1
+  capsuleRadius: 0.25
+  capsuleHeight: 1.8
+  dashCollisionBuffer: 0.04
   drawRays: 1
-  rangeColor: {r: 0, g: 1, b: 1, a: 0.15}
-  coneColor: {r: 0, g: 0.8, b: 1, a: 0.9}
 --- !u!4 &1278745889
 Transform:
   m_ObjectHideFlags: 0
