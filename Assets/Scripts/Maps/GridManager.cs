@@ -21,7 +21,7 @@ public class GridManager : MonoBehaviour
             startingRoom.gameObject.SetActive(true);
             currentRoom = startingRoom;
             currentRoom.DiscoverRoom();
-            Debug.Log("Stanza di partenza impostata a: " + currentRoom.gridPosition);
+            //Debug.Log("Stanza di partenza impostata a: " + currentRoom.gridPosition);
         }
         else
         {
@@ -38,7 +38,7 @@ public class GridManager : MonoBehaviour
             {
                 rooms.Add(room.gridPosition, room);
                 room.gameObject.SetActive(false);
-                Debug.Log("Trovata stanza in posizione: " + room.gridPosition);
+                //Debug.Log("Trovata stanza in posizione: " + room.gridPosition);
             }
             else
             {

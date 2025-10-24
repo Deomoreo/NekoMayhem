@@ -25,7 +25,7 @@ public class Room : MonoBehaviour
         if (!isDiscovered)
         {
             isDiscovered = true;
-            Debug.Log("Scoperta stanza in posizione: " + gridPosition);
+            //Debug.Log("Scoperta stanza in posizione: " + gridPosition);
         }
         UpdateVisibility(true);
     }
